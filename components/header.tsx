@@ -5,16 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Search, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const menuItems = [
-  { name: "Início", href: "/" },
-  { name: "África", href: "/africa" },
-  { name: "Mundo", href: "/mundo" },
-  { name: "Política", href: "/politica" },
-  { name: "Economia", href: "/economia" },
-  { name: "Tecnologia", href: "/tecnologia" },
-  { name: "Desporto", href: "/desporto" },
-  { name: "Cultura", href: "/cultura" },
+  { name: "País", href: "/" },
+  { name: "Opinião", href: "/africa" },
+  { name: "Comunidade", href: "/Comunidade" },
+  { name: "Ambiental", href: "/Ambiental" },
+  { name: "Empresa", href: "/Empresa" },
+  { name: "Mundo", href: "/Mundo" },
+  { name: "Multimedia", href: "/Multimedia" },
 ];
 
 export function Header() {
@@ -38,10 +38,41 @@ export function Header() {
         {/* BARRA SUPERIOR */}
         <div>
           <div className="mx-auto flex h-11 max-w-[1600px] items-center justify-between px-4 md:px-6">
-            <p className="text-xs capitalize text-gray-500 dark:text-gray-400">
-              {formattedDate}
-            </p>
+            {/* Data + Redes sociais */}
+            <div className="flex items-center gap-4">
+              <p className="text-xs capitalize text-gray-500 dark:text-gray-400">
+                {formattedDate}
+              </p>
 
+              {/* Redes sociais */}
+              <div className="hidden items-center gap-2 border-l border-gray-300 pl-4 sm:flex dark:border-zinc-700">
+                <a
+                  href="#"
+                  aria-label="Facebook"
+                  className="text-gray-500 transition hover:text-blue-600 dark:text-gray-400"
+                >
+                  <FaFacebookF size={15} />
+                </a>
+
+                <a
+                  href="#"
+                  aria-label="Instagram"
+                  className="text-gray-500 transition hover:text-pink-500 dark:text-gray-400"
+                >
+                  <FaInstagram size={16} />
+                </a>
+
+                <a
+                  href="#"
+                  aria-label="LinkedIn"
+                  className="text-gray-500 transition hover:text-blue-700 dark:text-gray-400"
+                >
+                  <FaLinkedinIn size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* Login e Cadastro */}
             <div className="hidden items-center gap-3 sm:flex">
               <Link
                 href="/login"
@@ -143,65 +174,61 @@ export function Header() {
 
       {/* MENU MOBILE */}
       {/* MENU MOBILE */}
-{menuOpen && (
-  <nav className="fixed left-0 top-0 z-[70] h-full w-[80%] max-w-sm overflow-y-auto bg-white px-6 py-6 text-black shadow-2xl dark:bg-[#111] dark:text-white lg:hidden">
-    
-    {/* Cabeçalho */}
-    <div className="mb-6 flex items-center justify-between">
-      <span className="text-xl font-bold">Menu</span>
+      {menuOpen && (
+        <nav className="fixed left-0 top-0 z-[70] h-full w-[80%] max-w-sm overflow-y-auto bg-white px-6 py-6 text-black shadow-2xl dark:bg-[#111] dark:text-white lg:hidden">
+          {/* Cabeçalho */}
+          <div className="mb-6 flex items-center justify-between">
+            <span className="text-xl font-bold">Menu</span>
 
-      <button
-        onClick={() => setMenuOpen(false)}
-        className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800"
-        aria-label="Fechar menu"
-      >
-        <X size={24} />
-      </button>
-    </div>
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800"
+              aria-label="Fechar menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
 
-    {/* Links */}
-    <div className="flex flex-col">
-      {menuItems.map((item) => {
-        const isActive = pathname === item.href;
+          {/* Links */}
+          <div className="flex flex-col">
+            {menuItems.map((item) => {
+              const isActive = pathname === item.href;
 
-        return (
-          <Link
-            key={item.name}
-            href={item.href}
-            onClick={() => setMenuOpen(false)}
-            className={`border-b border-gray-200 py-4 text-base font-semibold transition dark:border-zinc-800 ${
-              isActive
-                ? "text-blue-600"
-                : "hover:text-blue-600"
-            }`}
-          >
-            {item.name}
-          </Link>
-        );
-      })}
-    </div>
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`border-b border-gray-200 py-4 text-base font-semibold transition dark:border-zinc-800 ${
+                    isActive ? "text-blue-600" : "hover:text-blue-600"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </div>
 
-    {/* LOGIN E CADASTRO MOBILE */}
-    <div className="mt-8 flex flex-col gap-3 border-t border-gray-200 pt-6 dark:border-zinc-800">
-      <Link
-        href="/login"
-        onClick={() => setMenuOpen(false)}
-        className="w-full border border-gray-300 px-4 py-3 text-center font-semibold transition hover:bg-gray-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
-      >
-        Entrar
-      </Link>
+          {/* LOGIN E CADASTRO MOBILE */}
+          <div className="mt-8 flex flex-col gap-3 border-t border-gray-200 pt-6 dark:border-zinc-800">
+            <Link
+              href="/login"
+              onClick={() => setMenuOpen(false)}
+              className="w-full border border-gray-300 px-4 py-3 text-center font-semibold transition hover:bg-gray-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+            >
+              Entrar
+            </Link>
 
-      <Link
-        href="/cadastro"
-        onClick={() => setMenuOpen(false)}
-        className="w-full bg-black px-4 py-3 text-center font-semibold text-white transition hover:bg-gray-800 dark:bg-white dark:text-black"
-      >
-        Criar conta
-      </Link>
-    </div>
-
-  </nav>
-)}
+            <Link
+              href="/cadastro"
+              onClick={() => setMenuOpen(false)}
+              className="w-full bg-black px-4 py-3 text-center font-semibold text-white transition hover:bg-gray-800 dark:bg-white dark:text-black"
+            >
+              Criar conta
+            </Link>
+          </div>
+        </nav>
+      )}
 
       {/* PESQUISA */}
       {searchOpen && (

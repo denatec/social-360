@@ -1,17 +1,44 @@
 import { LatestNews } from "./LatestNews";
-import { HeroSlider } from "./HeroSlider";
+import Image from "next/image";
 
 export function HeroNews() {
   return (
     <section className="border-b border-gray-300 dark:border-zinc-800">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-4 py-6 lg:grid-cols-[1fr_350px] lg:px-6">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[1fr_1.3fr_0.8fr]">
+        
+        {/* Texto */}
+        <article>
+          <span className="text-sm font-bold tracking-widest text-blue-600">
+            DESTAQUE
+          </span>
 
-        {/* Slide principal */}
-        <HeroSlider />
+          <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
+            Notícia em destaque
+          </h1>
+
+          <p className="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+            Esta é uma descrição da notícia principal com as informações mais
+            importantes.
+          </p>
+
+          <button className="mt-6 border border-black px-5 py-3 font-semibold transition hover:bg-black hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black">
+            Ler notícia
+          </button>
+        </article>
+
+        {/* Imagem */}
+        <div className="min-h-[350px] overflow-hidden">
+          <Image
+            src="/president-donald-trump-9bvxk3h7h5b4uax5.jpg"
+            alt="Notícia em destaque"
+            width={800}
+            height={500}
+            className="h-full w-full object-cover"
+          />
+        </div>
 
         {/* Últimas notícias */}
         <LatestNews />
-
       </div>
     </section>
   );
