@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, Search, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import Image from "next/image";
 
 const menuItems = [
   { name: "País", href: "/" },
@@ -92,11 +93,14 @@ export function Header() {
 
         {/* LOGO */}
         <div className="flex h-28 items-center justify-center border-b border-gray-200 dark:border-zinc-800">
-          <Link
-            href="/"
-            className="font-[family-name:var(--font-gothic)] text-5xl font-bold tracking-tight md:text-7xl"
-          >
-            Social 360
+          <Link href="/" className="relative h-20 w-40 sm:w-48 md:w-56 lg:w-64">
+            <Image
+              src="/logo.png"
+              alt="Social 360"
+              fill
+              priority
+              className="object-contain"
+            />
           </Link>
         </div>
       </header>
@@ -171,63 +175,81 @@ export function Header() {
         />
       )}
 
-      {/* MENU MOBILE */}
-      {/* MENU MOBILE */}
-      {menuOpen && (
-        <nav className="fixed left-0 top-0 z-[70] h-full w-[80%] max-w-sm overflow-y-auto bg-white px-6 py-6 text-black shadow-2xl dark:bg-[#111] dark:text-white lg:hidden">
-          {/* Cabeçalho */}
-          <div className="mb-6 flex items-center justify-between">
-            <span className="text-xl font-bold">Menu</span>
+    {/* MENU MOBILE */}
+{menuOpen && (
+  <nav className="fixed left-0 top-0 z-[70] h-full w-[80%] max-w-sm overflow-y-auto bg-white px-6 py-6 text-black shadow-2xl dark:bg-[#111] dark:text-white lg:hidden">
 
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800"
-              aria-label="Fechar menu"
-            >
-              <X size={24} />
-            </button>
-          </div>
+    {/* Cabeçalho */}
+    <div className="mb-6 flex items-center justify-between">
 
-          {/* Links */}
-          <div className="flex flex-col">
-            {menuItems.map((item) => {
-              const isActive = pathname === item.href;
+      {/* Logo */}
+      <Link href="/" onClick={() => setMenuOpen(false)}>
+        <div className="relative h-12 w-32">
+          <Image
+            src="/logo.png"
+            alt="Social 360"
+            fill
+            className="object-contain object-left"
+          />
+        </div>
+      </Link>
 
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`border-b border-gray-200 py-4 text-base font-semibold transition dark:border-zinc-800 ${
-                    isActive ? "text-blue-600" : "hover:text-blue-600"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
+      {/* Botão fechar */}
+      <button
+        onClick={() => setMenuOpen(false)}
+        className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800"
+        aria-label="Fechar menu"
+      >
+        <X size={24} />
+      </button>
 
-          {/* LOGIN E CADASTRO MOBILE */}
-          <div className="mt-8 flex flex-col gap-3 border-t border-gray-200 pt-6 dark:border-zinc-800">
-            <Link
-              href="/login"
-              onClick={() => setMenuOpen(false)}
-              className="w-full border border-gray-300 px-4 py-3 text-center font-semibold transition hover:bg-gray-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
-            >
-              Entrar
-            </Link>
+    </div>
 
-            <Link
-              href="/cadastro"
-              onClick={() => setMenuOpen(false)}
-              className="w-full bg-black px-4 py-3 text-center font-semibold text-white transition hover:bg-gray-800 dark:bg-white dark:text-black"
-            >
-              Criar conta
-            </Link>
-          </div>
-        </nav>
-      )}
+    {/* Links */}
+    <div className="flex flex-col">
+      {menuItems.map((item) => {
+        const isActive = pathname === item.href;
+
+        return (
+          <Link
+            key={item.name}
+            href={item.href}
+            onClick={() => setMenuOpen(false)}
+            className={`border-b border-gray-200 py-4 text-base font-semibold transition dark:border-zinc-800 ${
+              isActive
+                ? "text-blue-600"
+                : "hover:text-blue-600"
+            }`}
+          >
+            {item.name}
+          </Link>
+        );
+      })}
+    </div>
+
+    {/* LOGIN E CADASTRO MOBILE */}
+    <div className="mt-8 flex flex-col gap-3 border-t border-gray-200 pt-6 dark:border-zinc-800">
+
+      <Link
+        href="/login"
+        onClick={() => setMenuOpen(false)}
+        className="w-full border border-gray-300 px-4 py-3 text-center font-semibold transition hover:bg-gray-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+      >
+        Entrar
+      </Link>
+
+      <Link
+        href="/cadastro"
+        onClick={() => setMenuOpen(false)}
+        className="w-full bg-black px-4 py-3 text-center font-semibold text-white transition hover:bg-gray-800 dark:bg-white dark:text-black"
+      >
+        Criar conta
+      </Link>
+
+    </div>
+
+  </nav>
+)}
 
       {/* PESQUISA */}
       {searchOpen && (
@@ -256,25 +278,6 @@ export function Header() {
           </form>
         </div>
       )}
-
-      {/* ÚLTIMA HORA */}
-      <div className="flex h-12 items-center justify-center gap-5 overflow-hidden border-b border-gray-200 bg-gray-50 px-4 dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="flex items-center gap-5 whitespace-nowrap">
-          <span className="shrink-0 bg-red-700 px-3 py-1.5 text-xs font-bold text-white">
-            ÚLTIMA HORA
-          </span>
-
-          <span className="text-sm font-medium">
-            Notícias importantes em destaque
-          </span>
-
-          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" />
-
-          <span className="text-sm font-medium">
-            Últimos acontecimentos nacionais e internacionais
-          </span>
-        </div>
-      </div>
     </>
   );
 }

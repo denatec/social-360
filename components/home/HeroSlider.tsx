@@ -66,7 +66,7 @@ export function HeroSlider() {
                   {slide.category}
                 </span>
 
-                <h1 className="mt-5 max-w-3xl text-3xl font-bold leading-tight text-white md:text-5xl">
+                <h1 className="mt-5 max-w-3xl text-3xl font-bold leading-tight text- md:text-5xl">
                   {slide.title}
                 </h1>
 
