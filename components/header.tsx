@@ -35,7 +35,6 @@ export function Header() {
   return (
     <>
       <header className="w-full border-b border-gray-200 bg-white text-black dark:border-zinc-800 dark:bg-[#111] dark:text-white">
-        
         {/* BARRA SUPERIOR */}
         <div>
           <div className="mx-auto flex h-11 max-w-[1600px] items-center justify-between px-4 md:px-6">
@@ -43,7 +42,7 @@ export function Header() {
               {formattedDate}
             </p>
 
-            <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-3 sm:flex">
               <Link
                 href="/login"
                 className="text-sm font-medium transition hover:text-blue-600"
@@ -75,7 +74,6 @@ export function Header() {
       {/* NAVBAR FIXA */}
       <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white text-black dark:border-zinc-800 dark:bg-[#111] dark:text-white">
         <div className="relative mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 md:px-6">
-
           {/* HAMBURGUER MOBILE */}
           <button
             onClick={() => {
@@ -144,40 +142,66 @@ export function Header() {
       )}
 
       {/* MENU MOBILE */}
-      {menuOpen && (
-        <nav className="fixed left-0 top-0 z-[70] h-full w-[80%] max-w-sm bg-white px-6 py-6 text-black shadow-2xl dark:bg-[#111] dark:text-white lg:hidden">
-          <div className="mb-6 flex items-center justify-between">
-            <span className="text-xl font-bold">Social<b className="text-blue-600 m-2">360</b></span>
+      {/* MENU MOBILE */}
+{menuOpen && (
+  <nav className="fixed left-0 top-0 z-[70] h-full w-[80%] max-w-sm overflow-y-auto bg-white px-6 py-6 text-black shadow-2xl dark:bg-[#111] dark:text-white lg:hidden">
+    
+    {/* Cabeçalho */}
+    <div className="mb-6 flex items-center justify-between">
+      <span className="text-xl font-bold">Menu</span>
 
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800"
-              aria-label="Fechar menu"
-            >
-              <X size={24} />
-            </button>
-          </div>
+      <button
+        onClick={() => setMenuOpen(false)}
+        className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800"
+        aria-label="Fechar menu"
+      >
+        <X size={24} />
+      </button>
+    </div>
 
-          <div className="flex flex-col">
-            {menuItems.map((item) => {
-              const isActive = pathname === item.href;
+    {/* Links */}
+    <div className="flex flex-col">
+      {menuItems.map((item) => {
+        const isActive = pathname === item.href;
 
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`border-b border-gray-200 py-4 text-base font-semibold transition dark:border-zinc-800 ${
-                    isActive ? "text-blue-600" : "hover:text-blue-600"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
-      )}
+        return (
+          <Link
+            key={item.name}
+            href={item.href}
+            onClick={() => setMenuOpen(false)}
+            className={`border-b border-gray-200 py-4 text-base font-semibold transition dark:border-zinc-800 ${
+              isActive
+                ? "text-blue-600"
+                : "hover:text-blue-600"
+            }`}
+          >
+            {item.name}
+          </Link>
+        );
+      })}
+    </div>
+
+    {/* LOGIN E CADASTRO MOBILE */}
+    <div className="mt-8 flex flex-col gap-3 border-t border-gray-200 pt-6 dark:border-zinc-800">
+      <Link
+        href="/login"
+        onClick={() => setMenuOpen(false)}
+        className="w-full border border-gray-300 px-4 py-3 text-center font-semibold transition hover:bg-gray-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+      >
+        Entrar
+      </Link>
+
+      <Link
+        href="/cadastro"
+        onClick={() => setMenuOpen(false)}
+        className="w-full bg-black px-4 py-3 text-center font-semibold text-white transition hover:bg-gray-800 dark:bg-white dark:text-black"
+      >
+        Criar conta
+      </Link>
+    </div>
+
+  </nav>
+)}
 
       {/* PESQUISA */}
       {searchOpen && (
