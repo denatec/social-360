@@ -36,12 +36,12 @@ export function SidebarNews() {
               className="group flex gap-4 border-b border-gray-200 pb-5 dark:border-gray-800"
             >
               {/* Número */}
-              <span className="text-3xl font-bold text-blue-600">
+              <span className="text-3xl font-bold text-[#2d7911]">
                 0{index + 1}
               </span>
 
               {/* Título */}
-              <h3 className="cursor-pointer font-semibold leading-snug transition group-hover:text-blue-600">
+              <h3 className="cursor-pointer font-semibold leading-snug transition group-hover:text-[#2d7911]">
                 {news.title}
               </h3>
             </article>

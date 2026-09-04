@@ -76,14 +76,14 @@ export function Header() {
             <div className="hidden shrink-0 items-center gap-3 sm:flex">
               <Link
                 href="/login"
-                className="text-sm font-medium transition hover:text-blue-600"
+                className="text-sm font-medium transition hover:text-[#ffc517]"
               >
                 Entrar
               </Link>
 
               <Link
                 href="/cadastro"
-                className="rounded-md bg-black px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-800 dark:bg-white dark:text-black"
+                className="rounded-md bg-[#2d7911] px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-800 dark:bg-[#5dbb3a] dark:text-black"
               >
                 Cadastre-se
               </Link>
@@ -135,14 +135,14 @@ export function Header() {
                   href={item.href}
                   className={`relative py-5 text-sm font-semibold transition ${
                     isActive
-                      ? "text-blue-600"
-                      : "text-black hover:text-blue-600 dark:text-white"
+                      ? "text-[#ffc517]"
+                      : "text-black hover:text-[#ffc517] dark:text-white"
                   }`}
                 >
                   {item.name}
 
                   {isActive && (
-                    <span className="absolute bottom-1 left-0 h-[3px] w-full bg-blue-600" />
+                    <span className="absolute bottom-1 left-0 h-[3px] w-full bg-[#ffc517]" />
                   )}
                 </Link>
               );

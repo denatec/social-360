@@ -8,11 +8,11 @@ export function HeroNews() {
         
         {/* Texto */}
         <article>
-          <span className="text-sm font-bold tracking-widest text-blue-600">
+          <span className="text-sm font-bold tracking-widest text-[#ffc517]">
             DESTAQUE
           </span>
 
-          <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
+          <h1 className="mt-4 text-4xl font-bold leading-tight md:text-[#2d7911] dark: text-[#5dbb3a]">
             Notícia em destaque
           </h1>
 
