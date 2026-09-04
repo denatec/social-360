@@ -8,30 +8,23 @@ import { SidebarNews } from "@/../components/home/SidebarNews";
 
 export default function Home() {
   return (
-   <main className="pt-[264px] bg-white text-black dark:bg-black dark:text-white">
-     <ThemeProvider>
-      {/* Slide */}
-      <HeroSlider />
-
-      {/* Notícia em destaque */}
-      <HeroNews />
-
-      {/* Publicidade */}
-      <Advertisement />
-
-      {/* Conteúdo principal */}
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-10 lg:grid-cols-[1fr_300px]">
-
-        <div>
-          <NewsGrid />
-        </div>
-
-        <SidebarNews />
-
-      </section>
-
-      <Advertisement />
-</ThemeProvider>
+    <main className=" bg-white text-black dark:bg-black dark:text-white">
+      <ThemeProvider>
+        {/* Slide */}
+        <HeroSlider />
+        {/* Notícia em destaque */}
+        <HeroNews />
+        {/* Publicidade */}
+        <Advertisement />
+        {/* Conteúdo principal */}
+        <section className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-10 lg:grid-cols-[1fr_300px]">
+          <div>
+            <NewsGrid />
+          </div>
+          <SidebarNews />
+        </section>
+        <Advertisement />
+      </ThemeProvider>
     </main>
   );
 }

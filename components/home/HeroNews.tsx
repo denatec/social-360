@@ -1,5 +1,3 @@
-// components/home/HeroNews.tsx
-
 import { LatestNews } from "./LatestNews";
 import Image from "next/image";
 
