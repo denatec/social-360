@@ -241,7 +241,7 @@ export function Header() {
       <Link
         href="/cadastro"
         onClick={() => setMenuOpen(false)}
-        className="w-full bg-black px-4 py-3 text-center font-semibold text-white transition hover:bg-gray-800 dark:bg-white dark:text-black"
+        className="w-full bg-[#2d7911] px-4 py-3 text-center font-semibold text-white transition hover:bg-gray-800 dark:bg-[#2d7911] dark:text-white"
       >
         Criar conta
       </Link>
