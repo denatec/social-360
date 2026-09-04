@@ -106,7 +106,7 @@ export function Header() {
       </header>
 
       {/* NAVBAR FIXA */}
-      <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white text-black dark:border-zinc-800 dark:bg-[#111] dark:text-white">
+      <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#368f15] text-white dark:border-zinc-800 dark:bg-[#111] dark:text-white">
         <div className="relative mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 md:px-6">
           {/* HAMBURGUER MOBILE */}
           <button
@@ -136,7 +136,7 @@ export function Header() {
                   className={`relative py-5 text-sm font-semibold transition ${
                     isActive
                       ? "text-[#ffc517]"
-                      : "text-black hover:text-[#ffc517] dark:text-white"
+                      : "text-white hover:text-[#ffc517] dark:text-white"
                   }`}
                 >
                   {item.name}

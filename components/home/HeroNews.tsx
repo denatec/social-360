@@ -13,15 +13,15 @@ export function HeroNews() {
           </span>
 
           <h1 className="mt-4 text-4xl font-bold leading-tight md:text-[#2d7911] dark: text-[#5dbb3a]">
-            Notícia em destaque
+            Notícia em destaque, tenho de escrever mais alguma coisa para ficar visualmente mais bonito
           </h1>
 
           <p className="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
             Esta é uma descrição da notícia principal com as informações mais
-            importantes.
+            importantes. A mesma logica do tema.
           </p>
 
-          <button className="mt-6 border border-black px-5 py-3 font-semibold transition hover:bg-black hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black">
+          <button className="mt-6 border px-5 py-3 font-semibold transition hover:bg-[#ffc517] hover:text-white dark:border-white dark:hover:bg-[#ffc517] dark:hover:text-white">
             Ler notícia
           </button>
         </article>

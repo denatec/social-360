@@ -55,7 +55,7 @@ export function NewsGrid() {
   return (
     <section>
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold">
+        <h2 className="text-2xl font-bold text-[#ffc517]">
           Últimas notícias
         </h2>
 

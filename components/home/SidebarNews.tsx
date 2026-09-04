@@ -24,7 +24,7 @@ export function SidebarNews() {
       {/* MAIS LIDAS */}
       <section>
         <div className="mb-5 border-b-2 border-black pb-3 dark:border-white">
-          <h2 className="text-xl font-bold uppercase">
+          <h2 className="text-xl font-bold uppercase text-[#ffc517]">
             Mais lidas
           </h2>
         </div>
@@ -59,7 +59,7 @@ export function SidebarNews() {
       {/* EM DESTAQUE */}
       <section>
         <div className="mb-5 border-b-2 border-black pb-3 dark:border-white">
-          <h2 className="text-xl font-bold uppercase">
+          <h2 className="text-xl font-bold uppercase text-[#ffc517]">
             Em destaque
           </h2>
         </div>
