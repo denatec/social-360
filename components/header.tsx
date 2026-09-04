@@ -37,43 +37,42 @@ export function Header() {
       <header className="w-full border-b border-gray-200 bg-white text-black dark:border-zinc-800 dark:bg-[#111] dark:text-white">
         {/* BARRA SUPERIOR */}
         <div>
-          <div className="mx-auto flex h-11 max-w-[1600px] items-center justify-between px-4 md:px-6">
-            {/* Data + Redes sociais */}
-            <div className="flex items-center gap-4">
-              <p className="text-xs capitalize text-gray-500 dark:text-gray-400">
+          <div className="mx-auto flex h-11 max-w-[1600px] items-center justify-between gap-2 px-2 sm:px-4 md:px-6">
+            {/* Data + Redes */}
+            <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+              <p className="whitespace-nowrap text-[10px] capitalize text-gray-500 sm:text-xs dark:text-gray-400">
                 {formattedDate}
               </p>
 
-              {/* Redes sociais */}
-              <div className="hidden items-center gap-2 border-l border-gray-300 pl-4 sm:flex dark:border-zinc-700">
+              <div className="flex shrink-0 items-center gap-2 border-l border-gray-300 pl-2 sm:gap-3 sm:pl-4 dark:border-zinc-700">
                 <a
                   href="#"
                   aria-label="Facebook"
-                  className="text-gray-500 transition hover:text-blue-600 dark:text-gray-400"
+                  className="shrink-0 text-gray-500 transition hover:text-blue-600 dark:text-gray-400"
                 >
-                  <FaFacebookF size={15} />
+                  <FaFacebookF size={14} />
                 </a>
 
                 <a
                   href="#"
                   aria-label="Instagram"
-                  className="text-gray-500 transition hover:text-pink-500 dark:text-gray-400"
+                  className="shrink-0 text-gray-500 transition hover:text-pink-500 dark:text-gray-400"
                 >
-                  <FaInstagram size={16} />
+                  <FaInstagram size={15} />
                 </a>
 
                 <a
                   href="#"
                   aria-label="LinkedIn"
-                  className="text-gray-500 transition hover:text-blue-700 dark:text-gray-400"
+                  className="shrink-0 text-gray-500 transition hover:text-blue-700 dark:text-gray-400"
                 >
-                  <FaLinkedinIn size={16} />
+                  <FaLinkedinIn size={15} />
                 </a>
               </div>
             </div>
 
             {/* Login e Cadastro */}
-            <div className="hidden items-center gap-3 sm:flex">
+            <div className="hidden shrink-0 items-center gap-3 sm:flex">
               <Link
                 href="/login"
                 className="text-sm font-medium transition hover:text-blue-600"
