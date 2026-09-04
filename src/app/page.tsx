@@ -1,6 +1,5 @@
 import "./globals.css";
 import { ThemeProvider } from "@/../components/ThemeProvider";
-import { HeroSlider } from "@/../components/home/HeroSlider";
 import { HeroNews } from "@/../components/home/HeroNews";
 import { NewsGrid } from "@/../components/home/NewsGrid";
 import { Advertisement } from "@/../components/home/Advertisement";
@@ -10,8 +9,6 @@ export default function Home() {
   return (
     <main className=" bg-white text-black dark:bg-black dark:text-white">
       <ThemeProvider>
-        {/* Slide */}
-        <HeroSlider />
         {/* Notícia em destaque */}
         <HeroNews />
         {/* Publicidade */}
