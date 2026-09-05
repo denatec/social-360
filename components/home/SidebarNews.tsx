@@ -31,16 +31,20 @@ const mostRead = [
 
 export function SidebarNews() {
   return (
-    <aside className="space-y-5">
+    <aside className="space-y-6">
 
-      {/* ================= MAIS LIDAS ================= */}
+      {/* MAIS LIDAS */}
       <section className="overflow-hidden rounded-lg border border-theme bg-surface">
-        
+
         {/* Cabeçalho */}
-        <div className="flex items-center justify-between border-b border-theme px-4 py-4">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-[#2d7911] dark:text-[#5dbb3a]">
-            Mais lidas
-          </h2>
+        <div className="flex items-center justify-between border-b border-theme px-4 py-3">
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-wide text-[#2d7911] dark:text-[#5dbb3a]">
+              Mais lidas
+            </h2>
+
+            <div className="mt-2 h-[2px] w-8 bg-[#ffc517]" />
+          </div>
 
           <span className="h-1.5 w-1.5 rounded-full bg-[#2d7911] dark:bg-[#5dbb3a]" />
         </div>
@@ -50,16 +54,16 @@ export function SidebarNews() {
           {mostRead.map((news, index) => (
             <article
               key={news.id}
-              className="group flex gap-3 border-b border-theme py-4 last:border-b-0"
+              className="group flex gap-3 border-b border-theme py-3 last:border-b-0"
             >
               {/* Número */}
-              <span className="min-w-[30px] text-xl font-bold leading-none text-[#2d7911] dark:text-[#5dbb3a]">
+              <span className="min-w-[28px] text-xl font-bold leading-none text-[#2d7911] dark:text-[#5dbb3a]">
                 {String(index + 1).padStart(2, "0")}
               </span>
 
               {/* Conteúdo */}
               <div className="min-w-0">
-                <h3 className="cursor-pointer text-xs font-semibold leading-relaxed text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
+                <h3 className="cursor-pointer text-[11px] font-semibold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
                   {news.title}
                 </h3>
 
@@ -72,7 +76,7 @@ export function SidebarNews() {
         </div>
 
         {/* Rodapé */}
-        <button className="group flex w-full items-center gap-2 border-t border-theme px-4 py-3 text-xs font-bold text-[#2d7911] transition hover:bg-surface-secondary dark:text-[#5dbb3a]">
+        <button className="group flex w-full items-center gap-2 border-t border-theme px-4 py-3 text-[11px] font-bold text-[#2d7911] transition hover:bg-surface-secondary dark:text-[#5dbb3a]">
           Ver todas as notícias
 
           <ArrowRight
@@ -82,13 +86,11 @@ export function SidebarNews() {
         </button>
       </section>
 
-
-      {/* ================= PUBLICIDADE ================= */}
+      {/* PUBLICIDADE */}
       <section className="relative flex h-[250px] items-center justify-center overflow-hidden rounded-lg border border-theme bg-surface-secondary">
-        
-        {/* Pontos decorativos */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="h-full w-full bg-[radial-gradient(circle,_currentColor_1px,_transparent_1px)] bg-[size:12px_12px]" />
+
+        <div className="absolute inset-0 opacity-10">
+          <div className="h-full w-full bg-[radial-gradient(circle,currentColor_1px,transparent_1px)] bg-[size:12px_12px]" />
         </div>
 
         <div className="relative text-center">
@@ -100,46 +102,6 @@ export function SidebarNews() {
             300 × 250
           </span>
         </div>
-      </section>
-
-
-      {/* ================= EM DESTAQUE ================= */}
-      <section>
-
-        {/* Cabeçalho */}
-        <div className="mb-3 flex items-center gap-3">
-          <h2 className="whitespace-nowrap text-sm font-bold uppercase tracking-wide text-[#d69e17]">
-            Em destaque
-          </h2>
-
-          <div className="h-px flex-1 bg-primary opacity-30" />
-        </div>
-
-        {/* Notícia */}
-        <article className="group flex cursor-pointer gap-3">
-
-          {/* Imagem */}
-          <div className="relative h-[72px] w-[105px] shrink-0 overflow-hidden rounded-md">
-            <Image
-              src="/images/news.jpg"
-              alt="Notícia em destaque"
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          </div>
-
-          {/* Texto */}
-          <div className="flex flex-col justify-center">
-            <span className="mb-1 text-[9px] font-bold uppercase tracking-wide text-[#2d7911] dark:text-[#5dbb3a]">
-              Mundo
-            </span>
-
-            <h3 className="text-xs font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
-              Notícia em destaque com maior relevância para os leitores
-            </h3>
-          </div>
-
-        </article>
       </section>
 
     </aside>
