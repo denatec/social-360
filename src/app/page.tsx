@@ -29,7 +29,7 @@ export default function Home() {
         </div>
 
         {/* Conteúdo principal */}
-        <section className="mx-auto grid max-w-[1450px] grid-cols-1 items-start gap-6 px-6 py-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <section className="mx-auto grid max-w-[1400px] grid-cols-1 items-start gap-6 px-6 py-8 lg:grid-cols-[minmax(0,1fr)_320px]">
           
           {/* Notícias */}
           <div className="min-w-0">
