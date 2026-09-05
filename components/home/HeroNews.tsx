@@ -5,7 +5,7 @@ import { Clock, ArrowRight } from "lucide-react";
 export function HeroNews() {
   return (
     <section className="border-b border-theme bg-background">
-      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-6 px-6 py-10 lg:grid-cols-[0.9fr_1.4fr_0.8fr] lg:gap-8 xl:px-10">
+      <div className="mx-auto grid w-full max-w-[1450px] grid-cols-1 gap-6 px-6 py-10 lg:grid-cols-[0.9fr_1.4fr_0.8fr] lg:gap-8 xl:px-10">
         
         {/* Texto */}
         <article className="flex flex-col justify-center">

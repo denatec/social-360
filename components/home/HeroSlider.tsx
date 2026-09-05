@@ -33,7 +33,7 @@ const slides = [
 
 export function HeroSlider() {
   return (
-    <section className="mx-auto w-full max-w-[1500px] px-6 py-8">
+    <section className="mx-auto w-full max-w-[1450px] px-6 py-8">
       <div className="h-[250px] overflow-hidden rounded-lg sm:h-[300px] md:h-[380px]">
         
         <Swiper
