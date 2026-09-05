@@ -35,16 +35,16 @@ export function LatestNews() {
     <aside className="flex h-full flex-col rounded-xl border border-theme bg-surface p-5 transition-colors duration-300">
       
       {/* Cabeçalho */}
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex shrink-0 items-center justify-between">
         <h2 className="text-xl font-bold text-primary">
           Últimas notícias
         </h2>
 
-        <span className="h-2 w-2 rounded-full bg-[#2d7911] shadow-[0_0_8px_rgba(45,121,17,0.6)]" />
+        <span className="h-2 w-2 rounded-full bg-[#2d7911] shadow-[0_0_8px_rgba(45,121,17,0.6)] dark:bg-[#5dbb3a]" />
       </div>
 
-      {/* Notícias */}
-      <div className="flex-1 space-y-0 overflow-y-auto">
+      {/* Notícias com scroll */}
+      <div className="latest-news-scroll max-h-[390px] flex-1 overflow-y-auto pr-2">
         {latestNews.map((news, index) => (
           <article
             key={index}
@@ -66,7 +66,6 @@ export function LatestNews() {
                 {news.title}
               </h3>
 
-              {/* Tempo */}
               <div className="mt-1 flex items-center gap-1 text-[11px] text-secondary">
                 <Clock size={11} />
                 <span>{news.time}</span>
@@ -77,7 +76,7 @@ export function LatestNews() {
       </div>
 
       {/* Rodapé */}
-      <button className="group mt-4 flex items-center gap-2 border-t border-theme pt-4 text-sm font-bold text-accent transition">
+      <button className="group mt-4 flex shrink-0 items-center gap-2 border-t border-theme pt-4 text-sm font-bold text-accent transition">
         Ver todas as notícias
 
         <ArrowRight
