@@ -33,7 +33,7 @@ const slides = [
 
 export function HeroSlider() {
   return (
-    <div className="h-[500px] overflow-hidden">
+    <div className="h-[300px] overflow-hidden">
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect="fade"

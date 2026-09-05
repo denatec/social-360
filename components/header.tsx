@@ -38,10 +38,10 @@ export function Header() {
       <header className="w-full border-b border-gray-200 bg-white text-black dark:border-zinc-800 dark:bg-[#111] dark:text-white">
         {/* BARRA SUPERIOR */}
         <div>
-          <div className="mx-auto flex h-11 max-w-[1600px] items-center justify-between gap-2 px-2 sm:px-4 md:px-6">
+          <div className="mx-auto flex h-11 max-w-[1600px] bg-[#5dbb3a] dark:bg-[#145A0C] items-center justify-between gap-2 px-2 sm:px-4 md:px-6">
             {/* Data + Redes */}
             <div className="flex shrink-0 items-center gap-2 sm:gap-4">
-              <p className="whitespace-nowrap text-[10px] capitalize text-gray-500 sm:text-xs dark:text-gray-400">
+              <p className="whitespace-nowrap text-[10px] capitalize text-white sm:text-xs dark:text-white">
                 {formattedDate}
               </p>
 
@@ -49,7 +49,7 @@ export function Header() {
                 <a
                   href="#"
                   aria-label="Facebook"
-                  className="shrink-0 text-gray-500 transition hover:text-blue-600 dark:text-gray-400"
+                  className="shrink-0 text-white transition hover:text-blue-600 dark:text-white"
                 >
                   <FaFacebookF size={14} />
                 </a>
@@ -57,7 +57,7 @@ export function Header() {
                 <a
                   href="#"
                   aria-label="Instagram"
-                  className="shrink-0 text-gray-500 transition hover:text-pink-500 dark:text-gray-400"
+                  className="shrink-0 text-white transition hover:text-pink-500 dark:text-white"
                 >
                   <FaInstagram size={15} />
                 </a>
@@ -65,7 +65,7 @@ export function Header() {
                 <a
                   href="#"
                   aria-label="LinkedIn"
-                  className="shrink-0 text-gray-500 transition hover:text-blue-700 dark:text-gray-400"
+                  className="shrink-0 text-white transition hover:text-blue-700 dark:text-white"
                 >
                   <FaLinkedinIn size={15} />
                 </a>
@@ -76,7 +76,7 @@ export function Header() {
             <div className="hidden shrink-0 items-center gap-3 sm:flex">
               <Link
                 href="/login"
-                className="text-sm font-medium transition hover:text-[#ffc517]"
+                className="text-white font-medium transition hover:text-[#2d7911]"
               >
                 Entrar
               </Link>
@@ -106,7 +106,7 @@ export function Header() {
       </header>
 
       {/* NAVBAR FIXA */}
-      <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#368f15] text-white dark:border-zinc-800 dark:bg-[#111] dark:text-white">
+      <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white text-black dark:border-zinc-800 dark:bg-[#111] dark:text-white">
         <div className="relative mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 md:px-6">
           {/* HAMBURGUER MOBILE */}
           <button
@@ -133,10 +133,10 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`relative py-5 text-sm font-semibold transition ${
+                  className={`relative py-5 text-sm-500 font-semibold transition ${
                     isActive
-                      ? "text-[#ffc517]"
-                      : "text-white hover:text-[#ffc517] dark:text-white"
+                      ? "text-[#5dbb3a]"
+                      : "text-black hover:text-[#5dbb3a] dark:text-white"
                   }`}
                 >
                   {item.name}

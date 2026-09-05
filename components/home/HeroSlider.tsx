@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 
@@ -34,8 +33,8 @@ const slides = [
 
 export function HeroSlider() {
   return (
-    <section className="mx-auto my-8 w-full max-w-7xl px-6">
-      <div className="h-[350px] w-full min-w-0 max-w-full overflow-hidden sm:h-[400px] md:h-[450px] lg:h-[500px]">
+    <section className="mx-auto w-full max-w-[1500px] px-6 py-8">
+      <div className="h-[250px] overflow-hidden rounded-lg sm:h-[300px] md:h-[380px]">
         
         <Swiper
           modules={[Autoplay, EffectFade]}
@@ -45,15 +44,12 @@ export function HeroSlider() {
             delay: 5000,
             disableOnInteraction: false,
           }}
-          loop={true}
-          className="h-full w-full min-w-0 max-w-full"
+          loop
+          className="h-full"
         >
           {slides.map((slide, index) => (
-            <SwiperSlide
-              key={index}
-              className="h-full w-full overflow-hidden"
-            >
-              <article className="relative h-full w-full overflow-hidden">
+            <SwiperSlide key={index}>
+              <article className="relative h-full overflow-hidden">
 
                 {/* Imagem */}
                 <Image
@@ -61,7 +57,6 @@ export function HeroSlider() {
                   alt={slide.title}
                   fill
                   priority={index === 0}
-                  sizes="(max-width: 768px) 100vw, 1280px"
                   className="object-cover"
                 />
 
@@ -69,25 +64,26 @@ export function HeroSlider() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
                 {/* Conteúdo */}
-                <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-6 md:p-10">
-                  <span className="inline-block bg-green-700 px-3 py-2 text-xs font-bold text-white sm:text-sm">
+                <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-8 md:p-10">
+                  
+                  <span className="inline-block bg-[#2d7911] px-3 py-1.5 text-xs font-bold text-white md:text-sm">
                     {slide.category}
                   </span>
 
-                  <h1 className="mt-4 max-w-3xl text-2xl font-bold leading-tight text-[#ffc517] sm:text-3xl md:text-4xl lg:text-5xl">
+                  <h1 className="mt-3 max-w-4xl text-2xl font-bold leading-tight text-white sm:text-3xl md:mt-5 md:text-5xl">
                     {slide.title}
                   </h1>
 
-                  <p className="mt-3 max-w-2xl text-sm text-gray-200 sm:text-base md:text-lg">
+                  <p className="mt-3 max-w-3xl text-sm text-gray-200 md:mt-4 md:text-lg">
                     {slide.description}
                   </p>
+
                 </div>
 
               </article>
             </SwiperSlide>
           ))}
         </Swiper>
-
       </div>
     </section>
   );
