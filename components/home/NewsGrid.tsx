@@ -55,7 +55,7 @@ const news = [
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
     time: "Há 7 horas",
   },
-    {
+  {
     id: 7,
     title: "Tecnologia e inovação moldam o futuro do mundo",
     category: "Tecnologia",
@@ -82,7 +82,7 @@ const news = [
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
     time: "Há 7 horas",
   },
-    {
+  {
     id: 10,
     title: "Tecnologia e inovação moldam o futuro do mundo",
     category: "Tecnologia",
@@ -113,10 +113,9 @@ const news = [
 
 export function NewsGrid() {
   return (
-    <section>
-      
+    <section className="min-w-0">
       {/* Cabeçalho */}
-      <div className="mb-5 flex items-center justify-between border-l-4 border-[#2d7911] pl-3">
+      <div className="mb-6 flex items-center justify-between border-l-4 border-[#2d7911] pl-3">
         <h2 className="text-xl font-bold text-primary">
           Últimas notícias
         </h2>
@@ -127,7 +126,7 @@ export function NewsGrid() {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {news.map((item) => (
           <NewsCard
             key={item.id}
@@ -139,7 +138,6 @@ export function NewsGrid() {
           />
         ))}
       </div>
-
     </section>
   );
 }

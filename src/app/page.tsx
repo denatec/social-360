@@ -1,57 +1,35 @@
 import "./globals.css";
 
 import { ThemeProvider } from "@/../components/ThemeProvider";
-
-import { HeroSlider } from "@/../components/home/HeroSlider";
 import { HeroNews } from "@/../components/home/HeroNews";
-import { NewsGrid } from "@/../components/home/NewsGrid";
 import { Advertisement } from "@/../components/home/Advertisement";
-import { SidebarNews } from "@/../components/home/SidebarNews";
 import { OpinionColumnists } from "@/../components/home/OpinionColumnists";
 import { FeaturedNews } from "@/../components/home/FeaturedNews";
 import { NewsSection } from "@/../components/home/NewsSection";
+import { NewsContent } from "@/../components/home/NewsContent";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black transition-colors duration-300 dark:bg-black dark:text-white">
-      
       <ThemeProvider>
-
-        {/* Publicidade principal */}
         <Advertisement />
 
-        {/* Notícia em destaque */}
         <HeroNews />
 
-        {/* Segunda publicidade - largura total */}
-        <div className="mx-auto max-w-7xl px-6 pt-10">
+        <div className="mx-auto max-w-[1800px] px-4 pt-10 sm:px-6 lg:px-8">
           <Advertisement />
         </div>
 
-        {/* Conteúdo principal */}
-        <section className="mx-auto grid max-w-[1400px] grid-cols-1 items-start gap-6 px-6 py-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          
-          {/* Notícias */}
-          <div className="min-w-0">
-            <NewsGrid />
-          </div>
+        {/* NewsGrid + Sidebar têm o mesmo container */}
+        <NewsContent />
 
-          {/* Sidebar */}
-          <aside className="min-w-0 self-start">
-            <SidebarNews />
-          </aside>
+        {/* Tudo abaixo está FORA do limite do sticky */}
+        <OpinionColumnists />
 
-        </section>
+        <FeaturedNews />
 
-  {/* OPINIÕES */}
-  <OpinionColumnists />
-
-  <FeaturedNews />
-   <NewsSection />
-   <FeaturedNews />
-   <FeaturedNews />
+        <NewsSection />
       </ThemeProvider>
-
     </main>
   );
 }

@@ -1,90 +1,126 @@
 import Image from "next/image";
-import { Clock, ArrowRight } from "lucide-react";
+import { Bookmark } from "lucide-react";
 
 const latestNews = [
   {
-    image: "/president-donald-trump-9bvxk3h7h5b4uax5.jpg",
-    title:
-      "Ministério dos Negócios Estrangeiros francês nega discriminação da China",
-    time: "15 min",
+    category: "Mundo",
+    title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO ",
+    date: "22 De Julho De 2024",
+    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
-    image: "/president-donald-trump-9bvxk3h7h5b4uax5.jpg",
-    title: "FBI não vai marcar presença na Festa do Avante",
-    time: "38 min",
+    category: "Meio ambiente",
+  title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO ",
+    date: "22 De Julho De 2024",
+    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
-    image: "/president-donald-trump-9bvxk3h7h5b4uax5.jpg",
-    title: "Hungria: fim das leis de emergência pode travar multas",
-    time: "1 h",
+    category: "Meio ambiente",
+     title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO ",
+    date: "22 De Julho De 2024",
+    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
-    image: "/president-donald-trump-9bvxk3h7h5b4uax5.jpg",
-    title: "Novas decisões internacionais marcam o dia",
-    time: "2 h",
+    category: "Meio ambiente",
+   title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO ",
+    date: "22 De Julho De 2024",
+    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
-  {
-    image: "/president-donald-trump-9bvxk3h7h5b4uax5.jpg",
-    title: "Tecnologia continua a transformar diferentes setores",
-    time: "3 h",
-  },
-  
 ];
 
 export function LatestNews() {
   return (
-    <aside className="flex h-full flex-col rounded-xl border border-theme bg-surface p-5 transition-colors duration-300">
-      
-      {/* Cabeçalho */}
-      <div className="mb-4 flex shrink-0 items-center justify-between">
-        <h2 className="text-xl font-bold text-primary">
-          Últimas notícias
-        </h2>
+    <aside className="h-full w-full">
+      <div className="flex h-full flex-col">
+        
+        {/* LISTA */}
+        <div className="flex flex-col">
+          {latestNews.map((news, index) => (
+            <article
+              key={index}
+              className="
+                group
+                grid
+                grid-cols-[minmax(0,1fr)_190px]
+                gap-5
+                border-b
+                border-theme
+                py-6
+                first:pt-0
+                last:border-b-0
+              "
+            >
+              {/* ================= TEXTO ================= */}
 
-        <span className="h-2 w-2 rounded-full bg-[#2d7911] shadow-[0_0_8px_rgba(45,121,17,0.6)] dark:bg-[#5dbb3a]" />
-      </div>
+              <div className="flex min-w-0 flex-col justify-between">
+                <div>
+                  {/* Categoria */}
 
-      {/* Notícias com scroll */}
-      <div className="latest-news-scroll max-h-[390px] flex-1 overflow-y-auto pr-2">
-        {latestNews.map((news, index) => (
-          <article
-            key={index}
-            className="group flex gap-3 border-t border-theme py-3 first:border-t-0 first:pt-0"
-          >
-            {/* Imagem */}
-            <div className="relative h-[58px] w-[82px] shrink-0 overflow-hidden rounded-md">
-              <Image
-                src={news.image}
-                alt={news.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
+                  <span className="text-sm font-medium text-primary">
+                    {news.category}
+                  </span>
 
-            {/* Conteúdo */}
-            <div className="flex min-w-0 flex-1 flex-col justify-between">
-              <h3 className="line-clamp-2 cursor-pointer text-sm font-semibold leading-snug text-primary transition-colors duration-200 group-hover:text-accent">
-                {news.title}
-              </h3>
+                  {/* Título */}
 
-              <div className="mt-1 flex items-center gap-1 text-[11px] text-secondary">
-                <Clock size={11} />
-                <span>{news.time}</span>
+                  <h3
+                    className="
+                      mt-1
+                      line-clamp-2
+                      cursor-pointer
+                      text-lg
+                      font-bold
+                      leading-snug
+                      text-primary
+                      transition-colors
+                      duration-300
+                      group-hover:text-[#2d7911]
+                      dark:group-hover:text-[#5dbb3a]
+                    "
+                  >
+                    {news.title}
+                  </h3>
+                </div>
+
+                {/* Data + Bookmark */}
+
+                <div className="mt-3 flex items-center justify-between">
+                  <span className="text-sm text-secondary">
+                    {news.date}
+                  </span>
+
+                  <Bookmark
+                    size={17}
+                    strokeWidth={1.5}
+                    className="
+                      shrink-0
+                      text-primary
+                      transition-colors
+                      duration-300
+                      group-hover:text-[#2d7911]
+                    "
+                  />
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+
+              {/* ================= IMAGEM ================= */}
+
+              <div className="relative h-[120px] w-full overflow-hidden bg-gray-300">
+                <Image
+                  src={news.image}
+                  alt={news.title}
+                  fill
+                  className="
+                    object-cover
+                    transition-transform
+                    duration-500
+                    group-hover:scale-105
+                  "
+                />
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-
-      {/* Rodapé */}
-      <button className="group mt-4 flex shrink-0 items-center gap-2 border-t border-theme pt-4 text-sm font-bold text-accent transition">
-        Ver todas as notícias
-
-        <ArrowRight
-          size={16}
-          className="transition-transform duration-300 group-hover:translate-x-1"
-        />
-      </button>
     </aside>
   );
 }

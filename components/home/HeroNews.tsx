@@ -1,160 +1,186 @@
 "use client";
 
-import { LatestNews } from "./LatestNews";
-
 import Image from "next/image";
-
-import { Clock, ArrowRight } from "lucide-react";
-
+import { Bookmark } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { Autoplay, EffectFade } from "swiper/modules";
 
-import "swiper/css";
+import { LatestNews } from "./LatestNews";
 
+import "swiper/css";
 import "swiper/css/effect-fade";
 
 const slides = [
   {
-    category: "POLÍTICA",
-    title:
-      "Novas decisões políticas marcam o cenário nacional e geram debates",
+    category: "Política",
+    title: "O Papel da Mídia na Política Moderna",
     description:
-      "Esta é uma descrição da notícia principal com as informações mais importantes sobre os acontecimentos recentes.",
-    time: "Há 2 horas",
-    author: "Redação Social 360",
-    image: "/president-donald-trump-9bvxk3h7h5b4uax5.jpg",
-  },
-  {
-    category: "ECONOMIA",
-    title:
-      "Economia apresenta novos desafios e especialistas analisam o futuro",
-    description:
-      "Os principais acontecimentos económicos continuam a gerar debates entre especialistas e autoridades.",
-    time: "Há 3 horas",
-    author: "João Manuel",
+      "Um ótimo design se integra perfeitamente com a experiência do usuário, tornando a interação suave e intuitiva. Não se trata apenas de estética; trata-se de funcionalidade e usabilidade, garantir que os usuários possam alcançar seus objetivos...",
+    date: "22 De Julho De 2024",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
-    category: "MUNDO",
-    title:
-      "Novos acontecimentos internacionais movimentam a agenda mundial",
+    category: "Economia",
+    title: "Economia apresenta novos desafios para os próximos anos",
     description:
-      "Os acontecimentos mais importantes da atualidade internacional e as suas consequências.",
-    time: "Há 5 horas",
-    author: "Redação Internacional",
-    image: "/imagem3.jpg",
+      "Especialistas analisam as mudanças e os desafios que podem marcar os próximos meses.",
+    date: "22 De Julho De 2024",
+    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
-    category: "SOCIEDADE",
-    title:
-      "Transformações sociais criam novos desafios para as próximas gerações",
+    category: "Mundo",
+    title: "Novos acontecimentos movimentam a agenda internacional",
     description:
-      "Uma análise sobre as mudanças que estão a acontecer na sociedade moderna.",
-    time: "Há 6 horas",
-    author: "Social 360",
-    image: "/imagem4.jpg",
+      "Os acontecimentos mais importantes da atualidade internacional e as suas consequências.",
+    date: "22 De Julho De 2024",
+    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
+  },
+];
+
+const bottomNews = [
+  {
+    id: 1,
+    category: "Mundo",
+    title: "🔴 Live: Equilibrando Crescimento Econômico e Proteção Ambiental",
+    date: "22 De Julho De 2024",
+  },
+  {
+    id: 2,
+    category: "Meio Ambiente",
+    title: "O Papel das Políticas Governamentais na Proteção Ambiental",
+    date: "22 De Julho De 2024",
+  },
+  {
+    id: 3,
+    category: "Meio Ambiente",
+    title: "Proteção de Espécies em Perigo e Seus Habitats",
+    date: "22 De Julho De 2024",
+  },
+  {
+    id: 4,
+    category: "Meio Ambiente",
+    title: "Soluções Inovadoras para Reduzir o Lixo Plástico",
+    date: "22 De Julho De 2024",
   },
 ];
 
 export function HeroNews() {
   return (
     <section className="border-b border-theme bg-background">
-      <div className="mx-auto grid w-full max-w-[1450px] grid-cols-1 gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-10 lg:py-10">
+      <div className="mx-auto w-full max-w-[1800px] px-4 py-3 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_520px]">
+          
+          {/* ================= LADO ESQUERDO ================= */}
+          <div className="min-w-0">
+            <Swiper
+              modules={[Autoplay, EffectFade]}
+              effect="fade"
+              fadeEffect={{
+                crossFade: true,
+              }}
+              autoplay={{
+                delay: 6000,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+              speed={1000}
+              className="w-full"
+            >
+              {slides.map((slide, index) => (
+                <SwiperSlide key={index}>
+                  {/* NOTÍCIA PRINCIPAL */}
+                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+                    
+                    {/* TEXTO */}
+                  {/* TEXTO */}
+<article className="flex min-h-[500px] flex-col justify-center px-2">
+  <div className="flex items-center gap-2">
+    <span className="h-3 w-3 rounded-full bg-[#c95a0a]" />
 
-        {/* ================= SLIDER ================= */}
-        <Swiper
-          modules={[Autoplay, EffectFade]}
-          effect="fade"
-          fadeEffect={{
-            crossFade: true,
-          }}
-          autoplay={{
-            delay: 6000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          speed={1000}
-          className="w-full min-w-0"
-        >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <div className="grid grid-cols-1 gap-6 lg:min-h-[500px] lg:grid-cols-[1fr_1.25fr] lg:gap-8">
+    <span className="text-sm font-medium text-primary">
+      {slide.category}
+    </span>
+  </div>
 
-                {/* ================= TEXTO ================= */}
-                <article className="order-2 flex flex-col justify-center lg:order-1">
+  {/* TÍTULO */}
+  <h1 className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-primary sm:text-4xl xl:text-5xl">
+    {slide.title}
+  </h1>
 
-                  {/* Categorias */}
-                  <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1 text-xs font-bold tracking-[0.15em] text-[#ffc517]">
-                      ★ DESTAQUE
-                    </span>
+  {/* DESCRIÇÃO */}
+  <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary md:text-base">
+    {slide.description}
+  </p>
 
-                    <span className="rounded-sm bg-[#2d7911]/10 px-2 py-1 text-xs font-bold tracking-wide text-[#2d7911] dark:bg-[#5dbb3a]/10 dark:text-[#5dbb3a]">
-                      {slide.category}
-                    </span>
-                  </div>
+  {/* DATA */}
+  <div className="mt-5 flex items-center justify-between text-xs text-secondary">
+    <span>{slide.date}</span>
 
-                  {/* Título */}
-                  <h1 className="mt-4 text-3xl font-bold leading-[1.05] tracking-tight text-[#0a1d02] dark:text-white sm:text-4xl xl:text-5xl">
-                    {slide.title}
-                  </h1>
+    <Bookmark
+      size={16}
+      strokeWidth={1.5}
+      className="text-primary"
+    />
+  </div>
+</article>
 
-                  {/* Descrição */}
-                  <p className="mt-4 max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-                    {slide.description}
-                  </p>
-
-                  {/* Informações */}
-                  <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-secondary">
-                    <div className="flex items-center gap-1.5">
-                      <Clock size={14} />
-                      <span>{slide.time}</span>
+                    {/* IMAGEM */}
+                    <div className="relative min-h-[400px] overflow-hidden">
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        priority={index === 0}
+                        className="object-cover"
+                      />
                     </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-                    <span className="h-1 w-1 rounded-full bg-secondary" />
+            {/* ================= CARDS DE BAIXO ================= */}
 
-                    <span>
-                      Por{" "}
-                      <strong className="text-primary">
-                        {slide.author}
-                      </strong>
+            <div className="mt-8 grid grid-cols-1 gap-5 border-t border-theme pt-5 sm:grid-cols-2 lg:grid-cols-4">
+              {bottomNews.map((news) => (
+                <article
+                  key={news.id}
+                  className="group flex min-w-0 flex-col"
+                >
+                  <h3 className="line-clamp-3 cursor-pointer text-base font-bold leading-snug text-primary transition-colors duration-300 group-hover:text-[#2d7911]">
+                    {news.title}
+                  </h3>
+
+                  <div className="mt-3">
+                    <span className="text-sm font-medium text-primary">
+                      {news.category}
+                    </span>
+
+                    <span className="mx-2 text-secondary">·</span>
+
+                    <span className="text-sm text-secondary">
+                      {news.date}
                     </span>
                   </div>
 
-                  {/* Botão */}
-                  <button className="group mt-6 flex w-fit items-center gap-3 rounded-md bg-[#2d7911] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1f5c0c] hover:shadow-lg dark:bg-[#5dbb3a] dark:text-black dark:hover:bg-[#4ca82e]">
-                    Ler notícia
-
-                    <ArrowRight
-                      size={17}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+                  <div className="mt-3 flex justify-end">
+                    <Bookmark
+                      size={16}
+                      strokeWidth={1.5}
+                      className="text-primary"
                     />
-                  </button>
+                  </div>
                 </article>
+              ))}
+            </div>
+          </div>
 
-                {/* ================= IMAGEM ================= */}
-                <div className="group relative order-1 h-[280px] overflow-hidden rounded-xl bg-surface sm:h-[350px] lg:order-2 lg:h-auto lg:min-h-[420px]">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    priority={index === 0}
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+          {/* ================= LADO DIREITO ================= */}
 
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* ================= ÚLTIMAS NOTÍCIAS ================= */}
-        <aside className="min-w-0">
-          <LatestNews />
-        </aside>
-
+          <aside className="min-w-0">
+            <LatestNews />
+          </aside>
+        </div>
       </div>
     </section>
   );

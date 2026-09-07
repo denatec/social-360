@@ -60,7 +60,7 @@ const featuredNews = [
 export function FeaturedNews() {
   return (
     <section className="relative overflow-hidden border-y border-theme bg-background py-10 md:py-14">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1800px] px-4 md:px-6 lg:px-8">
         {/* CABEÇALHO */}
         <div className="mb-8 flex items-end justify-between">
           <div>
