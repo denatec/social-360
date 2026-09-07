@@ -60,7 +60,7 @@ const slides = [
 export function HeroNews() {
   return (
     <section className="border-b border-theme bg-background">
-      <div className="mx-auto grid w-full max-w-[1550px] grid-cols-1 gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-10 lg:py-10">
+      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-10 lg:py-10">
 
         {/* ================= SLIDER ================= */}
         <Swiper
@@ -79,7 +79,7 @@ export function HeroNews() {
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="grid grid-cols-1 gap-6 lg:min-h-[600px] lg:grid-cols-[1fr_1.25fr] lg:gap-8">
+              <div className="grid grid-cols-1 gap-6 lg:min-h-[500px] lg:grid-cols-[1fr_1.25fr] lg:gap-8">
 
                 {/* ================= TEXTO ================= */}
                 <article className="order-2 flex flex-col justify-center lg:order-1">
