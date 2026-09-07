@@ -60,7 +60,7 @@ const slides = [
 export function HeroNews() {
   return (
     <section className="border-b border-theme bg-background">
-      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-10 lg:py-10">
+      <div className="mx-auto grid w-full max-w-[1450px] grid-cols-1 gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-10 lg:py-10">
 
         {/* ================= SLIDER ================= */}
         <Swiper
