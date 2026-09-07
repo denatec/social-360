@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import { Autoplay, EffectFade } from "swiper/modules";
 
 import "swiper/css";
+
 import "swiper/css/effect-fade";
 
 const slides = [
@@ -33,9 +36,8 @@ const slides = [
 
 export function HeroSlider() {
   return (
-    <section className="mx-auto w-full max-w-[1400px] px-6 py-8">
-      <div className="h-[250px] overflow-hidden rounded-lg sm:h-[300px] md:h-[380px]">
-        
+    <section className="mx-auto w-full max-w-[1400px] px-4 py-8 sm:px-6">
+      <div className="overflow-hidden rounded-xl border border-theme bg-surface shadow-sm">
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -45,41 +47,50 @@ export function HeroSlider() {
             disableOnInteraction: false,
           }}
           loop
-          className="h-full"
+          className="w-full"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <article className="relative h-full overflow-hidden">
+              <article className="grid min-h-[500px] grid-cols-1 md:min-h-[420px] md:grid-cols-2">
+                
+                {/* IMAGEM */}
+                <div className="relative min-h-[260px] overflow-hidden md:min-h-full">
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    priority={index === 0}
+                    className="object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
 
-                {/* Imagem */}
-                <Image
-                  src={slide.image}
-                  alt={slide.title}
-                  fill
-                  priority={index === 0}
-                  className="object-cover"
-                />
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-                {/* Conteúdo */}
-                <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-8 md:p-10">
+                {/* CONTEÚDO */}
+                <div className="flex flex-col justify-center bg-surface p-6 sm:p-8 md:p-10 lg:p-14">
                   
-                  <span className="inline-block bg-[#2d7911] px-3 py-1.5 text-xs font-bold text-white md:text-sm">
+                  {/* Categoria */}
+                  <span className="w-fit bg-[#2d7911] px-3 py-1.5 text-xs font-bold tracking-wide text-white">
                     {slide.category}
                   </span>
 
-                  <h1 className="mt-3 max-w-4xl text-2xl font-bold leading-tight text-white sm:text-3xl md:mt-5 md:text-5xl">
+                  {/* Título */}
+                  <h1 className="mt-5 text-2xl font-bold leading-tight text-primary sm:text-3xl lg:text-4xl xl:text-5xl">
                     {slide.title}
                   </h1>
 
-                  <p className="mt-3 max-w-3xl text-sm text-gray-200 md:mt-4 md:text-lg">
+                  {/* Linha decorativa */}
+                  <div className="mt-6 h-[3px] w-14 bg-[#ffc517]" />
+
+                  {/* Descrição */}
+                  <p className="mt-6 max-w-xl text-sm leading-relaxed text-secondary sm:text-base lg:text-lg">
                     {slide.description}
                   </p>
 
-                </div>
+                  {/* Botão */}
+                  <button className="mt-8 w-fit rounded-md bg-[#2d7911] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1f5c0c] hover:shadow-lg">
+                    Ler notícia
+                  </button>
 
+                </div>
               </article>
             </SwiperSlide>
           ))}

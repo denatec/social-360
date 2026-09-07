@@ -1,13 +1,18 @@
 "use client";
 
 import { LatestNews } from "./LatestNews";
+
 import Image from "next/image";
+
 import { Clock, ArrowRight } from "lucide-react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+
+import { Autoplay, EffectFade } from "swiper/modules";
 
 import "swiper/css";
+
+import "swiper/css/effect-fade";
 
 const slides = [
   {
@@ -56,25 +61,29 @@ export function HeroNews() {
   return (
     <section className="border-b border-theme bg-background">
       <div className="mx-auto grid w-full max-w-[1550px] grid-cols-1 gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-10 lg:py-10">
-        
+
         {/* ================= SLIDER ================= */}
         <Swiper
-          modules={[Autoplay]}
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          fadeEffect={{
+            crossFade: true,
+          }}
           autoplay={{
             delay: 6000,
             disableOnInteraction: false,
           }}
-          loop
+          loop={true}
+          speed={1000}
           className="w-full min-w-0"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              
               <div className="grid grid-cols-1 gap-6 lg:min-h-[600px] lg:grid-cols-[1fr_1.25fr] lg:gap-8">
 
                 {/* ================= TEXTO ================= */}
                 <article className="order-2 flex flex-col justify-center lg:order-1">
-                  
+
                   {/* Categorias */}
                   <div className="flex items-center gap-3">
                     <span className="flex items-center gap-1 text-xs font-bold tracking-[0.15em] text-[#ffc517]">
@@ -136,7 +145,6 @@ export function HeroNews() {
 
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
-
               </div>
             </SwiperSlide>
           ))}

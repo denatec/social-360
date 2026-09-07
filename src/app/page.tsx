@@ -23,9 +23,6 @@ export default function Home() {
         {/* Notícia em destaque */}
         <HeroNews />
 
-        {/* Slide */}
-        <HeroSlider />
-
         {/* Segunda publicidade - largura total */}
         <div className="mx-auto max-w-7xl px-6 pt-10">
           <Advertisement />
