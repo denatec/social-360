@@ -51,6 +51,8 @@ export default function Home() {
 
   <FeaturedNews />
    <NewsSection />
+   <FeaturedNews />
+   <FeaturedNews />
       </ThemeProvider>
 
     </main>

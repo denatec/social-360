@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const mostRead = [
@@ -31,7 +30,7 @@ const mostRead = [
 
 export function SidebarNews() {
   return (
-    <aside className="space-y-6">
+    <aside className="sticky top-24 self-start space-y-6">
 
       {/* MAIS LIDAS */}
       <section className="overflow-hidden rounded-lg border border-theme bg-surface">
@@ -86,13 +85,15 @@ export function SidebarNews() {
         </button>
       </section>
 
-      {/* PUBLICIDADE */}
+      {/* PUBLICIDADE FIXA */}
       <section className="relative flex h-[250px] items-center justify-center overflow-hidden rounded-lg border border-theme bg-surface-secondary">
 
+        {/* Fundo decorativo */}
         <div className="absolute inset-0 opacity-10">
           <div className="h-full w-full bg-[radial-gradient(circle,currentColor_1px,transparent_1px)] bg-[size:12px_12px]" />
         </div>
 
+        {/* Conteúdo */}
         <div className="relative text-center">
           <p className="text-[10px] font-medium uppercase tracking-widest text-secondary">
             Publicidade

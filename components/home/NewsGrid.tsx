@@ -55,6 +55,60 @@ const news = [
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
     time: "Há 7 horas",
   },
+    {
+    id: 7,
+    title: "Tecnologia e inovação moldam o futuro do mundo",
+    category: "Tecnologia",
+    image: "/images/news4.jpg",
+    description:
+      "Breve descrição da notícia para apresentar um resumo do conteúdo.",
+    time: "Há 5 horas",
+  },
+  {
+    id: 8,
+    title: "Seleção nacional prepara-se para novos desafios",
+    category: "Desporto",
+    image: "/images/news5.jpg",
+    description:
+      "Breve descrição da notícia para apresentar um resumo do conteúdo.",
+    time: "Há 6 horas",
+  },
+  {
+    id: 9,
+    title: "Economia global mostra sinais de recuperação",
+    category: "Economia",
+    image: "/images/news6.jpg",
+    description:
+      "Breve descrição da notícia para apresentar um resumo do conteúdo.",
+    time: "Há 7 horas",
+  },
+    {
+    id: 10,
+    title: "Tecnologia e inovação moldam o futuro do mundo",
+    category: "Tecnologia",
+    image: "/images/news4.jpg",
+    description:
+      "Breve descrição da notícia para apresentar um resumo do conteúdo.",
+    time: "Há 5 horas",
+  },
+  {
+    id: 11,
+    title: "Seleção nacional prepara-se para novos desafios",
+    category: "Desporto",
+    image: "/images/news5.jpg",
+    description:
+      "Breve descrição da notícia para apresentar um resumo do conteúdo.",
+    time: "Há 6 horas",
+  },
+  {
+    id: 12,
+    title: "Economia global mostra sinais de recuperação",
+    category: "Economia",
+    image: "/images/news6.jpg",
+    description:
+      "Breve descrição da notícia para apresentar um resumo do conteúdo.",
+    time: "Há 7 horas",
+  },
 ];
 
 export function NewsGrid() {
