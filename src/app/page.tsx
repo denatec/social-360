@@ -7,6 +7,7 @@ import { OpinionColumnists } from "@/../components/home/OpinionColumnists";
 import { FeaturedNews } from "@/../components/home/FeaturedNews";
 import { NewsSection } from "@/../components/home/NewsSection";
 import { NewsContent } from "@/../components/home/NewsContent";
+import { MoreNews } from "@/../components/home/MoreNews";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <FeaturedNews />
 
         <NewsSection />
+        <MoreNews />
       </ThemeProvider>
     </main>
   );

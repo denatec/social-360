@@ -9,7 +9,8 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Image from "next/image";
 
 const menuItems = [
-  { name: "País", href: "/" },
+  { name: "Home", href: "/" },
+  { name: "País", href: "/pais" },
   { name: "Opinião", href: "/africa" },
   { name: "Comunidade", href: "/Comunidade" },
   { name: "Ambiental", href: "/Ambiental" },
