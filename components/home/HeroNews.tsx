@@ -28,7 +28,7 @@ const slides = [
       "Os principais acontecimentos económicos continuam a gerar debates entre especialistas e autoridades.",
     time: "Há 3 horas",
     author: "João Manuel",
-    image: "/imagem2.jpg",
+    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
     category: "MUNDO",
@@ -70,7 +70,7 @@ export function HeroNews() {
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
               
-              <div className="grid grid-cols-1 gap-6 lg:min-h-[420px] lg:grid-cols-[1fr_1.25fr] lg:gap-8">
+              <div className="grid grid-cols-1 gap-6 lg:min-h-[600px] lg:grid-cols-[1fr_1.25fr] lg:gap-8">
 
                 {/* ================= TEXTO ================= */}
                 <article className="order-2 flex flex-col justify-center lg:order-1">
