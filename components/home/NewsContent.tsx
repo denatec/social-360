@@ -80,7 +80,7 @@ export function NewsContent() {
   return (
     <section
       ref={sectionRef}
-      className="mx-auto max-w-[1800px] px-4 py-10 sm:px-6 lg:px-8"
+      className="mx-auto max-w-[1600px] px-4 py-10 sm:px-6 lg:px-8"
     >
       <div className="grid grid-cols-1 items-start gap-8 xl:grid-cols-[minmax(0,1fr)_300px]">
 
