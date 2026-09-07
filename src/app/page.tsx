@@ -7,6 +7,9 @@ import { HeroNews } from "@/../components/home/HeroNews";
 import { NewsGrid } from "@/../components/home/NewsGrid";
 import { Advertisement } from "@/../components/home/Advertisement";
 import { SidebarNews } from "@/../components/home/SidebarNews";
+import { OpinionColumnists } from "@/../components/home/OpinionColumnists";
+import { FeaturedNews } from "@/../components/home/FeaturedNews";
+import { NewsSection } from "@/../components/home/NewsSection";
 
 export default function Home() {
   return (
@@ -43,6 +46,11 @@ export default function Home() {
 
         </section>
 
+  {/* OPINIÕES */}
+  <OpinionColumnists />
+
+  <FeaturedNews />
+   <NewsSection />
       </ThemeProvider>
 
     </main>

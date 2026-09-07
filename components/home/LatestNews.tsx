@@ -28,6 +28,7 @@ const latestNews = [
     title: "Tecnologia continua a transformar diferentes setores",
     time: "3 h",
   },
+  
 ];
 
 export function LatestNews() {

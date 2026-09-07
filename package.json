@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "electron": "electron .",
+    "dist": "npm run build && electron-builder"
   },
   "dependencies": {
     "framer-motion": "^13.2.0",
@@ -22,7 +24,24 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "electron": "^44.2.0",
+    "electron-builder": "^26.15.3",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "main": "electron.js",
+  "build": {
+    "appId": "com.social360.app",
+    "productName": "Social 360",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron.js",
+      "out/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    }
   }
 }
