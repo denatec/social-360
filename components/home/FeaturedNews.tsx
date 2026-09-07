@@ -64,10 +64,6 @@ export function FeaturedNews() {
         {/* CABEÇALHO */}
         <div className="mb-8 flex items-end justify-between">
           <div>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#2d7911] dark:text-[#5dbb3a]">
-              Conteúdo selecionado
-            </span>
-
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-primary md:text-4xl">
               Featured
             </h2>

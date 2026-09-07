@@ -39,13 +39,13 @@ export function Header() {
       <header className="w-full border-b border-gray-200 bg-white text-black dark:border-zinc-800 dark:bg-[#111] dark:text-white">
 
         {/* ================= BARRA SUPERIOR PRETA ================= */}
-        <div className="bg-black text-white">
+        <div className="bg-[#8c8c8c] text-white">
           <div className="mx-auto flex h-11 max-w-[1600px] items-center justify-between gap-2 px-3 sm:px-4 md:px-6">
 
             {/* Data + Redes sociais */}
             <div className="flex shrink-0 items-center gap-2 sm:gap-4">
-              <p className="whitespace-nowrap text-[10px] capitalize text-gray-300 sm:text-xs">
-                {formattedDate}
+              <p className="whitespace-nowrap text-[12px] capitalize text-white sm:text-xs">
+               <b> {formattedDate}</b>
               </p>
 
               <div className="flex shrink-0 items-center gap-2 border-l border-zinc-700 pl-2 sm:gap-3 sm:pl-4">
@@ -53,7 +53,7 @@ export function Header() {
                 <a
                   href="#"
                   aria-label="Facebook"
-                  className="shrink-0 text-gray-300 transition hover:text-[#5dbb3a]"
+                  className="shrink-0 text-white transition hover:text-[#5dbb3a]"
                 >
                   <FaFacebookF size={14} />
                 </a>
@@ -61,7 +61,7 @@ export function Header() {
                 <a
                   href="#"
                   aria-label="Instagram"
-                  className="shrink-0 text-gray-300 transition hover:text-[#5dbb3a]"
+                  className="shrink-0 text-white transition hover:text-[#5dbb3a]"
                 >
                   <FaInstagram size={15} />
                 </a>
@@ -69,7 +69,7 @@ export function Header() {
                 <a
                   href="#"
                   aria-label="LinkedIn"
-                  className="shrink-0 text-gray-300 transition hover:text-[#5dbb3a]"
+                  className="shrink-0 text-white transition hover:text-[#5dbb3a]"
                 >
                   <FaLinkedinIn size={15} />
                 </a>
@@ -83,7 +83,7 @@ export function Header() {
               {/* Entrar */}
               <Link
                 href="/login"
-                className="rounded-md px-4 py-2 text-sm font-medium text-gray-200 transition hover:bg-white/10 hover:text-white"
+                className="rounded-md px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10 hover:text-white"
               >
                 Entrar
               </Link>
@@ -91,7 +91,7 @@ export function Header() {
               {/* Cadastre-se */}
               <Link
                 href="/cadastro"
-                className="rounded-md border border-[#5dbb3a] bg-[#5dbb3a] px-4 py-2 text-sm font-semibold text-black transition-all duration-300 hover:bg-transparent hover:text-[#5dbb3a]"
+                className="rounded-md border border-[#5dbb3a] bg-[#5dbb3a] px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-transparent hover:text-[#5dbb3a]"
               >
                 Cadastre-se
               </Link>
