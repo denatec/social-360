@@ -67,7 +67,7 @@ const bottomNews = [
 export function HeroNews() {
   return (
     <section className="border-b border-theme bg-background">
-      <div className="mx-auto w-full max-w-[1800px] px-4 py-3 md:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1600px] px-4 py-3 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_520px]">
           
           {/* ================= LADO ESQUERDO ================= */}

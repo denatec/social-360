@@ -94,7 +94,7 @@ const news = [
 
 export function MoreNews() {
   return (
-    <section className="mx-auto w-full max-w-[1800px] px-6 py-12 lg:px-10">
+    <section className="mx-auto w-full max-w-[1600px] px-6 py-12 lg:px-10">
       
       {/* ================= TÍTULO ================= */}
       <div className="mb-8 flex items-center gap-3">

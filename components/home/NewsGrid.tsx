@@ -116,9 +116,9 @@ export function NewsGrid() {
     <section className="min-w-0">
       {/* Cabeçalho */}
       <div className="mb-6 flex items-center justify-between border-l-4 border-[#2d7911] pl-3">
-        <h2 className="text-xl font-bold text-primary">
+        <h1 className="font-bold text-primary text-x1">
           Últimas notícias
-        </h2>
+        </h1>
 
         <button className="text-xs font-semibold text-[#2d7911] transition hover:underline dark:text-[#5dbb3a]">
           Ver todas →

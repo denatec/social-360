@@ -48,7 +48,7 @@ const opinions = [
 
 export function OpinionColumnists() {
   return (
-    <section className="mx-auto max-w-[1800px] px-6 py-12">
+    <section className="mx-auto max-w-[1600px] px-6 py-12">
 
       {/* CABEÇALHO */}
       <div className="mb-8 flex items-center gap-4">
