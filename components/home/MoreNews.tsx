@@ -30,8 +30,6 @@ const news = [
     date: "22 De Julho De 2024",
     image: "/images/news4.jpg",
   },
-
-  // Segunda linha
   {
     id: 5,
     category: "Finanças",
@@ -60,8 +58,6 @@ const news = [
     date: "22 De Julho De 2024",
     image: "/images/news8.jpg",
   },
-
-  // Cards sem imagem
   {
     id: 9,
     category: "Política",
@@ -94,10 +90,10 @@ const news = [
 
 export function MoreNews() {
   return (
-    <section className="mx-auto w-full max-w-[1600px] px-6 py-12 lg:px-10">
-      
-      {/* ================= TÍTULO ================= */}
-      <div className="mb-8 flex items-center gap-3">
+    <section className="mx-auto w-full max-w-[1600px] px-4 py-10 sm:px-6 lg:px-10">
+
+      {/* TÍTULO */}
+      <div className="mb-7 flex items-center gap-3">
         <div className="h-8 w-1 bg-[#2d7911] dark:bg-[#5dbb3a]" />
 
         <h2 className="text-2xl font-bold text-primary">
@@ -105,79 +101,155 @@ export function MoreNews() {
         </h2>
       </div>
 
-      {/* ================= GRID ================= */}
-      <div className="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
-        
+      {/* ============================= */}
+      {/* DESKTOP = GRID                */}
+      {/* MOBILE = LISTA                */}
+      {/* ============================= */}
+
+      <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-8">
+
         {news.map((item) => (
           <article
             key={item.id}
-            className="group min-w-0 border-b border-theme pb-6"
+            className="
+              group
+              border-b
+              border-theme
+              py-5
+
+              sm:border-b-0
+              sm:py-0
+            "
           >
-            {/* ================= IMAGEM OU CINZA ================= */}
-            <div className="relative h-[190px] w-full overflow-hidden bg-gray-300 dark:bg-zinc-800">
-              {item.image ? (
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="
-                    object-cover
-                    transition-transform
-                    duration-500
-                    group-hover:scale-105
-                  "
-                />
-              ) : (
-                <div className="absolute inset-0 bg-gray-300 dark:bg-zinc-800" />
-              )}
-            </div>
 
-            {/* ================= CATEGORIA ================= */}
-            <p className="mt-3 text-sm text-secondary">
-              {item.category}
-            </p>
+            {/* ================================= */}
+            {/* CARD                               */}
+            {/* MOBILE: CONTEÚDO | IMAGEM         */}
+            {/* DESKTOP: IMAGEM EM CIMA            */}
+            {/* ================================= */}
 
-            {/* ================= TÍTULO ================= */}
-            <h3
+            <div
               className="
-                mt-2
-                cursor-pointer
-                text-xl
-                font-bold
-                leading-snug
-                text-primary
-                transition-colors
-                duration-300
-                group-hover:text-[#2d7911]
-                dark:group-hover:text-[#5dbb3a]
+                flex
+                min-w-0
+                flex-row-reverse
+                items-stretch
+                gap-4
+
+                sm:block
               "
             >
-              {item.title}
-            </h3>
 
-            {/* ================= DATA + BOOKMARK ================= */}
-            <div className="mt-4 flex items-center justify-between">
-              <span className="text-sm text-secondary">
-                {item.date}
-              </span>
+              {/* ========================= */}
+              {/* IMAGEM                     */}
+              {/* ========================= */}
 
-              <Bookmark
-                size={16}
-                strokeWidth={1.5}
+              <div
                 className="
-                  text-primary
-                  transition-colors
-                  duration-300
-                  group-hover:text-[#2d7911]
-                  dark:group-hover:text-[#5dbb3a]
+                  relative
+                  h-[105px]
+                  w-[125px]
+                  shrink-0
+                  overflow-hidden
+                  bg-gray-300
+                  dark:bg-zinc-800
+
+                  sm:h-[180px]
+                  sm:w-full
+
+                  lg:h-[190px]
                 "
-              />
+              >
+                {item.image ? (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="
+                      object-cover
+                      transition-transform
+                      duration-500
+                      group-hover:scale-105
+                    "
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gray-300 dark:bg-zinc-800" />
+                )}
+              </div>
+
+              {/* ========================= */}
+              {/* CONTEÚDO                   */}
+              {/* ========================= */}
+
+              <div
+                className="
+                  flex
+                  min-w-0
+                  flex-1
+                  flex-col
+                  justify-between
+
+                  sm:block
+                "
+              >
+
+                {/* CATEGORIA */}
+                <p className="text-xs text-secondary sm:mt-3 sm:text-sm">
+                  {item.category}
+                </p>
+
+                {/* TÍTULO */}
+                <h3
+                  className="
+                    mt-1
+                    cursor-pointer
+                    text-base
+                    font-bold
+                    leading-snug
+                    text-primary
+                    transition-colors
+                    duration-300
+                    group-hover:text-[#2d7911]
+                    dark:group-hover:text-[#5dbb3a]
+
+                    sm:mt-2
+                    sm:text-lg
+
+                    lg:text-xl
+                  "
+                >
+                  {item.title}
+                </h3>
+
+                {/* DATA */}
+                <div className="mt-3 flex items-center justify-between sm:mt-4">
+                  <span className="text-[10px] text-secondary sm:text-sm">
+                    {item.date}
+                  </span>
+
+                  <Bookmark
+                    size={16}
+                    strokeWidth={1.5}
+                    className="
+                      text-primary
+                      transition-colors
+                      duration-300
+                      group-hover:text-[#2d7911]
+                      dark:group-hover:text-[#5dbb3a]
+                    "
+                  />
+                </div>
+
+              </div>
             </div>
           </article>
         ))}
       </div>
 
-      {/* ================= VER MAIS ================= */}
+      {/* ============================= */}
+      {/* MOSTRAR MAIS                   */}
+      {/* ============================= */}
+
       <div className="mt-8 flex justify-center">
         <button
           className="
@@ -195,7 +267,13 @@ export function MoreNews() {
         >
           Mostrar Mais
 
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
+          <span
+            className="
+              transition-transform
+              duration-300
+              group-hover:translate-x-1
+            "
+          >
             →
           </span>
         </button>

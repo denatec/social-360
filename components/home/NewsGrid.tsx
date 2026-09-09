@@ -114,19 +114,19 @@ const news = [
 export function NewsGrid() {
   return (
     <section className="min-w-0">
-      {/* Cabeçalho */}
+      {/* CABEÇALHO */}
       <div className="mb-6 flex items-center justify-between border-l-4 border-[#2d7911] pl-3">
-        <h1 className="font-bold text-primary text-x1">
+        <h2 className="text-xl font-bold text-primary">
           Últimas notícias
-        </h1>
+        </h2>
 
         <button className="text-xs font-semibold text-[#2d7911] transition hover:underline dark:text-[#5dbb3a]">
           Ver todas →
         </button>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+      {/* LISTA DE NOTÍCIAS */}
+      <div className="grid grid-cols-1 gap-x-6 md:grid-cols-2">
         {news.map((item) => (
           <NewsCard
             key={item.id}

@@ -62,6 +62,7 @@ export function NewsSection() {
   return (
     <section className="border-t border-theme bg-background">
       <div className="mx-auto max-w-[1600px] px-4 py-10 md:px-6 lg:px-8">
+
         {/* TÍTULO */}
         <div className="mb-7 flex items-center justify-between">
           <div>
@@ -74,6 +75,7 @@ export function NewsSection() {
 
           <button className="group hidden items-center gap-2 text-sm font-semibold text-[#2d7911] transition hover:text-[#1f5c0c] sm:flex">
             Ver todas
+
             <ArrowRight
               size={17}
               className="transition-transform duration-300 group-hover:translate-x-1"
@@ -83,9 +85,11 @@ export function NewsSection() {
 
         {/* GRID PRINCIPAL */}
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_300px]">
+
           {/* COLUNA DAS NOTÍCIAS */}
           <div className="min-w-0">
-            {/* ================= CARDS GRANDES ================= */}
+
+            {/* CARDS GRANDES */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {featuredNews.map((item) => (
                 <article
@@ -94,7 +98,6 @@ export function NewsSection() {
                 >
                   {/* ÁREA DA IMAGEM */}
                   <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-300 dark:bg-zinc-800">
-                    {/* Quando tiver imagem, substitua esta área pelo Image */}
 
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="text-xs font-medium uppercase tracking-widest text-gray-500 dark:text-zinc-500">
@@ -102,7 +105,7 @@ export function NewsSection() {
                       </span>
                     </div>
 
-                    {/* Categoria */}
+                    {/* CATEGORIA */}
                     <span className="absolute left-4 top-4 bg-[#2d7911] px-3 py-1.5 text-[10px] font-bold tracking-wider text-white">
                       {item.category}
                     </span>
@@ -120,6 +123,7 @@ export function NewsSection() {
 
                     <div className="mt-5 flex items-center gap-2 text-xs text-secondary">
                       <Clock size={13} />
+
                       <span>{item.time}</span>
                     </div>
                   </div>
@@ -127,23 +131,14 @@ export function NewsSection() {
               ))}
             </div>
 
-            {/* ================= NOTÍCIAS PEQUENAS ================= */}
+            {/* NOTÍCIAS PEQUENAS */}
             <div className="mt-8 grid grid-cols-1 gap-x-6 md:grid-cols-2">
               {news.map((item) => (
                 <article
                   key={item.id}
                   className="group flex cursor-pointer gap-4 border-b border-theme py-5 first:pt-0"
                 >
-                  {/* ÁREA DA IMAGEM */}
-                  <div className="relative h-[90px] w-[130px] shrink-0 overflow-hidden rounded-md bg-gray-300 dark:bg-zinc-800">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-[9px] font-medium uppercase text-gray-500 dark:text-zinc-500">
-                        Imagem
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* CONTEÚDO */}
+                  {/* CONTEÚDO - AGORA À ESQUERDA */}
                   <div className="flex min-w-0 flex-1 flex-col justify-between">
                     <div>
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[#2d7911]">
@@ -157,16 +152,25 @@ export function NewsSection() {
 
                     <div className="mt-3 flex items-center gap-1.5 text-[11px] text-secondary">
                       <Clock size={12} />
+
                       <span>{item.time}</span>
+                    </div>
+                  </div>
+
+                  {/* IMAGEM - AGORA À DIREITA */}
+                  <div className="relative h-[90px] w-[130px] shrink-0 overflow-hidden rounded-md bg-gray-300 dark:bg-zinc-800">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-[9px] font-medium uppercase text-gray-500 dark:text-zinc-500">
+                        Imagem
+                      </span>
                     </div>
                   </div>
                 </article>
               ))}
             </div>
 
-            {/* ================= PUBLICIDADE INFERIOR ================= */}
+            {/* PUBLICIDADE INFERIOR */}
             <section className="relative mt-8 flex h-[180px] items-center justify-center overflow-hidden border border-theme bg-surface-secondary">
-              {/* Fundo decorativo */}
               <div className="absolute inset-0 opacity-10">
                 <div className="h-full w-full bg-[radial-gradient(circle,currentColor_1px,transparent_1px)] bg-[size:14px_14px]" />
               </div>
@@ -193,11 +197,11 @@ export function NewsSection() {
             </button>
           </div>
 
-          {/* ================= SIDEBAR PUBLICIDADE ================= */}
+          {/* SIDEBAR PUBLICIDADE */}
           <aside className="relative">
             <div className="sticky top-24">
               <section className="relative flex min-h-[600px] items-center justify-center overflow-hidden border border-theme bg-surface-secondary">
-                {/* Fundo decorativo */}
+
                 <div className="absolute inset-0 opacity-10">
                   <div className="h-full w-full bg-[radial-gradient(circle,currentColor_1px,transparent_1px)] bg-[size:14px_14px]" />
                 </div>

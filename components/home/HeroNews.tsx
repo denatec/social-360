@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Bookmark } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-
 import { LatestNews } from "./LatestNews";
 
 import "swiper/css";
@@ -69,9 +68,11 @@ export function HeroNews() {
     <section className="border-b border-theme bg-background">
       <div className="mx-auto w-full max-w-[1600px] px-4 py-3 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_520px]">
-          
+
           {/* ================= LADO ESQUERDO ================= */}
           <div className="min-w-0">
+
+            {/* ================= SLIDER ================= */}
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -88,44 +89,12 @@ export function HeroNews() {
             >
               {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
-                  {/* NOTÍCIA PRINCIPAL */}
-                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-                    
-                    {/* TEXTO */}
-                  {/* TEXTO */}
-<article className="flex min-h-[500px] flex-col justify-center px-2">
-  <div className="flex items-center gap-2">
-    <span className="h-3 w-3 rounded-full bg-[#c95a0a]" />
 
-    <span className="text-sm font-medium text-primary">
-      {slide.category}
-    </span>
-  </div>
+                  {/* ================= NOTÍCIA PRINCIPAL ================= */}
+                  <div className="grid grid-cols-1 gap-2 lg:grid-cols-[0.8fr_1.2fr] lg:gap-6">
 
-  {/* TÍTULO */}
-  <h1 className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-primary sm:text-4xl xl:text-5xl">
-    {slide.title}
-  </h1>
-
-  {/* DESCRIÇÃO */}
-  <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary md:text-base">
-    {slide.description}
-  </p>
-
-  {/* DATA */}
-  <div className="mt-5 flex items-center justify-between text-xs text-secondary">
-    <span>{slide.date}</span>
-
-    <Bookmark
-      size={16}
-      strokeWidth={1.5}
-      className="text-primary"
-    />
-  </div>
-</article>
-
-                    {/* IMAGEM */}
-                    <div className="relative min-h-[400px] overflow-hidden">
+                    {/* ================= IMAGEM ================= */}
+                    <div className="relative order-1 h-[220px] overflow-hidden sm:h-[380px] lg:order-2 lg:h-auto lg:min-h-[500px]">
                       <Image
                         src={slide.image}
                         alt={slide.title}
@@ -134,23 +103,62 @@ export function HeroNews() {
                         className="object-cover"
                       />
                     </div>
+
+                    {/* ================= TEXTO ================= */}
+                    <article className="order-2 flex flex-col justify-start px-2 pt-2 lg:order-1 lg:min-h-[500px] lg:justify-center lg:pt-0">
+
+                      {/* Categoria */}
+                      <div className="flex items-center gap-2">
+                        <span className="h-3 w-3 rounded-full bg-[#c95a0a]" />
+
+                        <span className="text-sm font-medium text-primary">
+                          {slide.category}
+                        </span>
+                      </div>
+
+                      {/* Título */}
+                      <h1 className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-primary sm:text-4xl xl:text-5xl">
+                        {slide.title}
+                      </h1>
+
+                      {/* Descrição */}
+                      <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary md:text-base">
+                        {slide.description}
+                      </p>
+
+                      {/* Data */}
+                      <div className="mt-5 flex items-center justify-between text-xs text-secondary">
+                        <span>{slide.date}</span>
+
+                        <Bookmark
+                          size={16}
+                          strokeWidth={1.5}
+                          className="text-primary"
+                        />
+                      </div>
+                    </article>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
 
             {/* ================= CARDS DE BAIXO ================= */}
-
-            <div className="mt-8 grid grid-cols-1 gap-5 border-t border-theme pt-5 sm:grid-cols-2 lg:grid-cols-4">
-              {bottomNews.map((news) => (
+            <div className="mt-8 grid grid-cols-1 border-t border-theme pt-5 sm:grid-cols-2 sm:gap-5 sm:border-t-0 lg:grid-cols-4">
+              {bottomNews.map((news, index) => (
                 <article
                   key={news.id}
-                  className="group flex min-w-0 flex-col"
+                  className={`group flex min-w-0 flex-col py-5 sm:py-0 ${
+                    index !== 0
+                      ? "border-t border-theme sm:border-t-0"
+                      : "pt-0"
+                  }`}
                 >
+                  {/* Título */}
                   <h3 className="line-clamp-3 cursor-pointer text-base font-bold leading-snug text-primary transition-colors duration-300 group-hover:text-[#2d7911]">
                     {news.title}
                   </h3>
 
+                  {/* Categoria e Data */}
                   <div className="mt-3">
                     <span className="text-sm font-medium text-primary">
                       {news.category}
@@ -163,6 +171,7 @@ export function HeroNews() {
                     </span>
                   </div>
 
+                  {/* Bookmark */}
                   <div className="mt-3 flex justify-end">
                     <Bookmark
                       size={16}
@@ -176,7 +185,6 @@ export function HeroNews() {
           </div>
 
           {/* ================= LADO DIREITO ================= */}
-
           <aside className="min-w-0">
             <LatestNews />
           </aside>

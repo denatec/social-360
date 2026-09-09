@@ -1,28 +1,32 @@
 import Image from "next/image";
-import { Bookmark } from "lucide-react";
+import { Clock } from "lucide-react";
 
 const latestNews = [
   {
+    id: 1,
     category: "Mundo",
-    title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO ",
+    title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
     date: "22 De Julho De 2024",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
+    id: 2,
     category: "Meio ambiente",
-  title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO ",
+    title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
     date: "22 De Julho De 2024",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
+    id: 3,
     category: "Meio ambiente",
-     title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO ",
+    title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
     date: "22 De Julho De 2024",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
+    id: 4,
     category: "Meio ambiente",
-   title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO ",
+    title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
     date: "22 De Julho De 2024",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
@@ -30,96 +34,48 @@ const latestNews = [
 
 export function LatestNews() {
   return (
-    <aside className="h-full w-full">
-      <div className="flex h-full flex-col">
-        
-        {/* LISTA */}
-        <div className="flex flex-col">
-          {latestNews.map((news, index) => (
-            <article
-              key={index}
-              className="
-                group
-                grid
-                grid-cols-[minmax(0,1fr)_190px]
-                gap-5
-                border-b
-                border-theme
-                py-6
-                first:pt-0
-                last:border-b-0
-              "
-            >
-              {/* ================= TEXTO ================= */}
+    <aside className="w-full">
+      <div className="mb-6 border-l-4 border-[#2d7911] pl-3">
+        <h2 className="text-xl font-bold text-primary">
+          Últimas notícias
+        </h2>
+      </div>
 
-              <div className="flex min-w-0 flex-col justify-between">
-                <div>
-                  {/* Categoria */}
+      <div className="grid grid-cols-1">
+        {latestNews.map((news) => (
+          <article
+            key={news.id}
+            className="group flex cursor-pointer gap-4 border-b border-theme py-5 first:pt-0 last:border-b-0"
+          >
+            {/* CONTEÚDO */}
+            <div className="flex min-w-0 flex-1 flex-col justify-between">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#2d7911] dark:text-[#5dbb3a]">
+                  {news.category}
+                </span>
 
-                  <span className="text-sm font-medium text-primary">
-                    {news.category}
-                  </span>
-
-                  {/* Título */}
-
-                  <h3
-                    className="
-                      mt-1
-                      line-clamp-2
-                      cursor-pointer
-                      text-lg
-                      font-bold
-                      leading-snug
-                      text-primary
-                      transition-colors
-                      duration-300
-                      group-hover:text-[#2d7911]
-                      dark:group-hover:text-[#5dbb3a]
-                    "
-                  >
-                    {news.title}
-                  </h3>
-                </div>
-
-                {/* Data + Bookmark */}
-
-                <div className="mt-3 flex items-center justify-between">
-                  <span className="text-sm text-secondary">
-                    {news.date}
-                  </span>
-
-                  <Bookmark
-                    size={17}
-                    strokeWidth={1.5}
-                    className="
-                      shrink-0
-                      text-primary
-                      transition-colors
-                      duration-300
-                      group-hover:text-[#2d7911]
-                    "
-                  />
-                </div>
+                <h3 className="mt-1 line-clamp-3 text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
+                  {news.title}
+                </h3>
               </div>
 
-              {/* ================= IMAGEM ================= */}
-
-              <div className="relative h-[120px] w-full overflow-hidden bg-gray-300">
-                <Image
-                  src={news.image}
-                  alt={news.title}
-                  fill
-                  className="
-                    object-cover
-                    transition-transform
-                    duration-500
-                    group-hover:scale-105
-                  "
-                />
+              <div className="mt-3 flex items-center gap-1.5 text-[11px] text-secondary">
+                <Clock size={12} />
+                <span>{news.date}</span>
               </div>
-            </article>
-          ))}
-        </div>
+            </div>
+
+            {/* IMAGEM */}
+            <div className="relative h-[90px] w-[130px] shrink-0 overflow-hidden rounded-md bg-gray-300 dark:bg-zinc-800">
+              <Image
+                src={news.image}
+                alt={news.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </article>
+        ))}
       </div>
     </aside>
   );
