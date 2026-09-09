@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { Bookmark } from "lucide-react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
+
 import { LatestNews } from "./LatestNews";
 
 import "swiper/css";
@@ -40,25 +42,29 @@ const bottomNews = [
   {
     id: 1,
     category: "Mundo",
-    title: "🔴 Live: Equilibrando Crescimento Econômico e Proteção Ambiental",
+    title:
+      "🔴 Live: Equilibrando Crescimento Econômico e Proteção Ambiental",
     date: "22 De Julho De 2024",
   },
   {
     id: 2,
     category: "Meio Ambiente",
-    title: "O Papel das Políticas Governamentais na Proteção Ambiental",
+    title:
+      "O Papel das Políticas Governamentais na Proteção Ambiental",
     date: "22 De Julho De 2024",
   },
   {
     id: 3,
     category: "Meio Ambiente",
-    title: "Proteção de Espécies em Perigo e Seus Habitats",
+    title:
+      "Proteção de Espécies em Perigo e Seus Habitats",
     date: "22 De Julho De 2024",
   },
   {
     id: 4,
     category: "Meio Ambiente",
-    title: "Soluções Inovadoras para Reduzir o Lixo Plástico",
+    title:
+      "Soluções Inovadoras para Reduzir o Lixo Plástico",
     date: "22 De Julho De 2024",
   },
 ];
@@ -91,10 +97,29 @@ export function HeroNews() {
                 <SwiperSlide key={index}>
 
                   {/* ================= NOTÍCIA PRINCIPAL ================= */}
-                  <div className="grid grid-cols-1 gap-2 lg:grid-cols-[0.8fr_1.2fr] lg:gap-6">
+                  <div
+                    className="
+                      grid
+                      grid-cols-1
+                      gap-2
+                      lg:grid-cols-[0.8fr_1.2fr]
+                      lg:gap-6
+                    "
+                  >
 
                     {/* ================= IMAGEM ================= */}
-                    <div className="relative order-1 h-[220px] overflow-hidden sm:h-[380px] lg:order-2 lg:h-auto lg:min-h-[500px]">
+                    <div
+                      className="
+                        relative
+                        order-1
+                        h-[600px]
+                        overflow-hidden
+                        sm:h-[500px]
+                        lg:order-2
+                        lg:h-auto
+                        lg:min-h-[600px]
+                      "
+                    >
                       <Image
                         src={slide.image}
                         alt={slide.title}
@@ -105,8 +130,20 @@ export function HeroNews() {
                     </div>
 
                     {/* ================= TEXTO ================= */}
-                    <article className="order-2 flex flex-col justify-start px-2 pt-2 lg:order-1 lg:min-h-[500px] lg:justify-center lg:pt-0">
-
+                    <article
+                      className="
+                        order-2
+                        flex
+                        flex-col
+                        justify-start
+                        px-2
+                        pt-2
+                        lg:order-1
+                        lg:min-h-[500px]
+                        lg:justify-center
+                        lg:pt-0
+                      "
+                    >
                       {/* Categoria */}
                       <div className="flex items-center gap-2">
                         <span className="h-3 w-3 rounded-full bg-[#c95a0a]" />
@@ -117,17 +154,46 @@ export function HeroNews() {
                       </div>
 
                       {/* Título */}
-                      <h1 className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-primary sm:text-4xl xl:text-5xl">
+                      <h1
+                        className="
+                          mt-4
+                          text-3xl
+                          font-bold
+                          leading-[1.1]
+                          tracking-tight
+                          text-primary
+                          sm:text-4xl
+                          xl:text-5xl
+                        "
+                      >
                         {slide.title}
                       </h1>
 
                       {/* Descrição */}
-                      <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary md:text-base">
+                      <p
+                        className="
+                          mt-4
+                          max-w-xl
+                          text-sm
+                          leading-relaxed
+                          text-secondary
+                          md:text-base
+                        "
+                      >
                         {slide.description}
                       </p>
 
                       {/* Data */}
-                      <div className="mt-5 flex items-center justify-between text-xs text-secondary">
+                      <div
+                        className="
+                          mt-5
+                          flex
+                          items-center
+                          justify-between
+                          text-xs
+                          text-secondary
+                        "
+                      >
                         <span>{slide.date}</span>
 
                         <Bookmark
@@ -143,7 +209,20 @@ export function HeroNews() {
             </Swiper>
 
             {/* ================= CARDS DE BAIXO ================= */}
-            <div className="mt-8 grid grid-cols-1 border-t border-theme pt-5 sm:grid-cols-2 sm:gap-5 sm:border-t-0 lg:grid-cols-4">
+            <div
+              className="
+                mt-8
+                grid
+                grid-cols-1
+                border-t
+                border-theme
+                pt-5
+                sm:grid-cols-2
+                sm:gap-5
+                sm:border-t-0
+                lg:grid-cols-4
+              "
+            >
               {bottomNews.map((news, index) => (
                 <article
                   key={news.id}
@@ -154,7 +233,19 @@ export function HeroNews() {
                   }`}
                 >
                   {/* Título */}
-                  <h3 className="line-clamp-3 cursor-pointer text-base font-bold leading-snug text-primary transition-colors duration-300 group-hover:text-[#2d7911]">
+                  <h3
+                    className="
+                      line-clamp-3
+                      cursor-pointer
+                      text-base
+                      font-bold
+                      leading-snug
+                      text-primary
+                      transition-colors
+                      duration-300
+                      group-hover:text-[#2d7911]
+                    "
+                  >
                     {news.title}
                   </h3>
 
@@ -188,6 +279,7 @@ export function HeroNews() {
           <aside className="min-w-0">
             <LatestNews />
           </aside>
+
         </div>
       </div>
     </section>

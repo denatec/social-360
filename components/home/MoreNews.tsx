@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Bookmark } from "lucide-react";
 
@@ -90,9 +92,20 @@ const news = [
 
 export function MoreNews() {
   return (
-    <section className="mx-auto w-full max-w-[1600px] px-4 py-10 sm:px-6 lg:px-10">
-
-      {/* TÍTULO */}
+    <section
+      className="
+        mx-auto
+        w-full
+        max-w-[1600px]
+        px-4
+        py-10
+        sm:px-6
+        lg:px-10
+      "
+    >
+      {/* =========================================
+          TÍTULO
+      ========================================== */}
       <div className="mb-7 flex items-center gap-3">
         <div className="h-8 w-1 bg-[#2d7911] dark:bg-[#5dbb3a]" />
 
@@ -101,18 +114,36 @@ export function MoreNews() {
         </h2>
       </div>
 
-      {/* ============================= */}
-      {/* DESKTOP = GRID                */}
-      {/* MOBILE = LISTA                */}
-      {/* ============================= */}
+      {/* =========================================
+          NOTÍCIAS
+          
+          MOBILE:
+          conteúdo | imagem
 
-      <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-8">
+          DESKTOP:
+          imagem
+          conteúdo
+      ========================================== */}
+      <div
+        className="
+          grid
+          grid-cols-1
+          gap-0
 
+          sm:grid-cols-2
+          sm:gap-6
+
+          lg:grid-cols-4
+          lg:gap-8
+        "
+      >
         {news.map((item) => (
           <article
             key={item.id}
             className="
               group
+              cursor-pointer
+
               border-b
               border-theme
               py-5
@@ -121,80 +152,49 @@ export function MoreNews() {
               sm:py-0
             "
           >
-
-            {/* ================================= */}
-            {/* CARD                               */}
-            {/* MOBILE: CONTEÚDO | IMAGEM         */}
-            {/* DESKTOP: IMAGEM EM CIMA            */}
-            {/* ================================= */}
-
             <div
               className="
                 flex
-                min-w-0
-                flex-row-reverse
-                items-stretch
                 gap-4
 
-                sm:block
+                lg:flex-col
+                lg:gap-0
               "
             >
-
-              {/* ========================= */}
-              {/* IMAGEM                     */}
-              {/* ========================= */}
-
+              {/* =====================================
+                  CONTEÚDO
+              ====================================== */}
               <div
                 className="
-                  relative
-                  h-[105px]
-                  w-[125px]
-                  shrink-0
-                  overflow-hidden
-                  bg-gray-300
-                  dark:bg-zinc-800
-
-                  sm:h-[180px]
-                  sm:w-full
-
-                  lg:h-[190px]
-                "
-              >
-                {item.image ? (
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="
-                      object-cover
-                      transition-transform
-                      duration-500
-                      group-hover:scale-105
-                    "
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gray-300 dark:bg-zinc-800" />
-                )}
-              </div>
-
-              {/* ========================= */}
-              {/* CONTEÚDO                   */}
-              {/* ========================= */}
-
-              <div
-                className="
+                  order-1
                   flex
+                  h-[90px]
                   min-w-0
                   flex-1
                   flex-col
                   justify-between
 
-                  sm:block
+                  lg:order-2
+                  lg:h-auto
+                  lg:block
                 "
               >
-
                 {/* CATEGORIA */}
-                <p className="text-xs text-secondary sm:mt-3 sm:text-sm">
+                <p
+                  className="
+                    text-[10px]
+                    font-bold
+                    uppercase
+                    tracking-wider
+                    text-[#607d8b]
+                    dark:text-[#7fa0ad]
+
+                    lg:mt-3
+                    lg:text-sm
+                    lg:font-normal
+                    lg:tracking-normal
+                  "
+                >
                   {item.category}
                 </p>
 
@@ -202,28 +202,44 @@ export function MoreNews() {
                 <h3
                   className="
                     mt-1
-                    cursor-pointer
-                    text-base
+                    line-clamp-3
+                    text-[15px]
                     font-bold
-                    leading-snug
+                    leading-[1.2]
                     text-primary
                     transition-colors
                     duration-300
                     group-hover:text-[#2d7911]
                     dark:group-hover:text-[#5dbb3a]
 
-                    sm:mt-2
-                    sm:text-lg
-
+                    lg:mt-2
+                    lg:line-clamp-3
                     lg:text-xl
+                    lg:leading-snug
                   "
                 >
                   {item.title}
                 </h3>
 
-                {/* DATA */}
-                <div className="mt-3 flex items-center justify-between sm:mt-4">
-                  <span className="text-[10px] text-secondary sm:text-sm">
+                {/* DATA + BOOKMARK */}
+                <div
+                  className="
+                    mt-2
+                    flex
+                    items-center
+                    justify-between
+
+                    lg:mt-4
+                  "
+                >
+                  <span
+                    className="
+                      text-[10px]
+                      text-secondary
+
+                      lg:text-sm
+                    "
+                  >
                     {item.date}
                   </span>
 
@@ -239,17 +255,65 @@ export function MoreNews() {
                     "
                   />
                 </div>
+              </div>
 
+              {/* =====================================
+                  IMAGEM
+              ====================================== */}
+              <div
+                className="
+                  relative
+                  order-2
+                  h-[90px]
+                  w-[130px]
+                  shrink-0
+                  overflow-hidden
+                  rounded-md
+                  bg-gray-300
+                  dark:bg-zinc-800
+
+                  lg:order-1
+                  lg:h-[190px]
+                  lg:w-full
+                  lg:rounded-none
+                "
+              >
+                {item.image ? (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="
+                      (max-width: 639px) 130px,
+                      (max-width: 1023px) 45vw,
+                      25vw
+                    "
+                    className="
+                      object-cover
+                      transition-transform
+                      duration-500
+                      group-hover:scale-105
+                    "
+                  />
+                ) : (
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      bg-gray-300
+                      dark:bg-zinc-800
+                    "
+                  />
+                )}
               </div>
             </div>
           </article>
         ))}
       </div>
 
-      {/* ============================= */}
-      {/* MOSTRAR MAIS                   */}
-      {/* ============================= */}
-
+      {/* =========================================
+          MOSTRAR MAIS
+      ========================================== */}
       <div className="mt-8 flex justify-center">
         <button
           className="

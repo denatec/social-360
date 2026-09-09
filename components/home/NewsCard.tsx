@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import { Clock } from "lucide-react";
+import { Clock, Bookmark } from "lucide-react";
 
 interface NewsCardProps {
   title: string;
@@ -13,45 +15,215 @@ export function NewsCard({
   title,
   category,
   image,
-  description,
-  time,
+  description = "Breve descrição da notícia para apresentar um resumo do conteúdo.",
+  time = "Há 2 horas",
 }: NewsCardProps) {
   return (
-    <article className="group cursor-pointer border-b border-theme py-5 transition-colors duration-300">
-      <div className="flex gap-4">
-        {/* CONTEÚDO */}
-        <div className="flex min-w-0 flex-1 flex-col justify-between">
+    <article
+      className="
+        group
+        cursor-pointer
+
+        border-b
+        border-theme
+        py-5
+
+        lg:overflow-hidden
+        lg:rounded-lg
+        lg:border
+        lg:bg-surface
+        lg:py-0
+        lg:transition-all
+        lg:duration-300
+        lg:hover:-translate-y-1
+        lg:hover:shadow-xl
+      "
+    >
+      <div
+        className="
+          flex
+          gap-4
+
+          lg:flex-col
+          lg:gap-0
+        "
+      >
+        {/* =========================================
+            CONTEÚDO
+        ========================================== */}
+        <div
+          className="
+            order-1
+            flex
+            h-[90px]
+            min-w-0
+            flex-1
+            flex-col
+            justify-between
+
+            lg:order-2
+            lg:h-auto
+            lg:p-4
+          "
+        >
+          {/* CATEGORIA + TÍTULO */}
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#2d7911] dark:text-[#5dbb3a]">
+            <span
+              className="
+                block
+                text-[10px]
+                font-bold
+                uppercase
+                tracking-wider
+                text-[#2d7911]
+                dark:text-[#5dbb3a]
+
+                lg:mb-3
+                lg:w-fit
+                lg:rounded-sm
+                lg:bg-[#2d7911]
+                lg:px-2
+                lg:py-1
+                lg:text-[9px]
+                lg:tracking-wide
+                lg:text-white
+                lg:dark:bg-[#5dbb3a]
+                lg:dark:text-black
+              "
+            >
               {category}
             </span>
 
-            <h3 className="mt-1 line-clamp-3 text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
+            <h3
+              className="
+                mt-2
+                line-clamp-3
+                text-[15px]
+                font-bold
+                leading-[1.2]
+                text-primary
+                transition-colors
+                duration-300
+                group-hover:text-[#2d7911]
+                dark:group-hover:text-[#5dbb3a]
+
+                lg:mt-0
+                lg:line-clamp-2
+                lg:text-base
+                lg:leading-snug
+              "
+            >
               {title}
             </h3>
-
-            {description && (
-              <p className="mt-2 line-clamp-2 text-[11px] leading-relaxed text-secondary">
-                {description}
-              </p>
-            )}
           </div>
 
-          {time && (
-            <div className="mt-3 flex items-center gap-1.5 text-[11px] text-secondary">
-              <Clock size={12} />
-              <span>{time}</span>
-            </div>
-          )}
+          {/* =====================================
+              TEMPO
+          ====================================== */}
+          <div
+            className="
+              flex
+              items-center
+              gap-1.5
+              text-[11px]
+              text-secondary
+
+              lg:mt-5
+              lg:border-t
+              lg:border-theme
+              lg:pt-3
+            "
+          >
+            <Clock
+              size={12}
+              strokeWidth={1.8}
+              className="lg:h-[13px] lg:w-[13px]"
+            />
+
+            <span>{time}</span>
+          </div>
+
+          {/* =====================================
+              DESCRIÇÃO - DESKTOP
+          ====================================== */}
+          <p
+            className="
+              hidden
+
+              lg:mt-3
+              lg:line-clamp-2
+              lg:block
+              lg:text-xs
+              lg:leading-relaxed
+              lg:text-secondary
+            "
+          >
+            {description}
+          </p>
+
+          {/* =====================================
+              BOOKMARK - DESKTOP
+          ====================================== */}
+          <button
+            aria-label="Salvar notícia"
+            className="
+              hidden
+
+              lg:block
+              lg:text-secondary
+              lg:transition-colors
+              lg:hover:text-[#2d7911]
+              lg:dark:hover:text-[#5dbb3a]
+            "
+          >
+            <Bookmark
+              size={15}
+              strokeWidth={1.8}
+              className="
+                transition-transform
+                duration-300
+                hover:scale-110
+              "
+            />
+          </button>
         </div>
 
-        {/* IMAGEM — MESMO PADRÃO DO NEWSSECTION */}
-        <div className="relative h-[90px] w-[130px] shrink-0 overflow-hidden rounded-md bg-gray-300 dark:bg-zinc-800">
+        {/* =========================================
+            IMAGEM
+        ========================================== */}
+        <div
+          className="
+            relative
+            order-2
+            h-[90px]
+            w-[130px]
+            shrink-0
+            overflow-hidden
+            rounded-md
+            bg-gray-300
+            dark:bg-zinc-800
+
+            lg:order-1
+            lg:h-auto
+            lg:aspect-[16/9]
+            lg:w-full
+            lg:rounded-none
+          "
+        >
           <Image
             src={image}
             alt={title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="
+              (max-width: 1023px) 130px,
+              (min-width: 1024px) 33vw
+            "
+            className="
+              object-cover
+              transition-transform
+              duration-500
+              group-hover:scale-105
+            "
           />
         </div>
       </div>

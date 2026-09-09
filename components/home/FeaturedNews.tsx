@@ -11,8 +11,7 @@ const featuredNews = [
   {
     id: 1,
     category: "Próxima Série",
-    title:
-      "Conheça a startup que traz a sala de aula para um mundo virtual",
+    title: "Conheça a startup que traz a sala de aula para um mundo virtual",
     partner: "Em parceria com a Azpromo",
     image: "/images/featured-1.jpg",
   },
@@ -60,17 +59,16 @@ const featuredNews = [
 
 export function FeaturedNews() {
   return (
-    <section className="relative overflow-hidden border-y border-theme bg-background py-8 sm:py-10 md:py-14">
-      <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-5 md:px-6 lg:px-8">
-
+    <section className="relative overflow-hidden border-y border-theme bg-background py-10 md:py-14">
+      <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-8">
         {/* CABEÇALHO */}
-        <div className="mb-6 flex items-end justify-between sm:mb-8">
+        <div className="mb-8 flex items-end justify-between">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl md:text-4xl">
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-primary md:text-4xl">
               Featured
             </h2>
 
-            <div className="mt-2 h-[3px] w-10 bg-[#ffc517] sm:mt-3 sm:w-12" />
+            <div className="mt-3 h-[3px] w-12 bg-[#ffc517]" />
           </div>
 
           <span className="hidden text-sm text-secondary sm:block">
@@ -80,8 +78,7 @@ export function FeaturedNews() {
 
         {/* SLIDER */}
         <div className="relative">
-
-          {/* BOTÃO ANTERIOR - DESKTOP */}
+          {/* SETA ESQUERDA */}
           <button
             className="
               featured-prev
@@ -116,7 +113,7 @@ export function FeaturedNews() {
             &lt;
           </button>
 
-          {/* BOTÃO PRÓXIMO - DESKTOP */}
+          {/* SETA DIREITA */}
           <button
             className="
               featured-next
@@ -151,6 +148,7 @@ export function FeaturedNews() {
             &gt;
           </button>
 
+          {/* SWIPER */}
           <Swiper
             modules={[Navigation]}
             navigation={{
@@ -159,164 +157,63 @@ export function FeaturedNews() {
             }}
             loop={true}
             speed={600}
-            spaceBetween={12}
-            slidesPerView={1.15}
+            spaceBetween={20}
+            slidesPerView={1}
             slidesPerGroup={1}
             breakpoints={{
-              // MOBILE
-              0: {
-                slidesPerView: 1.15,
-                spaceBetween: 12,
-              },
-
-              // TABLET PEQUENO
-              480: {
-                slidesPerView: 1.5,
-                spaceBetween: 14,
-              },
-
-              // TABLET
               640: {
                 slidesPerView: 2,
                 spaceBetween: 16,
               },
 
-              // TABLET GRANDE
               768: {
                 slidesPerView: 3,
                 spaceBetween: 20,
               },
 
-              // DESKTOP
               1024: {
                 slidesPerView: 4,
                 spaceBetween: 20,
               },
 
-              // DESKTOP GRANDE
               1280: {
                 slidesPerView: 5,
                 spaceBetween: 20,
               },
             }}
-            className="featured-swiper !overflow-visible"
+            className="featured-swiper"
           >
             {featuredNews.map((news) => (
-              <SwiperSlide
-                key={news.id}
-                className="h-auto"
-              >
-                <article
-                  className="
-                    group
-                    flex
-                    h-full
-                    cursor-pointer
-                    flex-col
-                    overflow-hidden
-                    rounded-lg
-                    border
-                    border-theme
-                    bg-surface
-                    transition-all
-                    duration-300
-                    hover:-translate-y-1
-                    hover:shadow-xl
-                  "
-                >
-
+              <SwiperSlide key={news.id} className="h-auto">
+                <article className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-theme bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  
                   {/* IMAGEM */}
-                  <div
-                    className="
-                      relative
-                      h-[170px]
-                      w-full
-                      overflow-hidden
-                      bg-gray-300
-                      dark:bg-zinc-800
-                      sm:h-[180px]
-                      md:h-auto
-                      md:aspect-[16/10]
-                    "
-                  >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-300 dark:bg-zinc-800">
                     <Image
                       src={news.image}
                       alt={news.title}
                       fill
-                      className="
-                        object-cover
-                        transition-transform
-                        duration-700
-                        group-hover:scale-105
-                      "
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
 
-                    {/* GRADIENTE */}
+                    {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
                     {/* CATEGORIA */}
-                    <span
-                      className="
-                        absolute
-                        left-2.5
-                        top-2.5
-                        bg-[#2d7911]
-                        px-2
-                        py-1
-                        text-[9px]
-                        font-bold
-                        uppercase
-                        tracking-wider
-                        text-white
-                        sm:left-3
-                        sm:top-3
-                        sm:px-2.5
-                        sm:text-[10px]
-                      "
-                    >
+                    <span className="absolute left-3 top-3 bg-[#2d7911] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
                       {news.category}
                     </span>
                   </div>
 
                   {/* CONTEÚDO */}
-                  <div
-                    className="
-                      flex
-                      flex-1
-                      flex-col
-                      p-3
-                      sm:p-4
-                    "
-                  >
-                    <h3
-                      className="
-                        line-clamp-3
-                        text-sm
-                        font-bold
-                        leading-snug
-                        text-primary
-                        transition-colors
-                        duration-300
-                        group-hover:text-[#2d7911]
-                        sm:text-base
-                      "
-                    >
+                  <div className="flex flex-1 flex-col p-4">
+                    <h3 className="line-clamp-3 text-base font-bold leading-snug text-primary transition-colors duration-300 group-hover:text-[#2d7911]">
                       {news.title}
                     </h3>
 
-                    {/* LINHA */}
-                    <div className="my-2.5 h-px w-full bg-theme sm:my-3" />
+                    <div className="my-3 h-px w-full bg-theme" />
 
-                    {/* PARCEIRO */}
-                    <p
-                      className="
-                        mt-auto
-                        text-[10px]
-                        leading-relaxed
-                        text-secondary
-                        sm:text-xs
-                      "
-                    >
+                    <p className="mt-auto text-xs leading-relaxed text-secondary">
                       {news.partner}
                     </p>
                   </div>
