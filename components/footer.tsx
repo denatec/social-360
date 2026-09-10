@@ -5,6 +5,8 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 
+import { Mail, Phone } from "lucide-react";
+
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-theme bg-surface transition-colors duration-300">
@@ -66,13 +68,29 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Contactos */}
-        <div className="w-full">
-          <h3 className="mb-4 font-bold text-primary">
-            Contactos
-          </h3>
-        </div>
+       {/* Contactos */}
+<div className="w-full">
+  <h3 className="mb-4 font-bold text-primary">
+    Contactos
+  </h3>
 
+  <ul className="space-y-3 text-sm text-secondary">
+    <li className="flex items-center gap-2">
+      <Phone size={16} strokeWidth={1.8} />
+      <span>+244 926 812 257</span>
+    </li>
+
+    <li className="flex items-center gap-2">
+      <Phone size={16} strokeWidth={1.8} />
+      <span>+244 940 068 800</span>
+    </li>
+
+    <li className="flex items-center gap-2">
+      <Mail size={16} strokeWidth={1.8} />
+      <span>grel@revistasicial360.com</span>
+    </li>
+  </ul>
+</div>
         {/* Outras Publicações */}
         <div className="w-full">
           <h3 className="mb-4 font-bold text-primary">

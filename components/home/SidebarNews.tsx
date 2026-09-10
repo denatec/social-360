@@ -6,32 +6,30 @@ const mostRead = [
     category: "Notícias da Europa",
     title:
       "Moção de censura deverá cair, mas polémicas expõem desgaste do Governo",
-    time: "15 min",
   },
   {
     id: 2,
     category: "Notícias da Europa",
     title:
       "Rússia retoma ataques após breve pausa e faz dois mortos em Kiev",
-    time: "38 min",
   },
   {
     id: 3,
     category: "Notícias da Europa",
     title: "PISA: alunos portugueses apresentam retrocesso de décadas",
-    time: "1 h",
+    
   },
   {
     id: 4,
     category: "Notícias da Europa",
     title: "Economia mundial enfrenta novos desafios",
-    time: "2 h",
+    
   },
   {
     id: 5,
     category: "Notícias da Europa",
     title: "Tecnologia continua transformando a sociedade",
-    time: "3 h",
+    
   },
 ];
 
@@ -76,10 +74,6 @@ export function SidebarNews() {
                   <h3 className="mt-1 text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
                     {news.title}
                   </h3>
-
-                  <span className="mt-2 block text-[10px] text-secondary">
-                    {news.time}
-                  </span>
                 </div>
               </div>
             </article>
@@ -132,10 +126,6 @@ export function SidebarNews() {
                   <h3 className="cursor-pointer text-[11px] font-semibold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
                     {news.title}
                   </h3>
-
-                  <span className="mt-1 block text-[10px] text-secondary">
-                    {news.time}
-                  </span>
                 </div>
               </article>
             ))}

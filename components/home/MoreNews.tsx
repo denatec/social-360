@@ -8,84 +8,72 @@ const news = [
     id: 1,
     category: "Mundo",
     title: "Como as Mudanças Climáticas Estão Afetando os Padrões Climáticos",
-    date: "22 De Julho De 2024",
     image: "/images/news1.jpg",
   },
   {
     id: 2,
     category: "Finanças",
     title: "Entendendo as Pontuações de Crédito e Como Melhorá-las",
-    date: "22 De Julho De 2024",
     image: "/images/news2.jpg",
   },
   {
     id: 3,
     category: "Finanças",
     title: "Planejamento Financeiro para Proprietários de Pequenas Empresas",
-    date: "22 De Julho De 2024",
     image: "/images/news3.jpg",
   },
   {
     id: 4,
     category: "Finanças",
     title: "Como Planejar uma Aposentadoria Segura",
-    date: "22 De Julho De 2024",
     image: "/images/news4.jpg",
   },
   {
     id: 5,
     category: "Finanças",
     title: "Analisando as Últimas Tendências do Mercado de Ações",
-    date: "22 De Julho De 2024",
     image: "/images/news5.jpg",
   },
   {
     id: 6,
     category: "Finanças",
     title: "O Impacto das Taxas de Juros na Economia",
-    date: "22 De Julho De 2024",
     image: "/images/news6.jpg",
   },
   {
     id: 7,
     category: "Finanças",
     title: "Os Benefícios de Diversificar Seu Portfólio",
-    date: "22 De Julho De 2024",
     image: "/images/news7.jpg",
   },
   {
     id: 8,
     category: "Tecnologia",
     title: "Avanços na Computação Quântica",
-    date: "22 De Julho De 2024",
     image: "/images/news8.jpg",
   },
   {
     id: 9,
     category: "Política",
     title: "Novas decisões políticas movimentam o cenário nacional",
-    date: "22 De Julho De 2024",
     image: "",
   },
   {
     id: 10,
     category: "Economia",
     title: "Especialistas analisam novos desafios económicos",
-    date: "22 De Julho De 2024",
     image: "",
   },
   {
     id: 11,
     category: "Sociedade",
     title: "Novas iniciativas sociais ganham destaque nas comunidades",
-    date: "22 De Julho De 2024",
     image: "",
   },
   {
     id: 12,
     category: "Tecnologia",
     title: "Inovação continua a transformar diferentes setores",
-    date: "22 De Julho De 2024",
     image: "",
   },
 ];
@@ -232,17 +220,6 @@ export function MoreNews() {
                     lg:mt-4
                   "
                 >
-                  <span
-                    className="
-                      text-[10px]
-                      text-secondary
-
-                      lg:text-sm
-                    "
-                  >
-                    {item.date}
-                  </span>
-
                   <Bookmark
                     size={16}
                     strokeWidth={1.5}

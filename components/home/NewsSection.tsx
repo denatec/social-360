@@ -7,7 +7,6 @@ const featuredNews = [
     title: "Novas decisões políticas marcam o cenário nacional",
     description:
       "Os principais acontecimentos e decisões que estão a movimentar o panorama político do país.",
-    time: "Há 2 horas",
   },
   {
     id: 2,
@@ -15,7 +14,6 @@ const featuredNews = [
     title: "Economia nacional enfrenta novos desafios",
     description:
       "Especialistas analisam as mudanças e os desafios que podem marcar os próximos meses.",
-    time: "Há 3 horas",
   },
 ];
 
@@ -23,38 +21,31 @@ const news = [
   {
     id: 1,
     category: "PAÍS",
-    title: "Novos projetos prometem transformar diferentes regiões",
-    time: "Há 1 hora",
-  },
+    title: "Novos projetos prometem transformar diferentes regiões",  },
   {
     id: 2,
     category: "MUNDO",
     title: "Líderes internacionais reúnem-se para discutir novos acordos",
-    time: "Há 2 horas",
   },
   {
     id: 3,
     category: "TECNOLOGIA",
     title: "Tecnologia continua a mudar a forma como vivemos",
-    time: "Há 3 horas",
   },
   {
     id: 4,
     category: "SOCIEDADE",
     title: "Novas iniciativas sociais ganham força nas comunidades",
-    time: "Há 4 horas",
   },
   {
     id: 5,
     category: "ÁFRICA",
     title: "Países africanos reforçam relações económicas",
-    time: "Há 5 horas",
   },
   {
     id: 6,
     category: "AMBIENTE",
     title: "Especialistas alertam para novos desafios ambientais",
-    time: "Há 6 horas",
   },
 ];
 
@@ -120,12 +111,6 @@ export function NewsSection() {
                     <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-secondary">
                       {item.description}
                     </p>
-
-                    <div className="mt-5 flex items-center gap-2 text-xs text-secondary">
-                      <Clock size={13} />
-
-                      <span>{item.time}</span>
-                    </div>
                   </div>
                 </article>
               ))}
@@ -148,12 +133,6 @@ export function NewsSection() {
                       <h3 className="mt-1 text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911]">
                         {item.title}
                       </h3>
-                    </div>
-
-                    <div className="mt-3 flex items-center gap-1.5 text-[11px] text-secondary">
-                      <Clock size={12} />
-
-                      <span>{item.time}</span>
                     </div>
                   </div>
 

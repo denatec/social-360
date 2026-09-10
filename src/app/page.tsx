@@ -16,7 +16,7 @@ export default function Home() {
       <ThemeProvider>
 
         {/* PRIMEIRA PUBLICIDADE */}
-        <div className="w-full h-[220px]">
+        <div className="w-full h-[320px]">
           <Advertisement />
         </div>
 
@@ -24,7 +24,7 @@ export default function Home() {
 
         {/* SEGUNDA PUBLICIDADE */}
         <div className="mx-auto w-full max-w-[1800px] px-4 pt-10 sm:px-6 lg:px-8">
-          <div className="w-full h-[220px]">
+          <div className="w-full h-[300px]">
             <Advertisement />
           </div>
         </div>

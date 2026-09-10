@@ -8,7 +8,6 @@ const news = [
     image: "/images/news1.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 2 horas",
   },
   {
     id: 2,
@@ -17,7 +16,6 @@ const news = [
     image: "/images/news2.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 3 horas",
   },
   {
     id: 3,
@@ -26,7 +24,6 @@ const news = [
     image: "/images/news3.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 4 horas",
   },
   {
     id: 4,
@@ -35,7 +32,6 @@ const news = [
     image: "/images/news4.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 5 horas",
   },
   {
     id: 5,
@@ -44,7 +40,6 @@ const news = [
     image: "/images/news5.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 6 horas",
   },
   {
     id: 6,
@@ -53,7 +48,6 @@ const news = [
     image: "/images/news6.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 7 horas",
   },
   {
     id: 7,
@@ -62,7 +56,6 @@ const news = [
     image: "/images/news4.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 5 horas",
   },
   {
     id: 8,
@@ -71,7 +64,6 @@ const news = [
     image: "/images/news5.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 6 horas",
   },
   {
     id: 9,
@@ -80,7 +72,6 @@ const news = [
     image: "/images/news6.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 7 horas",
   },
   {
     id: 10,
@@ -89,7 +80,6 @@ const news = [
     image: "/images/news4.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 5 horas",
   },
   {
     id: 11,
@@ -98,7 +88,6 @@ const news = [
     image: "/images/news5.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 6 horas",
   },
   {
     id: 12,
@@ -107,7 +96,6 @@ const news = [
     image: "/images/news6.jpg",
     description:
       "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-    time: "Há 7 horas",
   },
 ];
 
@@ -134,7 +122,6 @@ export function NewsGrid() {
             category={item.category}
             image={item.image}
             description={item.description}
-            time={item.time}
           />
         ))}
       </div>

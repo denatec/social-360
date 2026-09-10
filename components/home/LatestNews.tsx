@@ -93,11 +93,6 @@ export function LatestNews() {
               className="h-auto w-full object-contain"
             />
           </div>
-
-          {/* Tempo */}
-          <p className="mt-3 text-xs font-medium text-white/80">
-            {featuredNews.time}
-          </p>
         </div>
       </article>
 
@@ -115,17 +110,9 @@ export function LatestNews() {
           />
         </div>
 
-        <span className="mx-auto mt-4 block max-w-[280px] text-center text-[10px] font-bold uppercase tracking-widest text-[#2d7911] dark:text-[#5dbb3a]">
-          {featuredNews.category}
-        </span>
-
         <h3 className="mx-auto mt-1 max-w-[280px] text-center text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
           {featuredNews.title}
         </h3>
-
-        <p className="mt-2 text-center text-xs text-secondary">
-          {featuredNews.time}
-        </p>
       </article>
 
       {/* ============================================
