@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 
@@ -40,16 +41,45 @@ export function Advertisement({
           : "mx-auto my-8 w-full max-w-7xl px-6"
       }
     >
-      <div className="relative h-28 w-full min-w-0 max-w-full overflow-hidden border border-theme bg-surface-secondary transition-colors">
-        
-        <span className="absolute left-3 top-3 z-20 bg-black/70 px-2 py-1 text-[10px] tracking-widest text-white">
+      <div
+        className="
+          relative
+          h-[200px]
+          w-full
+          min-w-0
+          max-w-full
+          overflow-hidden
+          border
+          border-theme
+          bg-surface-secondary
+          transition-colors
+        "
+      >
+        {/* ================= LABEL ================= */}
+        <span
+          className="
+            absolute
+            left-3
+            top-3
+            z-20
+            bg-black/70
+            px-2
+            py-1
+            text-[10px]
+            tracking-widest
+            text-white
+          "
+        >
           PUBLICIDADE
         </span>
 
+        {/* ================= SLIDER ================= */}
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
-          fadeEffect={{ crossFade: true }}
+          fadeEffect={{
+            crossFade: true,
+          }}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
@@ -75,3 +105,4 @@ export function Advertisement({
     </section>
   );
 }
+
