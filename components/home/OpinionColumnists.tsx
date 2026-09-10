@@ -4,15 +4,15 @@ import { ArrowRight } from "lucide-react";
 const opinions = [
   {
     id: 1,
-    name: "João Manuel Silva",
-    image: "/images/autor1.jpg",
+    name: "Leonor Sá Machado",
+    image: "/LEONOR SÁ MACHADO.png",
     opinion:
       "O futuro da sociedade começa pelas decisões que tomamos hoje.",
   },
   {
     id: 2,
-    name: "Maria Fernandes",
-    image: "/images/autor2.jpg",
+    name: "Miguel Mbuta.",
+    image: "/MIGUEL MBUTA.png",
     opinion:
       "A educação continua sendo a ferramenta mais poderosa para mudar uma nação.",
   },

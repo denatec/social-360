@@ -17,7 +17,6 @@ const slides = [
     title: "O Papel da Mídia na Política Moderna",
     description:
       "Um ótimo design se integra perfeitamente com a experiência do usuário, tornando a interação suave e intuitiva. Não se trata apenas de estética; trata-se de funcionalidade e usabilidade, garantir que os usuários possam alcançar seus objetivos...",
-    date: "22 De Julho De 2024",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
@@ -25,7 +24,6 @@ const slides = [
     title: "Economia apresenta novos desafios para os próximos anos",
     description:
       "Especialistas analisam as mudanças e os desafios que podem marcar os próximos meses.",
-    date: "22 De Julho De 2024",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
   {
@@ -33,7 +31,6 @@ const slides = [
     title: "Novos acontecimentos movimentam a agenda internacional",
     description:
       "Os acontecimentos mais importantes da atualidade internacional e as suas consequências.",
-    date: "22 De Julho De 2024",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
 ];
@@ -44,28 +41,24 @@ const bottomNews = [
     category: "Mundo",
     title:
       "🔴 Live: Equilibrando Crescimento Econômico e Proteção Ambiental",
-    date: "22 De Julho De 2024",
   },
   {
     id: 2,
     category: "Meio Ambiente",
     title:
       "O Papel das Políticas Governamentais na Proteção Ambiental",
-    date: "22 De Julho De 2024",
   },
   {
     id: 3,
     category: "Meio Ambiente",
     title:
       "Proteção de Espécies em Perigo e Seus Habitats",
-    date: "22 De Julho De 2024",
   },
   {
     id: 4,
     category: "Meio Ambiente",
     title:
       "Soluções Inovadoras para Reduzir o Lixo Plástico",
-    date: "22 De Julho De 2024",
   },
 ];
 
@@ -182,26 +175,6 @@ export function HeroNews() {
                       >
                         {slide.description}
                       </p>
-
-                      {/* Data */}
-                      <div
-                        className="
-                          mt-5
-                          flex
-                          items-center
-                          justify-between
-                          text-xs
-                          text-secondary
-                        "
-                      >
-                        <span>{slide.date}</span>
-
-                        <Bookmark
-                          size={16}
-                          strokeWidth={1.5}
-                          className="text-primary"
-                        />
-                      </div>
                     </article>
                   </div>
                 </SwiperSlide>
@@ -253,12 +226,6 @@ export function HeroNews() {
                   <div className="mt-3">
                     <span className="text-sm font-medium text-primary">
                       {news.category}
-                    </span>
-
-                    <span className="mx-2 text-secondary">·</span>
-
-                    <span className="text-sm text-secondary">
-                      {news.date}
                     </span>
                   </div>
 
