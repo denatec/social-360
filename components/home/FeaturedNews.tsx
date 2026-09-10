@@ -65,7 +65,7 @@ export function FeaturedNews() {
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-primary md:text-4xl">
-              Featured
+              Lado Humano
             </h2>
 
             <div className="mt-3 h-[3px] w-12 bg-[#ffc517]" />

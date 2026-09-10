@@ -1,585 +1,205 @@
 "use client";
 
 import Image from "next/image";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-} from "lucide-react";
-import { useEffect, useState } from "react";
 
-const latestNews = [
-  {
-    id: 1,
-    category: "Mundo",
-    title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
-    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-    time: "10 minutos de leitura",
-  },
+const featuredNews = {
+  id: 1,
+  category: "Mundo",
+  title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
+  time: "Há 10 minutos",
+  image: "/CAPA.png",
+};
+
+const secondaryNews = [
   {
     id: 2,
     category: "Meio ambiente",
-    title: "AS MUDANÇAS QUE ESTÃO TRANSFORMANDO O NOSSO PLANETA",
+    title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-    time: "4 minutos de leitura",
   },
   {
     id: 3,
     category: "Política",
-    title: "NOVAS DECISÕES PODEM MUDAR O CENÁRIO POLÍTICO",
+    title: "NOVAS DECISÕES PROMETEM MUDAR O CENÁRIO NACIONAL",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-    time: "6 minutos de leitura",
   },
   {
     id: 4,
     category: "Economia",
-    title: "MERCADOS REAGEM ÀS NOVAS MEDIDAS ECONÔMICAS",
+    title: "MERCADOS REAGEM ÀS NOVAS MEDIDAS ANUNCIADAS",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-    time: "5 minutos de leitura",
   },
   {
     id: 5,
     category: "Tecnologia",
-    title: "A NOVA TECNOLOGIA QUE ESTÁ MUDANDO O FUTURO",
+    title: "NOVA TECNOLOGIA PROMETE TRANSFORMAR O FUTURO",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-    time: "7 minutos de leitura",
   },
   {
     id: 6,
-    category: "Cultura",
-    title: "HISTÓRIAS QUE ESTÃO MARCANDO UMA NOVA GERAÇÃO",
+    category: "Desporto",
+    title: "EQUIPA PREPARA-SE PARA UM DOS MAIORES DESAFIOS",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-    time: "8 minutos de leitura",
   },
 ];
 
 export function LatestNews() {
-  // =====================================================
-  // NOTÍCIA PRINCIPAL
-  // =====================================================
-
-  const mainNews = latestNews[0];
-
-  // =====================================================
-  // NOTÍCIAS SECUNDÁRIAS
-  // =====================================================
-
-  const secondaryNews = latestNews.slice(1);
-
-  /*
-   * Mostramos 2 notícias ao mesmo tempo.
-   *
-   * Criamos clones:
-   *
-   * [últimas 2]
-   * [todas as notícias]
-   * [primeiras 2]
-   *
-   * Isso permite que o carrossel seja infinito.
-   */
-
-  const visibleCount = 2;
-
-  const firstClones = secondaryNews.slice(0, visibleCount);
-  const lastClones = secondaryNews.slice(-visibleCount);
-
-  const carouselNews = [
-    ...lastClones,
-    ...secondaryNews,
-    ...firstClones,
-  ];
-
-  /*
-   * Começamos depois dos clones iniciais.
-   */
-  const [currentIndex, setCurrentIndex] =
-    useState(visibleCount);
-
-  /*
-   * Controla se a transição está ativa.
-   */
-  const [isTransitioning, setIsTransitioning] =
-    useState(true);
-
-  // =====================================================
-  // TAMANHO DE CADA CARD
-  // =====================================================
-
-  /*
-   * Cada card ocupa metade da área.
-   *
-   * O gap fica separado através do cálculo.
-   */
-
-  const cardWidth = "calc(50% - 6px)";
-
-  // =====================================================
-  // PRÓXIMO
-  // =====================================================
-
-  const nextSlide = () => {
-    if (!isTransitioning) return;
-
-    setCurrentIndex((current) => current + 1);
-  };
-
-  // =====================================================
-  // ANTERIOR
-  // =====================================================
-
-  const previousSlide = () => {
-    if (!isTransitioning) return;
-
-    setCurrentIndex((current) => current - 1);
-  };
-
-  // =====================================================
-  // TRANSITION END
-  // =====================================================
-
-  const handleTransitionEnd = () => {
-    /*
-     * Chegamos aos primeiros clones.
-     *
-     * Exemplo:
-     *
-     * 1 2 3 4 5 1 2
-     *           ↑
-     *         clone
-     *
-     * Voltamos silenciosamente para o início real.
-     */
-
-    if (
-      currentIndex >=
-      secondaryNews.length + visibleCount
-    ) {
-      setIsTransitioning(false);
-
-      setCurrentIndex(visibleCount);
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsTransitioning(true);
-        });
-      });
-    }
-
-    /*
-     * Chegamos aos clones do final.
-     *
-     * Exemplo:
-     *
-     * 5 1 2 3 4 5 1 2
-     * ↑
-     * clone
-     */
-
-    if (currentIndex <= 0) {
-      setIsTransitioning(false);
-
-      setCurrentIndex(
-        secondaryNews.length
-      );
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsTransitioning(true);
-        });
-      });
-    }
-  };
-
-  // =====================================================
-  // AUTO PLAY
-  // =====================================================
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((current) => current + 1);
-    }, 6000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  // =====================================================
-  // INDICADOR ATUAL
-  // =====================================================
-
-  const realIndex =
-    (currentIndex - visibleCount) %
-    secondaryNews.length;
-
-  const normalizedIndex =
-    realIndex < 0
-      ? realIndex + secondaryNews.length
-      : realIndex;
-
-  /*
-   * Como mostramos 2 notícias por vez,
-   * o indicador avança uma notícia por vez.
-   */
-
   return (
-    <aside className="mx-auto w-full max-w-[400px]">
+    <aside className="w-full md:mx-0 md:max-w-[450px]">
 
-      {/* =====================================================
+      {/* ============================================
           TÍTULO
-      ====================================================== */}
+      ============================================= */}
+      <div className="mb-5 flex items-center gap-3 px-4 md:px-0">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-orange-500" />
+        </span>
 
-      <div
-        className="
-          mb-5
-          flex
-          items-center
-          gap-3
-          border-l-4
-          border-[#2d7911]
-          pl-3
-        "
-      >
-        <h2 className="text-xl font-bold text-primary">
-          Em lançamento
-        </h2>
-
-        <span
-          className="
-            h-2
-            w-2
-            rounded-full
-            bg-[#2d7911]
-          "
-        />
+        <h3 className="text-xl font-bold tracking-tight text-primary md:text-2xl">
+          Edição Impressa
+        </h3>
       </div>
 
-      {/* =====================================================
-          NOTÍCIA PRINCIPAL
-      ====================================================== */}
+      {/* ============================================
+          MANCHETE PRINCIPAL
+      ============================================= */}
 
-      <article className="w-full">
+      {/* MOBILE */}
+      <article className="group w-full cursor-pointer md:hidden">
 
-        {/* IMAGEM CENTRALIZADA */}
+        {/* BLOCO COLORIDO */}
+        <div className="w-full bg-[#2d7911] px-4 py-5 dark:bg-[#1f5c0d]">
 
-        <div className="flex w-full justify-center">
-          <div
-            className="
-              relative
-              h-[340px]
-              w-[245px]
-              shrink-0
-              overflow-hidden
-              rounded-md
-              bg-gray-200
-              dark:bg-zinc-800
-            "
-          >
-            <Image
-              src={mainNews.image}
-              alt={mainNews.title}
-              fill
-              priority
-              sizes="245px"
-              className="
-                object-cover
-                transition-transform
-                duration-500
-                hover:scale-105
-              "
-            />
-          </div>
-        </div>
-
-        {/* INFORMAÇÕES */}
-
-        <div className="mt-4">
-
-          {/* CATEGORIA */}
-
-          <span
-            className="
-              text-[10px]
-              font-bold
-              uppercase
-              tracking-widest
-              text-[#2d7911]
-              dark:text-[#5dbb3a]
-            "
-          >
-            {mainNews.category}
+          {/* Categoria */}
+          <span className="mb-2 block text-[10px] font-bold uppercase tracking-[0.15em] text-white/80">
+            {featuredNews.category}
           </span>
 
-          {/* TÍTULO */}
+          {/* Manchete */}
+          <h2 className="mb-5 text-2xl font-extrabold uppercase leading-tight text-white">
+            {featuredNews.title}
+          </h2>
 
-          <h1
-            className="
-              mt-1
-              text-xl
-              font-bold
-              leading-snug
-              text-primary
-              sm:text-[22px]
-            "
-          >
-            {mainNews.title}
-          </h1>
-
-          {/* TEMPO */}
-
-          <div
-            className="
-              mt-2
-              flex
-              items-center
-              gap-1.5
-              text-[10px]
-              text-secondary
-            "
-          >
-            <Clock size={11} />
-
-            <span>
-              {mainNews.time}
-            </span>
+          {/* IMAGEM COMPLETA */}
+          <div className="relative w-full overflow-hidden rounded-md bg-black/10">
+            <Image
+              src={featuredNews.image}
+              alt={featuredNews.title}
+              width={245}
+              height={340}
+              priority
+              sizes="100vw"
+              className="h-auto w-full object-contain"
+            />
           </div>
+
+          {/* Tempo */}
+          <p className="mt-3 text-xs font-medium text-white/80">
+            {featuredNews.time}
+          </p>
         </div>
       </article>
 
-      {/* =====================================================
-          LINHA
-      ====================================================== */}
+      {/* DESKTOP */}
+      <article className="group hidden cursor-pointer md:block">
 
-      <div className="my-5 border-t border-theme" />
+        <div className="relative mx-auto mt-3 h-[340px] w-[245px] overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-800">
+          <Image
+            src={featuredNews.image}
+            alt={featuredNews.title}
+            fill
+            priority
+            sizes="245px"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
 
-      {/* =====================================================
-          CARROSSEL
-      ====================================================== */}
+        <span className="mx-auto mt-4 block max-w-[280px] text-center text-[10px] font-bold uppercase tracking-widest text-[#2d7911] dark:text-[#5dbb3a]">
+          {featuredNews.category}
+        </span>
 
-      <div className="w-full overflow-hidden">
+        <h3 className="mx-auto mt-1 max-w-[280px] text-center text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
+          {featuredNews.title}
+        </h3>
 
+        <p className="mt-2 text-center text-xs text-secondary">
+          {featuredNews.time}
+        </p>
+      </article>
+
+      {/* ============================================
+          SEPARADOR
+      ============================================= */}
+      <div className="my-6 border-t border-theme md:mx-0" />
+
+      {/* ============================================
+          LISTA DE NOTÍCIAS
+      ============================================= */}
+
+      <section className="w-full">
+
+        {/* TÍTULO DA LISTA */}
+        <div className="mb-4 px-4 md:px-0">
+          <h3 className="text-lg font-bold text-primary">
+            Últimas notícias
+          </h3>
+        </div>
+
+        {/* LISTA */}
         <div
-          onTransitionEnd={handleTransitionEnd}
-          className={`
-            flex
-            gap-3
-            ${
-              isTransitioning
-                ? "transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                : ""
-            }
-          `}
-          style={{
-            transform: `
-              translateX(
-                calc(
-                  -${currentIndex} * (${cardWidth} + 12px)
-                )
-              )
-            `,
-          }}
+          className="
+            w-full
+            md:h-[220px]
+            md:overflow-y-auto
+            md:pr-2
+          "
         >
-
-          {carouselNews.map((news, index) => (
+          {secondaryNews.map((news) => (
             <article
-              key={`${news.id}-${index}`}
-              style={{
-                minWidth: cardWidth,
-                width: cardWidth,
-              }}
+              key={news.id}
               className="
                 group
-                shrink-0
+                flex
+                min-h-[105px]
+                w-full
                 cursor-pointer
+                items-center
+                gap-3
+                border-b
+                border-theme
+                px-4
+                py-4
+                first:pt-0
+                md:px-0
               "
             >
+              {/* CONTEÚDO */}
+              <div className="min-w-0 flex-1">
 
-              {/* =================================================
-                  IMAGEM
-              ================================================== */}
+                <span className="block text-[9px] font-bold uppercase tracking-widest text-[#2d7911] dark:text-[#5dbb3a]">
+                  {news.category}
+                </span>
 
-              <div
-                className="
-                  relative
-                  h-[85px]
-                  w-full
-                  overflow-hidden
-                  rounded-sm
-                  bg-gray-200
-                  dark:bg-zinc-800
-                "
-              >
+                <h3 className="mt-1 line-clamp-3 text-[13px] font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
+                  {news.title}
+                </h3>
+              </div>
+
+              {/* IMAGEM */}
+              <div className="relative h-[78px] w-[105px] shrink-0 overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-800">
                 <Image
                   src={news.image}
                   alt={news.title}
                   fill
-                  sizes="180px"
-                  className="
-                    object-cover
-                    transition-transform
-                    duration-500
-                    ease-out
-                    group-hover:scale-105
-                  "
+                  sizes="105px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
-
-              {/* =================================================
-                  CATEGORIA
-              ================================================== */}
-
-              <span
-                className="
-                  mt-1.5
-                  block
-                  text-[8px]
-                  font-bold
-                  uppercase
-                  tracking-wider
-                  text-[#2d7911]
-                  dark:text-[#5dbb3a]
-                "
-              >
-                {news.category}
-              </span>
-
-              {/* =================================================
-                  TÍTULO
-              ================================================== */}
-
-              <h3
-                className="
-                  mt-1
-                  line-clamp-3
-                  text-[11px]
-                  font-bold
-                  leading-snug
-                  text-primary
-                  transition-colors
-                  duration-200
-                  group-hover:text-[#2d7911]
-                  dark:group-hover:text-[#5dbb3a]
-                "
-              >
-                {news.title}
-              </h3>
-
-              {/* =================================================
-                  TEMPO
-              ================================================== */}
-
-              <div
-                className="
-                  mt-1.5
-                  text-[8px]
-                  uppercase
-                  tracking-wide
-                  text-secondary
-                "
-              >
-                {news.time}
               </div>
             </article>
           ))}
-
         </div>
-      </div>
-
-      {/* =====================================================
-          CONTROLES
-      ====================================================== */}
-
-      <div className="mt-4 flex items-center justify-between">
-
-        {/* INDICADORES */}
-
-        <div className="flex items-center gap-1.5">
-
-          {secondaryNews.map((news, index) => (
-            <button
-              key={news.id}
-              type="button"
-              onClick={() => {
-                setIsTransitioning(true);
-                setCurrentIndex(
-                  visibleCount + index
-                );
-              }}
-              aria-label={`Ir para notícia ${index + 1}`}
-              className={`
-                h-1.5
-                rounded-full
-                transition-all
-                duration-500
-                ${
-                  normalizedIndex === index
-                    ? "w-6 bg-[#2d7911]"
-                    : "w-1.5 bg-zinc-400 dark:bg-zinc-700"
-                }
-              `}
-            />
-          ))}
-
-        </div>
-
-        {/* SETAS */}
-
-        <div className="flex items-center gap-2">
-
-          {/* ANTERIOR */}
-
-          <button
-            type="button"
-            onClick={previousSlide}
-            aria-label="Notícias anteriores"
-            className="
-              flex
-              h-8
-              w-8
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-theme
-              bg-transparent
-              text-secondary
-              transition-all
-              duration-300
-              hover:border-[#2d7911]
-              hover:bg-[#2d7911]
-              hover:text-white
-            "
-          >
-            <ChevronLeft size={15} />
-          </button>
-
-          {/* PRÓXIMA */}
-
-          <button
-            type="button"
-            onClick={nextSlide}
-            aria-label="Próximas notícias"
-            className="
-              flex
-              h-8
-              w-8
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-theme
-              bg-transparent
-              text-secondary
-              transition-all
-              duration-300
-              hover:border-[#2d7911]
-              hover:bg-[#2d7911]
-              hover:text-white
-            "
-          >
-            <ChevronRight size={15} />
-          </button>
-
-        </div>
-      </div>
+      </section>
     </aside>
   );
 }
