@@ -1,15 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Clock } from "lucide-react";
-import { useState } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
 const latestNews = [
   {
     id: 1,
     category: "Mundo",
     title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
-    image: "/CAPA.png",
+    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
     time: "10 minutos de leitura",
   },
   {
@@ -50,50 +54,179 @@ const latestNews = [
 ];
 
 export function LatestNews() {
-  // Notícia principal
+  // =====================================================
+  // NOTÍCIA PRINCIPAL
+  // =====================================================
+
   const mainNews = latestNews[0];
 
-  // Notícias secundárias
+  // =====================================================
+  // NOTÍCIAS SECUNDÁRIAS
+  // =====================================================
+
   const secondaryNews = latestNews.slice(1);
 
-  // Cada slide mostra 2 notícias
-  const [slide, setSlide] = useState(0);
+  /*
+   * Mostramos 2 notícias ao mesmo tempo.
+   *
+   * Criamos clones:
+   *
+   * [últimas 2]
+   * [todas as notícias]
+   * [primeiras 2]
+   *
+   * Isso permite que o carrossel seja infinito.
+   */
 
-  const totalSlides = Math.ceil(secondaryNews.length / 2);
+  const visibleCount = 2;
 
-  // Próximo slide
+  const firstClones = secondaryNews.slice(0, visibleCount);
+  const lastClones = secondaryNews.slice(-visibleCount);
+
+  const carouselNews = [
+    ...lastClones,
+    ...secondaryNews,
+    ...firstClones,
+  ];
+
+  /*
+   * Começamos depois dos clones iniciais.
+   */
+  const [currentIndex, setCurrentIndex] =
+    useState(visibleCount);
+
+  /*
+   * Controla se a transição está ativa.
+   */
+  const [isTransitioning, setIsTransitioning] =
+    useState(true);
+
+  // =====================================================
+  // TAMANHO DE CADA CARD
+  // =====================================================
+
+  /*
+   * Cada card ocupa metade da área.
+   *
+   * O gap fica separado através do cálculo.
+   */
+
+  const cardWidth = "calc(50% - 6px)";
+
+  // =====================================================
+  // PRÓXIMO
+  // =====================================================
+
   const nextSlide = () => {
-    setSlide((current) => {
-      if (current >= totalSlides - 1) {
-        return 0;
-      }
+    if (!isTransitioning) return;
 
-      return current + 1;
-    });
+    setCurrentIndex((current) => current + 1);
   };
 
-  // Slide anterior
+  // =====================================================
+  // ANTERIOR
+  // =====================================================
+
   const previousSlide = () => {
-    setSlide((current) => {
-      if (current <= 0) {
-        return totalSlides - 1;
-      }
+    if (!isTransitioning) return;
 
-      return current - 1;
-    });
+    setCurrentIndex((current) => current - 1);
   };
+
+  // =====================================================
+  // TRANSITION END
+  // =====================================================
+
+  const handleTransitionEnd = () => {
+    /*
+     * Chegamos aos primeiros clones.
+     *
+     * Exemplo:
+     *
+     * 1 2 3 4 5 1 2
+     *           ↑
+     *         clone
+     *
+     * Voltamos silenciosamente para o início real.
+     */
+
+    if (
+      currentIndex >=
+      secondaryNews.length + visibleCount
+    ) {
+      setIsTransitioning(false);
+
+      setCurrentIndex(visibleCount);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsTransitioning(true);
+        });
+      });
+    }
+
+    /*
+     * Chegamos aos clones do final.
+     *
+     * Exemplo:
+     *
+     * 5 1 2 3 4 5 1 2
+     * ↑
+     * clone
+     */
+
+    if (currentIndex <= 0) {
+      setIsTransitioning(false);
+
+      setCurrentIndex(
+        secondaryNews.length
+      );
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsTransitioning(true);
+        });
+      });
+    }
+  };
+
+  // =====================================================
+  // AUTO PLAY
+  // =====================================================
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((current) => current + 1);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // =====================================================
+  // INDICADOR ATUAL
+  // =====================================================
+
+  const realIndex =
+    (currentIndex - visibleCount) %
+    secondaryNews.length;
+
+  const normalizedIndex =
+    realIndex < 0
+      ? realIndex + secondaryNews.length
+      : realIndex;
+
+  /*
+   * Como mostramos 2 notícias por vez,
+   * o indicador avança uma notícia por vez.
+   */
 
   return (
-    <aside
-      className="
-        mx-auto
-        w-full
-        max-w-[400px]
-      "
-    >
+    <aside className="mx-auto w-full max-w-[400px]">
+
       {/* =====================================================
           TÍTULO
       ====================================================== */}
+
       <div
         className="
           mb-5
@@ -109,14 +242,24 @@ export function LatestNews() {
           Em lançamento
         </h2>
 
-        <span className="h-2 w-2 rounded-full bg-[#2d7911]" />
+        <span
+          className="
+            h-2
+            w-2
+            rounded-full
+            bg-[#2d7911]
+          "
+        />
       </div>
 
       {/* =====================================================
           NOTÍCIA PRINCIPAL
       ====================================================== */}
+
       <article className="w-full">
+
         {/* IMAGEM CENTRALIZADA */}
+
         <div className="flex w-full justify-center">
           <div
             className="
@@ -146,11 +289,12 @@ export function LatestNews() {
           </div>
         </div>
 
-        {/* =================================================
-            INFORMAÇÕES DA NOTÍCIA
-        ================================================== */}
+        {/* INFORMAÇÕES */}
+
         <div className="mt-4">
+
           {/* CATEGORIA */}
+
           <span
             className="
               text-[10px]
@@ -165,6 +309,7 @@ export function LatestNews() {
           </span>
 
           {/* TÍTULO */}
+
           <h1
             className="
               mt-1
@@ -179,6 +324,7 @@ export function LatestNews() {
           </h1>
 
           {/* TEMPO */}
+
           <div
             className="
               mt-2
@@ -191,179 +337,195 @@ export function LatestNews() {
           >
             <Clock size={11} />
 
-            <span>{mainNews.time}</span>
+            <span>
+              {mainNews.time}
+            </span>
           </div>
         </div>
       </article>
 
       {/* =====================================================
-          LINHA DE SEPARAÇÃO
+          LINHA
       ====================================================== */}
+
       <div className="my-5 border-t border-theme" />
 
       {/* =====================================================
           CARROSSEL
       ====================================================== */}
+
       <div className="w-full overflow-hidden">
+
         <div
-          className="
+          onTransitionEnd={handleTransitionEnd}
+          className={`
             flex
-            transition-transform
-            duration-700
-            ease-[cubic-bezier(0.22,1,0.36,1)]
-          "
+            gap-3
+            ${
+              isTransitioning
+                ? "transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                : ""
+            }
+          `}
           style={{
-            transform: `translateX(-${slide * 100}%)`,
+            transform: `
+              translateX(
+                calc(
+                  -${currentIndex} * (${cardWidth} + 12px)
+                )
+              )
+            `,
           }}
         >
-          {/* =================================================
-              SLIDES
-          ================================================== */}
-          {Array.from({ length: totalSlides }).map(
-            (_, pageIndex) => {
-              const startIndex = pageIndex * 2;
 
-              const pageNews = secondaryNews.slice(
-                startIndex,
-                startIndex + 2
-              );
+          {carouselNews.map((news, index) => (
+            <article
+              key={`${news.id}-${index}`}
+              style={{
+                minWidth: cardWidth,
+                width: cardWidth,
+              }}
+              className="
+                group
+                shrink-0
+                cursor-pointer
+              "
+            >
 
-              return (
-                <div
-                  key={pageIndex}
+              {/* =================================================
+                  IMAGEM
+              ================================================== */}
+
+              <div
+                className="
+                  relative
+                  h-[85px]
+                  w-full
+                  overflow-hidden
+                  rounded-sm
+                  bg-gray-200
+                  dark:bg-zinc-800
+                "
+              >
+                <Image
+                  src={news.image}
+                  alt={news.title}
+                  fill
+                  sizes="180px"
                   className="
-                    grid
-                    min-w-full
-                    grid-cols-2
-                    gap-3
+                    object-cover
+                    transition-transform
+                    duration-500
+                    ease-out
+                    group-hover:scale-105
                   "
-                >
-                  {pageNews.map((news) => (
-                    <article
-                      key={news.id}
-                      className="
-                        group
-                        min-w-0
-                        cursor-pointer
-                      "
-                    >
-                      {/* IMAGEM PEQUENA */}
-                      <div
-                        className="
-                          relative
-                          h-[85px]
-                          w-full
-                          overflow-hidden
-                          rounded-sm
-                          bg-gray-200
-                          dark:bg-zinc-800
-                        "
-                      >
-                        <Image
-                          src={news.image}
-                          alt={news.title}
-                          fill
-                          sizes="180px"
-                          className="
-                            object-cover
-                            transition-transform
-                            duration-500
-                            ease-out
-                            group-hover:scale-105
-                          "
-                        />
-                      </div>
+                />
+              </div>
 
-                      {/* CATEGORIA */}
-                      <span
-                        className="
-                          mt-1.5
-                          block
-                          text-[8px]
-                          font-bold
-                          uppercase
-                          tracking-wider
-                          text-[#2d7911]
-                          dark:text-[#5dbb3a]
-                        "
-                      >
-                        {news.category}
-                      </span>
+              {/* =================================================
+                  CATEGORIA
+              ================================================== */}
 
-                      {/* TÍTULO */}
-                      <h3
-                        className="
-                          mt-1
-                          line-clamp-3
-                          text-[11px]
-                          font-bold
-                          leading-snug
-                          text-primary
-                          transition-colors
-                          duration-200
-                          group-hover:text-[#2d7911]
-                          dark:group-hover:text-[#5dbb3a]
-                        "
-                      >
-                        {news.title}
-                      </h3>
+              <span
+                className="
+                  mt-1.5
+                  block
+                  text-[8px]
+                  font-bold
+                  uppercase
+                  tracking-wider
+                  text-[#2d7911]
+                  dark:text-[#5dbb3a]
+                "
+              >
+                {news.category}
+              </span>
 
-                      {/* TEMPO */}
-                      <div
-                        className="
-                          mt-1.5
-                          text-[8px]
-                          uppercase
-                          tracking-wide
-                          text-secondary
-                        "
-                      >
-                        {news.time}
-                      </div>
-                    </article>
-                  ))}
+              {/* =================================================
+                  TÍTULO
+              ================================================== */}
 
-                  {/* Mantém o espaço no último slide */}
-                  {pageNews.length === 1 && <div />}
-                </div>
-              );
-            }
-          )}
+              <h3
+                className="
+                  mt-1
+                  line-clamp-3
+                  text-[11px]
+                  font-bold
+                  leading-snug
+                  text-primary
+                  transition-colors
+                  duration-200
+                  group-hover:text-[#2d7911]
+                  dark:group-hover:text-[#5dbb3a]
+                "
+              >
+                {news.title}
+              </h3>
+
+              {/* =================================================
+                  TEMPO
+              ================================================== */}
+
+              <div
+                className="
+                  mt-1.5
+                  text-[8px]
+                  uppercase
+                  tracking-wide
+                  text-secondary
+                "
+              >
+                {news.time}
+              </div>
+            </article>
+          ))}
+
         </div>
       </div>
 
       {/* =====================================================
           CONTROLES
       ====================================================== */}
+
       <div className="mt-4 flex items-center justify-between">
+
         {/* INDICADORES */}
+
         <div className="flex items-center gap-1.5">
-          {Array.from({ length: totalSlides }).map(
-            (_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => setSlide(index)}
-                aria-label={`Ir para slide ${index + 1}`}
-                className={`
-                  h-1.5
-                  rounded-full
-                  transition-all
-                  duration-500
-                  ${
-                    slide === index
-                      ? "w-6 bg-[#2d7911]"
-                      : "w-1.5 bg-zinc-400 dark:bg-zinc-700"
-                  }
-                `}
-              />
-            )
-          )}
+
+          {secondaryNews.map((news, index) => (
+            <button
+              key={news.id}
+              type="button"
+              onClick={() => {
+                setIsTransitioning(true);
+                setCurrentIndex(
+                  visibleCount + index
+                );
+              }}
+              aria-label={`Ir para notícia ${index + 1}`}
+              className={`
+                h-1.5
+                rounded-full
+                transition-all
+                duration-500
+                ${
+                  normalizedIndex === index
+                    ? "w-6 bg-[#2d7911]"
+                    : "w-1.5 bg-zinc-400 dark:bg-zinc-700"
+                }
+              `}
+            />
+          ))}
+
         </div>
 
         {/* SETAS */}
+
         <div className="flex items-center gap-2">
-          {/* ESQUERDA */}
+
+          {/* ANTERIOR */}
+
           <button
             type="button"
             onClick={previousSlide}
@@ -389,7 +551,8 @@ export function LatestNews() {
             <ChevronLeft size={15} />
           </button>
 
-          {/* DIREITA */}
+          {/* PRÓXIMA */}
+
           <button
             type="button"
             onClick={nextSlide}
@@ -414,6 +577,7 @@ export function LatestNews() {
           >
             <ChevronRight size={15} />
           </button>
+
         </div>
       </div>
     </aside>
