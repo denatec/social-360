@@ -37,8 +37,8 @@ export function Advertisement({
     <section
       className={
         contained
-          ? "my-8 w-full min-w-0"
-          : "mx-auto my-8 w-full max-w-7xl px-6"
+          ? "w-full min-w-0"
+          : "mx-auto my-8 w-full max-w-[1450px] px-4 sm:px-6 lg:px-8"
       }
     >
       <div
@@ -94,7 +94,7 @@ export function Advertisement({
                   src={ad.image}
                   alt={ad.alt}
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 1450px) 100vw, 1450px"
                   className="object-cover"
                 />
               </div>
@@ -105,4 +105,3 @@ export function Advertisement({
     </section>
   );
 }
-

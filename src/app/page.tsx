@@ -17,7 +17,7 @@ export default function Home() {
         {/* ============================================
             PRIMEIRA PUBLICIDADE
         ============================================= */}
-        <div className="mx-auto w-full max-w-[1450px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1550px] px-4 sm:px-6 lg:px-8">
           <div className="w-full">
             <Advertisement />
           </div>
@@ -31,7 +31,7 @@ export default function Home() {
         {/* ============================================
             SEGUNDA PUBLICIDADE
         ============================================= */}
-        <div className="mx-auto w-full max-w-[1450px] px-4 pt-10 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1550px] px-4 pt-10 sm:px-6 lg:px-8">
           <div className="w-full">
             <Advertisement />
           </div>

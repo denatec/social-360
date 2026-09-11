@@ -72,15 +72,17 @@ export function HeroNews() {
 
   return (
     <section className="w-full border-b border-theme bg-background">
+      {/* CONTAINER PRINCIPAL */}
       <div
         className="
           mx-auto
           w-full
-          max-w-[1450px]
-          px-2
+          max-w-[1550px]
+          translate-x-[50px]
+          px-4
           py-4
-          md:px-4
-          lg:px-6
+          sm:px-6
+          lg:px-8
         "
       >
         {/* HERO + LATEST NEWS */}
