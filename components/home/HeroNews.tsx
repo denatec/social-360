@@ -3,7 +3,12 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Bookmark,
+  ChevronLeft,
+  ChevronRight,
+  TrendingUp,
+} from "lucide-react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
@@ -22,7 +27,6 @@ const slides = [
       "Um ótimo design se integra perfeitamente com a experiência do usuário, tornando a interação suave e intuitiva. Não se trata apenas de estética; trata-se de funcionalidade e usabilidade, garantir que os usuários possam alcançar seus objetivos...",
     image: "/colabora1.jpeg",
   },
-
   {
     category: "Economia",
     title: "Economia apresenta novos desafios para os próximos anos",
@@ -30,7 +34,6 @@ const slides = [
       "Especialistas analisam as mudanças e os desafios que podem marcar os próximos meses.",
     image: "/colabora2.jpeg",
   },
-
   {
     category: "Mundo",
     title: "Novos acontecimentos movimentam a agenda internacional",
@@ -40,29 +43,60 @@ const slides = [
   },
 ];
 
+const secondaryNews = [
+  {
+    title: "Equilibrando Crescimento Econômico e Proteção Ambiental",
+    category: "Mundo",
+    live: true,
+  },
+  {
+    title: "O Papel das Políticas Governamentais na Proteção Ambiental",
+    category: "Meio Ambiente",
+    live: false,
+  },
+  {
+    title: "Proteção de Espécies em Perigo e Seus Habitats",
+    category: "Meio Ambiente",
+    live: false,
+  },
+  {
+    title: "Soluções Inovadoras para Reduzir o Lixo Plástico",
+    category: "Meio Ambiente",
+    live: false,
+  },
+];
+
 export function HeroNews() {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="w-full border-b border-theme bg-background">
-      <div className="w-full px-4 py-3 md:px-6 lg:px-8">
-
-        {/* ================= HERO + ÚLTIMAS NOTÍCIAS ================= */}
+      {/* =====================================================
+          CONTAINER PRINCIPAL
+          MÁXIMO DE 1800PX
+      ====================================================== */}
+      <div className="mx-auto w-full max-w-[1800px] px-4 py-3 md:px-6 lg:px-8">
+        {/* ===================================================
+            COLUNA PRINCIPAL + LATEST NEWS
+        ==================================================== */}
         <div
           className="
             grid
             w-full
             grid-cols-1
             gap-6
-            xl:grid-cols-[minmax(0,1fr)_450px]
+            lg:grid-cols-[minmax(0,1fr)_450px]
           "
         >
-
-          {/* ================= LADO ESQUERDO ================= */}
+          {/* =================================================
+              COLUNA PRINCIPAL
+              OCUPA TODO O ESPAÇO RESTANTE
+          ================================================== */}
           <div className="min-w-0">
-
-            {/* ================= SLIDER ================= */}
+            {/* ===============================================
+                NOTÍCIA PRINCIPAL
+            ================================================ */}
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -83,8 +117,9 @@ export function HeroNews() {
             >
               {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
-
-                  {/* ================= NOTÍCIA PRINCIPAL ================= */}
+                  {/* =========================================
+                      TEXTO + IMAGEM
+                  ========================================== */}
                   <div
                     className="
                       grid
@@ -95,8 +130,9 @@ export function HeroNews() {
                       lg:gap-6
                     "
                   >
-
-                    {/* ================= TEXTO ================= */}
+                    {/* =======================================
+                        TEXTO
+                    ======================================== */}
                     <article
                       className="
                         order-2
@@ -110,17 +146,24 @@ export function HeroNews() {
                         lg:pt-0
                       "
                     >
-
-                      {/* ================= CATEGORIA ================= */}
+                      {/* CATEGORIA */}
                       <div className="flex items-center gap-2">
-                        <span className="h-3 w-3 rounded-full bg-[#c95a0a]" />
+                        <span
+                          className="
+                            h-3
+                            w-3
+                            shrink-0
+                            rounded-full
+                            bg-[#c95a0a]
+                          "
+                        />
 
                         <span className="text-sm font-medium text-primary">
                           {slide.category}
                         </span>
                       </div>
 
-                      {/* ================= TÍTULO ================= */}
+                      {/* TÍTULO */}
                       <h1
                         className="
                           mt-4
@@ -137,7 +180,7 @@ export function HeroNews() {
                         {slide.title}
                       </h1>
 
-                      {/* ================= DESCRIÇÃO ================= */}
+                      {/* DESCRIÇÃO */}
                       <p
                         className="
                           mt-4
@@ -151,9 +194,42 @@ export function HeroNews() {
                         {slide.description}
                       </p>
 
+                      {/* DATA + BOOKMARK */}
+                      <div
+                        className="
+                          mt-auto
+                          flex
+                          items-center
+                          justify-between
+                          pb-2
+                          pt-6
+                        "
+                      >
+                        <span className="text-sm text-secondary">
+                          22 De Julho De 2024
+                        </span>
+
+                        <button
+                          type="button"
+                          aria-label="Guardar notícia"
+                          className="
+                            text-primary
+                            transition-colors
+                            duration-200
+                            hover:text-[#c95a0a]
+                          "
+                        >
+                          <Bookmark
+                            size={17}
+                            strokeWidth={1.5}
+                          />
+                        </button>
+                      </div>
                     </article>
 
-                    {/* ================= IMAGEM ================= */}
+                    {/* =======================================
+                        IMAGEM
+                    ======================================== */}
                     <div
                       className="
                         relative
@@ -172,16 +248,20 @@ export function HeroNews() {
                         fill
                         priority={index === 0}
                         className="object-cover"
+                        sizes="
+                          (max-width: 1023px) 100vw,
+                          calc(100vw - 500px)
+                        "
                       />
                     </div>
-
                   </div>
-
                 </SwiperSlide>
               ))}
             </Swiper>
 
-            {/* ================= NAVEGAÇÃO ================= */}
+            {/* ===============================================
+                NAVEGAÇÃO
+            ================================================ */}
             <div
               className="
                 mt-4
@@ -193,16 +273,12 @@ export function HeroNews() {
                 pt-3
               "
             >
-
-              {/* INDICADOR */}
               <span className="text-sm text-secondary">
                 {String(activeIndex + 1).padStart(2, "0")} /{" "}
                 {String(slides.length).padStart(2, "0")}
               </span>
 
-              {/* BOTÕES */}
               <div className="flex items-center gap-2">
-
                 <button
                   type="button"
                   onClick={() => swiper?.slidePrev()}
@@ -221,7 +297,10 @@ export function HeroNews() {
                     hover:text-background
                   "
                 >
-                  <ChevronLeft size={20} strokeWidth={1.5} />
+                  <ChevronLeft
+                    size={20}
+                    strokeWidth={1.5}
+                  />
                 </button>
 
                 <button
@@ -242,18 +321,133 @@ export function HeroNews() {
                     hover:text-background
                   "
                 >
-                  <ChevronRight size={20} strokeWidth={1.5} />
+                  <ChevronRight
+                    size={20}
+                    strokeWidth={1.5}
+                  />
                 </button>
-
               </div>
+            </div>
+
+            {/* ===============================================
+                CARDS SECUNDÁRIOS
+                FICAM SOMENTE NA COLUNA PRINCIPAL
+            ================================================ */}
+            <div
+              className="
+                mt-6
+                grid
+                w-full
+                grid-cols-1
+                gap-6
+                border-t
+                border-theme
+                pt-6
+                sm:grid-cols-2
+                lg:grid-cols-4
+              "
+            >
+              {secondaryNews.map((news, index) => (
+                <article
+                  key={index}
+                  className="
+                    group
+                    flex
+                    min-w-0
+                    flex-col
+                    border-b
+                    border-theme
+                    pb-5
+                    lg:border-b-0
+                    lg:pb-0
+                  "
+                >
+                  {/* TÍTULO */}
+                  <h2
+                    className="
+                      text-base
+                      font-bold
+                      leading-[1.35]
+                      text-primary
+                      transition-colors
+                      duration-200
+                      group-hover:text-[#c95a0a]
+                    "
+                  >
+                    <span className="mr-1 inline-flex align-middle">
+                      <TrendingUp
+                        size={15}
+                        strokeWidth={2}
+                      />
+                    </span>
+
+                    {news.live && (
+                      <span className="mr-1 text-red-600">
+                        Live:
+                      </span>
+                    )}
+
+                    {news.title}
+                  </h2>
+
+                  {/* CATEGORIA + DATA */}
+                  <div
+                    className="
+                      mt-3
+                      flex
+                      flex-wrap
+                      items-center
+                      gap-x-2
+                      gap-y-1
+                      text-sm
+                    "
+                  >
+                    <span className="font-medium text-primary">
+                      {news.category}
+                    </span>
+
+                    <span className="text-secondary">
+                      ·
+                    </span>
+                  </div>
+
+                  {/* BOOKMARK */}
+                  <div className="mt-3 flex justify-end">
+                    <button
+                      type="button"
+                      aria-label={`Guardar notícia: ${news.title}`}
+                      className="
+                        text-primary
+                        transition-colors
+                        duration-200
+                        hover:text-[#c95a0a]
+                      "
+                    >
+                      <Bookmark
+                        size={16}
+                        strokeWidth={1.5}
+                      />
+                    </button>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
 
-          {/* ================= LADO DIREITO ================= */}
-          <aside className="min-w-0">
+          {/* =================================================
+              LATEST NEWS
+              SEMPRE 450PX NO DESKTOP
+          ================================================== */}
+          <aside
+            className="
+              min-w-0
+              lg:w-[450px]
+              lg:min-w-[450px]
+              lg:max-w-[450px]
+            "
+          >
             <LatestNews />
           </aside>
-
         </div>
       </div>
     </section>
