@@ -137,7 +137,7 @@ export function LatestNews() {
         <div
           className="
             w-full
-            md:h-[220px]
+            md:h-[250px]
             md:overflow-y-auto
             md:pr-2
           "

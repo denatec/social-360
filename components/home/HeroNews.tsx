@@ -72,31 +72,30 @@ export function HeroNews() {
 
   return (
     <section className="w-full border-b border-theme bg-background">
-      {/* =====================================================
-          CONTAINER PRINCIPAL
-          MÁXIMO DE 1800PX
-      ====================================================== */}
-      <div className="mx-auto w-full max-w-[1800px] px-4 py-3 md:px-6 lg:px-8">
-        {/* ===================================================
-            COLUNA PRINCIPAL + LATEST NEWS
-        ==================================================== */}
+      <div
+        className="
+          mx-auto
+          w-full
+          max-w-[2000px]
+          px-2
+          py-4
+          md:px-4
+          lg:px-6
+        "
+      >
+        {/* HERO + LATEST NEWS */}
         <div
           className="
             grid
             w-full
             grid-cols-1
             gap-6
-            lg:grid-cols-[minmax(0,1fr)_450px]
+            lg:grid-cols-[minmax(0,1fr)_400px]
           "
         >
-          {/* =================================================
-              COLUNA PRINCIPAL
-              OCUPA TODO O ESPAÇO RESTANTE
-          ================================================== */}
+          {/* COLUNA PRINCIPAL */}
           <div className="min-w-0">
-            {/* ===============================================
-                NOTÍCIA PRINCIPAL
-            ================================================ */}
+            {/* HERO SLIDER */}
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -117,22 +116,17 @@ export function HeroNews() {
             >
               {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
-                  {/* =========================================
-                      TEXTO + IMAGEM
-                  ========================================== */}
                   <div
                     className="
                       grid
                       w-full
                       grid-cols-1
-                      gap-4
-                      lg:grid-cols-[0.9fr_1.1fr]
-                      lg:gap-6
+                      gap-5
+                      lg:grid-cols-[0.75fr_1.25fr]
+                      lg:gap-7
                     "
                   >
-                    {/* =======================================
-                        TEXTO
-                    ======================================== */}
+                    {/* TEXTO */}
                     <article
                       className="
                         order-2
@@ -163,18 +157,18 @@ export function HeroNews() {
                         </span>
                       </div>
 
-                      {/* TÍTULO */}
+                      {/* TITULO */}
                       <h1
                         className="
-                          mt-4
+                          mt-5
                           text-2xl
                           font-bold
                           leading-[1.15]
                           tracking-tight
                           text-primary
                           sm:text-3xl
-                          lg:text-3xl
-                          xl:text-4xl
+                          lg:text-4xl
+                          xl:text-5xl
                         "
                       >
                         {slide.title}
@@ -183,32 +177,30 @@ export function HeroNews() {
                       {/* DESCRIÇÃO */}
                       <p
                         className="
-                          mt-4
+                          mt-5
                           max-w-2xl
                           text-sm
                           leading-relaxed
                           text-secondary
                           md:text-base
+                          lg:text-lg
                         "
                       >
                         {slide.description}
                       </p>
 
-                      {/* DATA + BOOKMARK */}
+                      {/* BOOKMARK */}
                       <div
                         className="
                           mt-auto
                           flex
-                          items-center
-                          justify-between
+                          justify-end
+                          border-t
+                          border-theme
                           pb-2
-                          pt-6
+                          pt-5
                         "
                       >
-                        <span className="text-sm text-secondary">
-                          22 De Julho De 2024
-                        </span>
-
                         <button
                           type="button"
                           aria-label="Guardar notícia"
@@ -220,24 +212,22 @@ export function HeroNews() {
                           "
                         >
                           <Bookmark
-                            size={17}
+                            size={18}
                             strokeWidth={1.5}
                           />
                         </button>
                       </div>
                     </article>
 
-                    {/* =======================================
-                        IMAGEM
-                    ======================================== */}
+                    {/* IMAGEM PRINCIPAL */}
                     <div
                       className="
                         relative
                         order-1
-                        h-[400px]
+                        h-[360px]
                         w-full
                         overflow-hidden
-                        sm:h-[450px]
+                        sm:h-[420px]
                         lg:order-2
                         lg:h-[500px]
                       "
@@ -247,10 +237,15 @@ export function HeroNews() {
                         alt={slide.title}
                         fill
                         priority={index === 0}
-                        className="object-cover"
+                        className="
+                          object-cover
+                          transition-transform
+                          duration-700
+                          hover:scale-[1.02]
+                        "
                         sizes="
                           (max-width: 1023px) 100vw,
-                          calc(100vw - 500px)
+                          calc(100vw - 430px)
                         "
                       />
                     </div>
@@ -259,12 +254,10 @@ export function HeroNews() {
               ))}
             </Swiper>
 
-            {/* ===============================================
-                NAVEGAÇÃO
-            ================================================ */}
+            {/* CONTROLES */}
             <div
               className="
-                mt-4
+                mt-5
                 flex
                 items-center
                 justify-between
@@ -273,11 +266,13 @@ export function HeroNews() {
                 pt-3
               "
             >
+              {/* INDICADOR */}
               <span className="text-sm text-secondary">
                 {String(activeIndex + 1).padStart(2, "0")} /{" "}
                 {String(slides.length).padStart(2, "0")}
               </span>
 
+              {/* SETAS */}
               <div className="flex items-center gap-2">
                 <button
                   type="button"
@@ -329,20 +324,17 @@ export function HeroNews() {
               </div>
             </div>
 
-            {/* ===============================================
-                CARDS SECUNDÁRIOS
-                FICAM SOMENTE NA COLUNA PRINCIPAL
-            ================================================ */}
+            {/* NOTÍCIAS SECUNDÁRIAS */}
             <div
               className="
-                mt-6
+                mt-8
                 grid
                 w-full
                 grid-cols-1
                 gap-6
                 border-t
                 border-theme
-                pt-6
+                pt-7
                 sm:grid-cols-2
                 lg:grid-cols-4
               "
@@ -359,10 +351,10 @@ export function HeroNews() {
                     border-theme
                     pb-5
                     lg:border-b-0
-                    lg:pb-0
+                    lg:pb-2
                   "
                 >
-                  {/* TÍTULO */}
+                  {/* TITULO */}
                   <h2
                     className="
                       text-base
@@ -390,29 +382,15 @@ export function HeroNews() {
                     {news.title}
                   </h2>
 
-                  {/* CATEGORIA + DATA */}
-                  <div
-                    className="
-                      mt-3
-                      flex
-                      flex-wrap
-                      items-center
-                      gap-x-2
-                      gap-y-1
-                      text-sm
-                    "
-                  >
-                    <span className="font-medium text-primary">
+                  {/* CATEGORIA */}
+                  <div className="mt-3">
+                    <span className="text-sm font-medium text-primary">
                       {news.category}
-                    </span>
-
-                    <span className="text-secondary">
-                      ·
                     </span>
                   </div>
 
                   {/* BOOKMARK */}
-                  <div className="mt-3 flex justify-end">
+                  <div className="mt-4 flex justify-end">
                     <button
                       type="button"
                       aria-label={`Guardar notícia: ${news.title}`}
@@ -434,16 +412,13 @@ export function HeroNews() {
             </div>
           </div>
 
-          {/* =================================================
-              LATEST NEWS
-              SEMPRE 450PX NO DESKTOP
-          ================================================== */}
+          {/* LATEST NEWS — 400PX */}
           <aside
             className="
               min-w-0
-              lg:w-[450px]
-              lg:min-w-[450px]
-              lg:max-w-[450px]
+              lg:w-[400px]
+              lg:min-w-[400px]
+              lg:max-w-[400px]
             "
           >
             <LatestNews />

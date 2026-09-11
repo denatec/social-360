@@ -44,7 +44,7 @@ export function Advertisement({
       <div
         className="
           relative
-          h-[300px]
+          h-[200px]
           w-full
           min-w-0
           max-w-full
