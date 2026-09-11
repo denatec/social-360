@@ -90,7 +90,7 @@ export function LatestNews() {
         </div>
 
         {/* TÍTULO ALINHADO À ESQUERDA */}
-        <h3 className="mt-1 max-w-[280px] text-left text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
+        <h3 className="mt-1 max-w-[300px] text-left text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
           {featuredNews.title}
         </h3>
       </article>
@@ -115,7 +115,7 @@ export function LatestNews() {
         <div
           className="
             w-full
-            md:h-[250px]
+            md:h-[300px]
             md:overflow-y-auto
             md:pr-2
           "
