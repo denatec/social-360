@@ -23,7 +23,7 @@ export default function Home() {
         <HeroNews />
 
         {/* SEGUNDA PUBLICIDADE */}
-        <div className="mx-auto w-full max-w-[1800px] px-4 pt-10 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1450px] px-4 pt-10 sm:px-6 lg:px-8">
           <div className="w-full h-[210px]">
             <Advertisement />
           </div>

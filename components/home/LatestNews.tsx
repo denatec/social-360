@@ -126,7 +126,7 @@ export function LatestNews() {
               className="
                 group
                 flex
-                min-h-[105px]
+                min-h-[100px]
                 w-full
                 cursor-pointer
                 items-center
