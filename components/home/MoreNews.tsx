@@ -84,7 +84,7 @@ export function MoreNews() {
       className="
         mx-auto
         w-full
-        max-w-[1500px]
+        max-w-[1450px]
         px-4
         py-10
         sm:px-6

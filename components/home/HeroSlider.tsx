@@ -36,7 +36,7 @@ const slides = [
 
 export function HeroSlider() {
   return (
-    <section className="mx-auto w-full max-w-[1500px] px-4 py-8 sm:px-6">
+    <section className="mx-auto w-full max-w-[1450px] px-4 py-8 sm:px-6">
       <div className="overflow-hidden rounded-xl border border-theme bg-surface shadow-sm">
         <Swiper
           modules={[Autoplay, EffectFade]}

@@ -49,7 +49,7 @@ const opinions = [
 export function OpinionColumnists() {
   return (
     <section className="border-y border-theme bg-[#f7f7f4] py-10 transition-colors duration-300 dark:bg-[#141414]">
-      <div className="mx-auto max-w-[1500px] px-4 sm:px-6">
+      <div className="mx-auto max-w-[1450px] px-4 sm:px-6">
         
         {/* ================= MOBILE ================= */}
         <div className="md:hidden">

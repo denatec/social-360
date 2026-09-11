@@ -26,7 +26,7 @@ const secondaryNews = [
 
 export function LatestNews() {
   return (
-    <aside className="w-full md:mx-0 md:max-w-[350px]">
+    <aside className="w-full md:mx-0 md:max-w-[300px]">
       {/* ============================================
           TÍTULO
       ============================================= */}

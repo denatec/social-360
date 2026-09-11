@@ -52,7 +52,7 @@ const news = [
 export function NewsSection() {
   return (
     <section className="border-t border-theme bg-background">
-      <div className="mx-auto max-w-[1500px] px-4 py-10 md:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1450px] px-4 py-10 md:px-6 lg:px-8">
 
         {/* TÍTULO */}
         <div className="mb-7 flex items-center justify-between">
