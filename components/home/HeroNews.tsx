@@ -244,7 +244,7 @@ export function HeroNews() {
                           hover:scale-[1.02]
                         "
                         sizes="
-                          (max-width: 1023px) 100vw,
+                          (max-width: 1000px) 100vw,
                           calc(100vw - 430px)
                         "
                       />
