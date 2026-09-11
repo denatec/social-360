@@ -64,7 +64,7 @@ export function LatestNews() {
           <div className="relative w-full overflow-hidden rounded-md bg-black/10">
             <Image
               src={featuredNews.image}
-              alt={featuredNews.title}
+              alt= ""
               width={245}
               height={340}
               priority
@@ -81,7 +81,7 @@ export function LatestNews() {
         <div className="relative mx-0 mt-3 h-[340px] w-[245px] overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-800">
           <Image
             src={featuredNews.image}
-            alt={featuredNews.title}
+            alt= ""
             fill
             priority
             sizes="245px"
@@ -154,7 +154,7 @@ export function LatestNews() {
               <div className="relative h-[78px] w-[105px] shrink-0 overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-800">
                 <Image
                   src={news.image}
-                  alt={news.title}
+                  alt= ""
                   fill
                   sizes="105px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
