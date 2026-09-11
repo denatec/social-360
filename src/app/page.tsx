@@ -14,31 +14,53 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black transition-colors duration-300 dark:bg-black dark:text-white">
       <ThemeProvider>
-
-        {/* PRIMEIRA PUBLICIDADE */}
-        <div className="w-full h-[230px]">
-          <Advertisement />
-        </div>
-
-        <HeroNews />
-
-        {/* SEGUNDA PUBLICIDADE */}
-        <div className="mx-auto w-full max-w-[1450px] px-4 pt-10 sm:px-6 lg:px-8">
-          <div className="w-full h-[210px]">
+        {/* ============================================
+            PRIMEIRA PUBLICIDADE
+        ============================================= */}
+        <div className="mx-auto w-full max-w-[1450px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full">
             <Advertisement />
           </div>
         </div>
 
+        {/* ============================================
+            HERO
+        ============================================= */}
+        <HeroNews />
+
+        {/* ============================================
+            SEGUNDA PUBLICIDADE
+        ============================================= */}
+        <div className="mx-auto w-full max-w-[1450px] px-4 pt-10 sm:px-6 lg:px-8">
+          <div className="w-full">
+            <Advertisement />
+          </div>
+        </div>
+
+        {/* ============================================
+            CONTEÚDO
+        ============================================= */}
         <NewsContent />
 
+        {/* ============================================
+            COLUNISTAS
+        ============================================= */}
         <OpinionColumnists />
 
+        {/* ============================================
+            DESTAQUES
+        ============================================= */}
         <FeaturedNews />
 
+        {/* ============================================
+            SEÇÃO DE NOTÍCIAS
+        ============================================= */}
         <NewsSection />
 
+        {/* ============================================
+            MAIS NOTÍCIAS
+        ============================================= */}
         <MoreNews />
-
       </ThemeProvider>
     </main>
   );
