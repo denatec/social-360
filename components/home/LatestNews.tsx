@@ -6,7 +6,6 @@ const featuredNews = {
   id: 1,
   category: "Mundo",
   title: "UM APERTO NO CORAÇÃO QUE MUDOU O DESTINO",
-  time: "Há 10 minutos",
   image: "/CAPA.png",
 };
 
@@ -23,36 +22,18 @@ const secondaryNews = [
     title: "NOVAS DECISÕES PROMETEM MUDAR O CENÁRIO NACIONAL",
     image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
   },
-  {
-    id: 4,
-    category: "Economia",
-    title: "MERCADOS REAGEM ÀS NOVAS MEDIDAS ANUNCIADAS",
-    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-  },
-  {
-    id: 5,
-    category: "Tecnologia",
-    title: "NOVA TECNOLOGIA PROMETE TRANSFORMAR O FUTURO",
-    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-  },
-  {
-    id: 6,
-    category: "Desporto",
-    title: "EQUIPA PREPARA-SE PARA UM DOS MAIORES DESAFIOS",
-    image: "/WhatsApp Image 2026-09-06 at 10.46.57.jpeg",
-  },
 ];
 
 export function LatestNews() {
   return (
-    <aside className="w-full md:mx-0 md:max-w-[450px]">
-
+    <aside className="w-full md:mx-0 md:max-w-[350px]">
       {/* ============================================
           TÍTULO
       ============================================= */}
       <div className="mb-5 flex items-center gap-3 px-4 md:px-0">
         <span className="relative flex h-2.5 w-2.5">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75" />
+
           <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-orange-500" />
         </span>
 
@@ -67,10 +48,8 @@ export function LatestNews() {
 
       {/* MOBILE */}
       <article className="group w-full cursor-pointer md:hidden">
-
         {/* BLOCO COLORIDO */}
         <div className="w-full bg-[#2d7911] px-4 py-5 dark:bg-[#1f5c0d]">
-
           {/* Categoria */}
           <span className="mb-2 block text-[10px] font-bold uppercase tracking-[0.15em] text-white/80">
             {featuredNews.category}
@@ -98,8 +77,8 @@ export function LatestNews() {
 
       {/* DESKTOP */}
       <article className="group hidden cursor-pointer md:block">
-
-        <div className="relative mx-auto mt-3 h-[340px] w-[245px] overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-800">
+        {/* CAPA ALINHADA À ESQUERDA */}
+        <div className="relative mx-0 mt-3 h-[340px] w-[245px] overflow-hidden rounded-md bg-gray-200 dark:bg-zinc-800">
           <Image
             src={featuredNews.image}
             alt={featuredNews.title}
@@ -110,7 +89,8 @@ export function LatestNews() {
           />
         </div>
 
-        <h3 className="mx-auto mt-1 max-w-[280px] text-center text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
+        {/* TÍTULO ALINHADO À ESQUERDA */}
+        <h3 className="mt-1 max-w-[280px] text-left text-sm font-bold leading-snug text-primary transition-colors duration-200 group-hover:text-[#2d7911] dark:group-hover:text-[#5dbb3a]">
           {featuredNews.title}
         </h3>
       </article>
@@ -123,9 +103,7 @@ export function LatestNews() {
       {/* ============================================
           LISTA DE NOTÍCIAS
       ============================================= */}
-
       <section className="w-full">
-
         {/* TÍTULO DA LISTA */}
         <div className="mb-4 px-4 md:px-0">
           <h3 className="text-lg font-bold text-primary">
@@ -163,7 +141,6 @@ export function LatestNews() {
             >
               {/* CONTEÚDO */}
               <div className="min-w-0 flex-1">
-
                 <span className="block text-[9px] font-bold uppercase tracking-widest text-[#2d7911] dark:text-[#5dbb3a]">
                   {news.category}
                 </span>

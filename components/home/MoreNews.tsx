@@ -84,7 +84,7 @@ export function MoreNews() {
       className="
         mx-auto
         w-full
-        max-w-[1600px]
+        max-w-[1500px]
         px-4
         py-10
         sm:px-6
@@ -258,7 +258,7 @@ export function MoreNews() {
                 {item.image ? (
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt= ""
                     fill
                     sizes="
                       (max-width: 639px) 130px,

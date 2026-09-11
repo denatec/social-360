@@ -60,7 +60,7 @@ const featuredNews = [
 export function FeaturedNews() {
   return (
     <section className="relative overflow-hidden border-y border-theme bg-background py-10 md:py-14">
-      <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1500px] px-4 md:px-6 lg:px-8">
         {/* CABEÇALHO */}
         <div className="mb-8 flex items-end justify-between">
           <div>
@@ -191,7 +191,7 @@ export function FeaturedNews() {
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-300 dark:bg-zinc-800">
                     <Image
                       src={news.image}
-                      alt={news.title}
+                      alt= ""
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />

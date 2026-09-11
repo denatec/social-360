@@ -76,7 +76,7 @@ export function HeroNews() {
         className="
           mx-auto
           w-full
-          max-w-[2000px]
+          max-w-[1500px]
           px-2
           py-4
           md:px-4
