@@ -16,7 +16,6 @@ export function NewsCard({
   category,
   image,
   description = "Breve descrição da notícia para apresentar um resumo do conteúdo.",
-  time = "Há 2 horas",
 }: NewsCardProps) {
   return (
     <article
@@ -118,32 +117,6 @@ export function NewsCard({
           </div>
 
           {/* =====================================
-              TEMPO
-          ====================================== */}
-          <div
-            className="
-              flex
-              items-center
-              gap-1.5
-              text-[11px]
-              text-secondary
-
-              lg:mt-5
-              lg:border-t
-              lg:border-theme
-              lg:pt-3
-            "
-          >
-            <Clock
-              size={12}
-              strokeWidth={1.8}
-              className="lg:h-[13px] lg:w-[13px]"
-            />
-
-            <span>{time}</span>
-          </div>
-
-          {/* =====================================
               DESCRIÇÃO - DESKTOP
           ====================================== */}
           <p
@@ -212,7 +185,7 @@ export function NewsCard({
         >
           <Image
             src={image}
-            alt={title}
+            alt= ""
             fill
             sizes="
               (max-width: 1023px) 130px,

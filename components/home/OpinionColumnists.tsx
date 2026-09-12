@@ -159,7 +159,7 @@ export function OpinionColumnists() {
                 >
                   <Image
                     src={item.image}
-                    alt={item.name}
+                    alt= ""
                     fill
                     className="object-cover"
                   />
