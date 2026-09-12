@@ -78,16 +78,17 @@ export function HeroNews() {
           mx-auto
           w-full
           max-w-[1550px]
-          translate-x-[50px]
           px-4
           py-4
           sm:px-6
           lg:px-8
+          lg:translate-x-[50px]
         "
       >
         {/* HERO + LATEST NEWS */}
         <div
           className="
+            mx-auto
             grid
             w-full
             grid-cols-1
@@ -96,7 +97,7 @@ export function HeroNews() {
           "
         >
           {/* COLUNA PRINCIPAL */}
-          <div className="min-w-0">
+          <div className="min-w-0 w-full">
             {/* HERO SLIDER */}
             <Swiper
               modules={[Autoplay, EffectFade]}
@@ -120,6 +121,7 @@ export function HeroNews() {
                 <SwiperSlide key={index}>
                   <div
                     className="
+                      mx-auto
                       grid
                       w-full
                       grid-cols-1
@@ -133,6 +135,7 @@ export function HeroNews() {
                       className="
                         order-2
                         flex
+                        w-full
                         flex-col
                         justify-start
                         px-2
@@ -213,10 +216,7 @@ export function HeroNews() {
                             hover:text-[#c95a0a]
                           "
                         >
-                          <Bookmark
-                            size={18}
-                            strokeWidth={1.5}
-                          />
+                          <Bookmark size={18} strokeWidth={1.5} />
                         </button>
                       </div>
                     </article>
@@ -226,8 +226,10 @@ export function HeroNews() {
                       className="
                         relative
                         order-1
+                        mx-auto
                         h-[360px]
                         w-full
+                        max-w-full
                         overflow-hidden
                         sm:h-[420px]
                         lg:order-2
@@ -294,10 +296,7 @@ export function HeroNews() {
                     hover:text-background
                   "
                 >
-                  <ChevronLeft
-                    size={20}
-                    strokeWidth={1.5}
-                  />
+                  <ChevronLeft size={20} strokeWidth={1.5} />
                 </button>
 
                 <button
@@ -318,10 +317,7 @@ export function HeroNews() {
                     hover:text-background
                   "
                 >
-                  <ChevronRight
-                    size={20}
-                    strokeWidth={1.5}
-                  />
+                  <ChevronRight size={20} strokeWidth={1.5} />
                 </button>
               </div>
             </div>
@@ -369,16 +365,11 @@ export function HeroNews() {
                     "
                   >
                     <span className="mr-1 inline-flex align-middle">
-                      <TrendingUp
-                        size={15}
-                        strokeWidth={2}
-                      />
+                      <TrendingUp size={15} strokeWidth={2} />
                     </span>
 
                     {news.live && (
-                      <span className="mr-1 text-red-600">
-                        Live:
-                      </span>
+                      <span className="mr-1 text-red-600">Live:</span>
                     )}
 
                     {news.title}
@@ -403,10 +394,7 @@ export function HeroNews() {
                         hover:text-[#c95a0a]
                       "
                     >
-                      <Bookmark
-                        size={16}
-                        strokeWidth={1.5}
-                      />
+                      <Bookmark size={16} strokeWidth={1.5} />
                     </button>
                   </div>
                 </article>
@@ -417,7 +405,10 @@ export function HeroNews() {
           {/* LATEST NEWS — 400PX */}
           <aside
             className="
+              mx-auto
+              w-full
               min-w-0
+              lg:mx-0
               lg:w-[400px]
               lg:min-w-[400px]
               lg:max-w-[400px]
