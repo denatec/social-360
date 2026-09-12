@@ -1,4 +1,4 @@
-### SOCIAL 360
+### Social 360
 
 Portal de notícias desenvolvido com **Next.js**, **React**, **TypeScript** e **Tailwind CSS**, com foco em publicação de notícias, destaques, categorias, publicidade e apresentação responsiva em diferentes dispositivos.
 
@@ -20,9 +20,9 @@ O projeto inclui:
 - Mais notícias
 - Footer institucional
 - Sistema de tema
-- Edição impressa
-- Área de login e cadastro (Em andamento)
-- Estrutura de painel administrativo (Em andamento)
+- Edição Impressa
+- Área de login e cadastro (Em desenvolvimento)
+- Estrutura de painel administrativo (Em desenvolvimento)
 
 ## 2. Tecnologias utilizadas
 
@@ -232,9 +232,15 @@ social360/
 │   ├── page.tsx
 │
 ├── components/
+│   ├── admin/
 │   ├── home/
 │   ├── navbar/
 │   ├── footer/
+│   └── ...
+│
+├── public/
+│   ├── images/
+│   ├── ads/
 │   └── ...
 │
 ├── package.json
@@ -499,6 +505,128 @@ npm run start
 ### Requisito principal
 
 O servidor precisa ter suporte a **Node.js 20.9+ e aplicações Next.js**.
+
+
+## 21. Como baixar o projeto pelo GitHub
+
+O projeto pode ser obtido diretamente do repositório GitHub, desde que o utilizador tenha acesso ao repositório.
+
+### Opção A — Clonar pelo Git
+
+Com o Git instalado, abra o terminal e execute:
+
+```bash
+git clone URL_DO_REPOSITORIO
+```
+
+Exemplo:
+
+```bash
+git clone https://github.com/SEU-USUARIO/social-360.git
+```
+
+Depois entre na pasta:
+
+```bash
+cd social-360
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o projeto:
+
+```bash
+npm run dev
+```
+
+Abra no navegador:
+
+```text
+http://localhost:3000
+```
+
+### Opção B — Baixar pelo navegador
+
+Na página do repositório GitHub:
+
+```text
+Code
+  ↓
+Download ZIP
+```
+
+Depois:
+
+1. Extraia o arquivo ZIP.
+2. Abra a pasta do projeto no terminal.
+3. Execute `npm install`.
+4. Execute `npm run dev`.
+5. Acesse `http://localhost:3000`.
+
+## 22. Como utilizar o projeto depois de baixado
+
+Depois da instalação, o fluxo normal de utilização é:
+
+```text
+Baixar/Clonar o projeto
+        ↓
+Entrar na pasta
+        ↓
+npm install
+        ↓
+npm run dev
+        ↓
+Abrir http://localhost:3000
+```
+
+Para desenvolvimento, utilize:
+
+```bash
+npm run dev
+```
+
+Para preparar uma versão de produção:
+
+```bash
+npm run build
+npm run start
+```
+
+### Atualizar o projeto quando houver novas versões
+
+Se o projeto estiver clonado pelo Git, entre na pasta e execute:
+
+```bash
+git pull
+```
+
+Depois, caso existam novas dependências:
+
+```bash
+npm install
+```
+
+E para voltar ao desenvolvimento:
+
+```bash
+npm run dev
+```
+
+### Importante sobre o repositório
+
+Substitua o exemplo:
+
+```text
+https://github.com/SEU-USUARIO/social-360.git
+```
+
+pelo **link real do repositório GitHub do Social 360** antes de entregar o README ao cliente.
+
+Se o repositório for privado, o utilizador precisará ter autorização de acesso ao repositório para conseguir cloná-lo.
 
 ---
 
