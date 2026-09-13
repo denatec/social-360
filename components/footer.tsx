@@ -51,35 +51,8 @@ export function Footer() {
 
           {/* DESCRIÇÃO */}
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-secondary">
-            Informação de Responsabilidade Social que conectam o País e o Mundo
+           Informação de Responsabilidade Social que conectam o País e o Mundo
           </p>
-
-          {/* EMAIL */}
-          <a
-            href="mailto:geral@revistasocial360.com"
-            className="
-              mt-5
-              flex
-              items-center
-              justify-center
-              gap-2
-              text-sm
-              text-secondary
-              transition-colors
-              duration-200
-              hover:text-primary
-              lg:justify-start
-            "
-          >
-            <Mail
-              size={16}
-              strokeWidth={1.8}
-            />
-
-            <span>
-              geral@revistasocial360.com
-            </span>
-          </a>
         </div>
 
         {/* ===================================================
@@ -186,6 +159,32 @@ export function Footer() {
 
                 <span>
                   +244 940 068 800
+                </span>
+              </a>
+            </li>
+
+            {/* EMAIL */}
+            <li>
+              <a
+                href="mailto:geral@revistasocial360.com"
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  gap-2
+                  transition-colors
+                  duration-200
+                  hover:text-primary
+                  lg:justify-start
+                "
+              >
+                <Mail
+                  size={16}
+                  strokeWidth={1.8}
+                />
+
+                <span>
+                  geral@revistasocial360.com
                 </span>
               </a>
             </li>
@@ -373,7 +372,7 @@ export function Footer() {
 
           {/* DESCRIÇÃO */}
           <p className="mt-3 max-w-lg text-sm leading-relaxed text-secondary">
-            As notícias mais importantes diretamente no seu email.
+            Receba sua edição Escrita. 
           </p>
 
           {/* FORMULÁRIO */}
