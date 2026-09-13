@@ -51,7 +51,7 @@ export function Footer() {
 
           {/* DESCRIÇÃO */}
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-secondary">
-            Informação, notícias e acontecimentos que conectam o mundo.
+            Informação de Responsabilidade Social que conectam o País e o Mundo
           </p>
 
           {/* EMAIL */}
@@ -186,32 +186,6 @@ export function Footer() {
 
                 <span>
                   +244 940 068 800
-                </span>
-              </a>
-            </li>
-
-            {/* EMAIL */}
-            <li>
-              <a
-                href="mailto:geral@revistasocial360.com"
-                className="
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-                  transition-colors
-                  duration-200
-                  hover:text-primary
-                  lg:justify-start
-                "
-              >
-                <Mail
-                  size={16}
-                  strokeWidth={1.8}
-                />
-
-                <span>
-                  geral@revistasocial360.com
                 </span>
               </a>
             </li>
