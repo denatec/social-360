@@ -27,29 +27,57 @@ const secondaryNews = [
 export function LatestNews() {
   return (
     <aside className="w-full lg:mx-0 lg:max-w-[300px]">
-
       {/* =====================================================
           MOBILE + TABLET — EDIÇÃO IMPRESSA
           Até 1023px
       ====================================================== */}
       <section className="w-full bg-white py-6 lg:hidden">
-
         {/* TÍTULO */}
         <div className="flex flex-col items-center">
-          <h2
-            className="
-              text-center
-              text-[28px]
-              font-extrabold
-              uppercase
-              leading-none
-              tracking-tight
-              text-[#e52b2b]
-              sm:text-[30px]
-            "
-          >
-            Edição Impressa
-          </h2>
+          <div className="flex items-center gap-3">
+            {/* INDICADOR */}
+            <span className="relative flex h-2.5 w-2.5">
+              <span
+                className="
+                  absolute
+                  inline-flex
+                  h-full
+                  w-full
+                  animate-ping
+                  rounded-full
+                  bg-orange-500
+                  opacity-75
+                "
+              />
+
+              <span
+                className="
+                  relative
+                  inline-flex
+                  h-2.5
+                  w-2.5
+                  rounded-full
+                  bg-orange-500
+                "
+              />
+            </span>
+
+            {/* TÍTULO */}
+            <h2
+              className="
+                text-center
+                text-[22px]
+                font-extrabold
+                uppercase
+                leading-none
+                tracking-tight
+                text-primary
+                sm:text-[30px]
+              "
+            >
+              Edição Impressa
+            </h2>
+          </div>
 
           {/* BOTÃO */}
           <button
@@ -57,7 +85,7 @@ export function LatestNews() {
             className="
               mt-3
               rounded-full
-              bg-[#e52b2b]
+              bg-primary
               px-5
               py-2
               text-[16px]
@@ -65,7 +93,7 @@ export function LatestNews() {
               text-white
               shadow-sm
               transition
-              hover:bg-[#c92121]
+              hover:opacity-90
             "
           >
             Consultar Minhas Assinaturas
@@ -114,7 +142,6 @@ export function LatestNews() {
           A partir de 1024px
       ====================================================== */}
       <div className="hidden lg:block">
-
         {/* TÍTULO DESKTOP */}
         <div className="mb-5 flex items-center gap-3">
           <span className="relative flex h-2.5 w-2.5">
@@ -158,7 +185,6 @@ export function LatestNews() {
 
         {/* CAPA */}
         <article className="group cursor-pointer">
-
           {/* CAPA CENTRALIZADA */}
           <div
             className="
@@ -219,7 +245,6 @@ export function LatestNews() {
           LISTA DE NOTÍCIAS
       ====================================================== */}
       <section className="w-full">
-
         {/* TÍTULO DA LISTA */}
         <div className="mb-4 px-4 lg:px-0">
           <h3 className="text-lg font-bold text-primary">
@@ -257,7 +282,6 @@ export function LatestNews() {
             >
               {/* CONTEÚDO */}
               <div className="min-w-0 flex-1">
-
                 {/* CATEGORIA */}
                 <span
                   className="
